@@ -1,0 +1,554 @@
+\documentclass[11pt]{article}
+\usepackage[paperwidth=6.65in,paperheight=9.4in,top=0.88in,bottom=0.85in,left=0.82in,right=0.78in,headheight=15pt,headsep=14pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,graphicx,xcolor,booktabs,array,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=teal,citecolor=black,bookmarksnumbered=true]{hyperref}
+\hypersetup{pdftitle={Finite closure in null-cone quantization of gravity},pdfauthor={Justin, Nous Enterprises LLC},pdfsubject={Technical comment on arXiv:2611.34924v1, version 1.5}}
+\definecolor{ink}{HTML}{203746}
+\definecolor{muted}{HTML}{4B6370}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\id}{\mathbf{1}}
+\newcommand{\HH}{\mathcal H_{\mathcal D}}
+\newcommand{\areaop}{\hat s}
+\newcommand{\cD}{C_{\mathcal D}}
+\newcommand{\HS}{\mathcal S_2}
+\newcommand{\Prob}{\operatorname{Pr}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\var}{\operatorname{Var}}
+\DeclareMathOperator{\rank}{rank}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{cor}{Corollary}
+\newcommand{\parttitle}[2]{\clearpage\section{#1}\markboth{#2}{#2}}
+\newcommand{\lead}[1]{\par\smallskip\noindent\textbf{#1}\enspace}
+\setlength{\emergencystretch}{1.8em}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{3pt plus 1pt}
+\setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{2}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily\color{muted}\nouppercase{\leftmark}}
+\fancyfoot[L]{\footnotesize\sffamily\color{muted}Nous Enterprises LLC\quad|\quad Research comment 1.5}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\raggedbottom
+\begin{document}
+\pagenumbering{roman}\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{0.6in}
+\begin{center}
+{\color{ink}\huge\bfseries Finite closure in null-cone\\[3pt] quantization of gravity\par}
+\vspace{0.55cm}
+{\large A technical comment on Chandrasekaran,\\
+\textit{An algebraic quantization of gravity from the null cone}\\[2pt]
+arXiv:2611.34924v1\par}
+\vspace{0.45cm}
+\includegraphics[width=0.31\linewidth]{Nous Black.png}\par
+\vspace{0.55cm}
+{\large Justin\par}
+Nous Enterprises LLC\par
+\vspace{0.35cm}
+27 November 2026 \quad$\cdot$\quad Version 1.5
+\end{center}
+\end{titlepage}\hypersetup{pageanchor=true}
+\thispagestyle{plain}
+\section*{Abstract}
+Chandrasekaran proposes that restricting a gravitational clock to a finite range selects a finite-dimensional causal-diamond Hilbert space. For the proposed preparation $C_b$, the area bound and positive Gaussian filter give $c\id\le C_b^\dagger C_b\le\id$ with $c>0$. We show that a finite bound $N$ on the positive identity-cut partial traces immediately gives $\dim\HH\le N/c$. The manuscript instead compares the signs of two amplitudes with a particular insertion. We verify its finite-cut operator estimates and identify where the comparison requires a limit theorem for that same insertion and preparation. Ordinary open transition amplitudes obey a Cauchy--Schwarz bound which does not supply that theorem. The later finite-closure verification in Appendix E uses the dimension conclusion.
+
+For the entropy calculation we prove that the Gaussian centers in (5.66) have the same limiting rescaled-area distribution as the spectrum, conditional on (5.63). This controls the contribution from an interior band. Leading-power control of the one-loop trace on that band suffices to return its input logarithmic coefficient at fixed mass. We also derive the fixed-area limit of the graviton-pair amplitude, identify what the one-loop backreaction check compares, and distinguish a type-I bicommutant from representation-independent predictions. The physical dimension and the ultraviolet behavior of interacting amplitudes remain open in this review.
+\clearpage
+\thispagestyle{plain}\tableofcontents
+\vfill\noindent\small Equation numbers such as (5.38) refer to the primary manuscript \cite{VC}. Our numbered equations carry the prefix R. The scope is the first arXiv version. The research files, earlier editions and verification history are in the public repository \cite{repo}.\normalsize
+\clearpage\pagenumbering{arabic}
+\renewcommand{\theequation}{R\arabic{equation}}
+
+\section{The question at a gravitational cut}\markboth{The question at a cut}{}
+The physical proposal starts with data on intersecting null cones, quantizes their reduced phase space, and selects states by the reading of a gravitational clock. The proposed payoff is a finite-dimensional space for a bounded causal diamond. Finiteness would make every bounded preparation on that space trace class. Our question runs in the other direction. When closing a preparation is used to establish finiteness, which class of preparations is the closing operation already known to accept?
+
+The distinction is accessible in ordinary quantum mechanics. With an initial and a final wave function, inserting a complete set of intermediate states computes an inner product. If the two exposed ends of the preparation are identified, the same diagrammatic sum can become a trace. A unitary operator on a space of infinite dimension has well-defined matrix elements between all unit vectors. Its identity product has one unit of diagonal weight in each basis direction. The open and closed operations therefore impose very different summability demands on exactly the same operator.
+
+Chandrasekaran's argument is physically more specific than that example. Focusing restricts the geometry. A boost changes a graviton correlation across the corner. The proposed contradiction follows by suppressing this change on one side of a gluing equality and keeping it on the other. A fair assessment must examine both the sign calculation and the use of the equality. Treating the argument as a direct assertion that the identity trace is finite would obscure its strongest possible interpretation.
+
+\subsection{Three questions with different answers}
+First, given the bounds in (5.30c), what does finite positive trace imply? This is a Hilbert-space theorem with an explicit finite-dimensional bound. Second, which convergence result would let the signed cut calculation recover a gravitationally defined uncut amplitude? This is a question about the domain, topology and normalization of the gluing map. Third, what evidence do the regular one-loop saddles provide for such a map? This is a question about approximation and about the range of states covered by the saddle. Confidence in one answer cannot be transferred to the next by a change of notation.
+
+We track seven findings from earlier editions. F1 concerns the JT control; F2 the logarithmic coefficient; F3 the leading area term; F4 the joint cut with an AdS boundary; F5 the pair amplitude; F6 semiclassical backreaction; and F7 the chosen representation. Each is attached to an equation or explicit construction. Some are limits on how broadly a valid result can be used. The word ``finding'' carries no presumption that the underlying calculation fails.
+
+\subsection{What would settle the central issue?}
+One answer would construct the doubled cap as a finite vector, prove that its finite cuts converge to it with the ordinary Hilbert norm, and identify the resulting norm with the uncut amplitude. A different answer would prove convergence just for the signed observable used by the author, in a topology and normalization that preserve the relevant sign. That second approach could work even if it never constructs a general trace-class gluing map. Either answer must refer to the preparation actually used in the contradiction. A normalizable state having the desired local graviton response is insufficient until it has been identified with that preparation.
+
+We read the paper under both interpretations. When we give an abstract model, we specify the gravitational hypothesis it omits. When a claim depends on the large-diamond ensemble, we state it as a conditional large-area statement. No counterexample in this comment satisfies all the proposed four-dimensional gluing laws.
+
+\parttitle{Preparing the diamond}{Preparing the diamond}
+\subsection{From a clock reading to an area interval}
+Let $P_{\mathcal D}$ denote the spectral projection onto readings of the clock from zero to $\ell(\mathcal D)$ in (5.1)--(5.2), and set $\HH=P_{\mathcal D}\mathcal H_\omega$. Write $\areaop=\widehat{\mathcal A}/(4G_N\hbar)$. The assumed compatibility of clock and area permits their spectral restrictions to be used together. Focusing in (5.21) bounds the area on this subspace. For a fixed diamond, denote the resulting dimensionless upper bound by $S=s_*<\infty$. A bounded spectral interval for $\areaop$ imposes no restriction by itself on the multiplicity of an eigenvalue. It need not even imply a discrete spectrum.
+
+The preceding clock construction has content of its own. The expression in (4.26)--(4.27) is initially analyzed at fixed area. Appendix C.2 estimates cutoff forms and discusses dense domains using the Gaussian wave function and its displacements. Footnote 18 identifies a heuristic transfer of a classical tail estimate to a matrix element of noncommuting operators in the argument leading to (5.20). The paper offers evidence for a nonzero projected preparation. We use the stated clock and its spectral bound as hypotheses and do not derive self-adjointness of a new realization. This choice locates the subsequent gluing question even if the upstream construction is granted in full.
+
+\subsection{The area filter gives a uniform lower bound}
+The half-preparation has a unitary evolution and a corner factor. From (5.23) and (5.25),
+\begin{align}
+\cD&=U e^{-\areaop/2}P_{\mathcal D},&
+C_b&=\cD f_b(\areaop)^{1/2},\\
+f_b(s)&=\exp[-(s-s_b)^2/(2\sigma_s^2)],&
+T&=C_b^\dagger C_b=e^{-\areaop}f_b(\areaop)\quad\hbox{on }\HH .
+\end{align}
+The cancellation of $U^\dagger U$ is essential. The diagonal weight retains the area dependence and loses the intervening unitary in this identity. For fixed positive width, $f_b$ is continuous and strictly positive on $[0,S]$. Write $m_b=\min_{0\le s\le S} f_b(s)$. Functional calculus gives
+\begin{equation}\label{eq:floor}
+c\id\le T\le\id,\qquad c=e^{-S}m_b>0 .
+\end{equation}
+This bound has the direction of a lower bound on every diagonal contribution. It prevents suppressing arbitrarily many independent directions by giving them arbitrarily small individual weights at fixed diamond and filter.
+
+The constant can be extremely small. The proof for one fixed preparation requires its positivity only. A uniform positive constant along a sequence of increasing diamonds would be a different assumption. In the entropy calculation the area cutoff grows, the center of the filter ranges over positive values, and its width is chosen to vary with that center. We keep those limits separate from the fixed-diamond rank bound. The bound is also a statement about this particular Gaussian. A weight vanishing on an infinite-dimensional sector would invalidate the inference from finite trace to finite dimension on the full space.
+
+\subsection{A cut preparation as a vector}
+For any finite subset $F$ of a complete orthonormal basis $\{e_i\}$ on the cut, put $P_F=\sum_{i\in F}|e_i\rangle\langle e_i|$. If the other leg of $C_b$ takes values in $K$, the finite doubled vector belongs to $K\otimes\overline{\HH}$. Define
+\begin{equation}\label{eq:norm}
+\Phi_F=\sum_{i\in F} C_be_i\otimes\bar e_i,\qquad
+\|\Phi_F\|^2=\sum_{i\in F}\|C_be_i\|^2=\Tr(P_FT).
+\end{equation}
+The second equality uses orthogonality on the conjugate leg and holds even when the images $C_be_i$ overlap. For nonempty $F$, (D.22) normalizes this vector by dividing it by $\sqrt{\Tr(P_FT)}$. One can therefore calculate a normalized cut expectation for every finite cut long before one knows whether the unnormalized vectors have a limit. The two operations enter different sides of (5.38).
+
+\parttitle{What the trace argument proves}{The trace argument}
+\begin{prop}[Finite identity closure]\label{prop:rank}
+Suppose \eqref{eq:floor} holds on a Hilbert space $H$. Define the extended positive trace as the supremum of diagonal sums over finite orthonormal families. Then $\Tr T<\infty$ if and only if $\dim H<\infty$. If the unnormalized identity cuts converge to a finite squared norm $N$ along all finite unions of cycles of a complete basis, then $\dim H\le N/c$.
+\end{prop}
+\begin{proof}
+Each unit diagonal entry lies in $[c,1]$. A finite orthonormal family of size $r$ therefore has diagonal sum between $cr$ and $r$. If $H$ is infinite, families of every finite size exist, and the supremum is infinite. In dimension $d$ a full basis gives $cd\le\Tr T\le d$. For the last assertion, each finite subset of the chosen basis is contained in a finite union of its finite cycles. Positivity bounds its sum by the sum on that union, and monotonicity bounds the latter by $N$. Thus every finite subset of a complete basis has at most $N/c$ elements. This forces the basis to be finite.
+\end{proof}
+
+No separability is needed. For an uncountable basis the finite unions are ordered by inclusion. An arbitrary finite-dimensional subspace need not lie inside the span of a finite subset of a fixed basis. Exhaustion of that basis already suffices for the rank argument. One need not impose the stronger and generally false containment assertion.
+
+\subsection{Why both hypotheses matter}
+Take $H=\ell^2(\mathbb N)$ and $Te_n=2^{-n}e_n$, $n\ge1$. This operator is strictly positive on nonzero vectors, and its trace is one. There is no positive uniform floor on the unit sphere. Injectivity, pointwise positive diagonal entries, and finite trace can thus coexist with infinite dimension. The positive minimum in (5.30c) supplies exactly the condition that this example lacks.
+
+For the complementary example, take $T=a\id$ on the same space with $0<a\le1$. The lower bound holds and each unit vector has a finite expectation. The trace of a rank-$r$ cut is $ar$. A statement that each individual preparation or each finite cut has a finite norm is weaker than a common bound as cuts grow. The word ``finite'' in the gluing premise has to apply to the limiting operation with its specified normalization.
+
+\subsection{Hilbert--Schmidt membership gives a sufficient topology}
+For basis subsets $F\subset G$, the omitted part of \eqref{eq:norm} satisfies
+\[
+ \|\Phi_G-\Phi_F\|^2=\sum_{i\in G\setminus F}\|C_b e_i\|^2.
+\]
+Thus the doubled vectors form a Cauchy net precisely when $C_b$ is Hilbert--Schmidt. Its limit then has squared norm $\|C_b\|_{\HS}^2=\Tr T$. For a bounded doubled insertion $X$, continuity gives
+\[
+ |\langle\Phi_F,X\Phi_F\rangle-\langle\Phi,X\Phi\rangle|
+ \le \|X\|\,\|\Phi_F-\Phi\|(\|\Phi_F\|+\|\Phi\|).
+\]
+An independent construction must still show that this $\Phi$ describes the gravitational preparation on the uncut geometry. Membership alone yields the mathematical dimension result under \eqref{eq:floor}. Equality to a specified gravitational amplitude has further physical content.
+
+\subsection{Logical redundancy and circular justification}
+The sign argument is redundant for the rank bound under the stronger premise of finite identity closure. An equivalence between two statements gives no information about which was used to prove the other. A separately measured or derived norm bound would be a legitimate premise even though its finiteness, together with \eqref{eq:floor}, implies exactly the desired finiteness conclusion. An axiomatized gluing theory could make the same inference honestly by declaring its class of admissible preparations.
+
+A circular use arises on a particular dependency path. Appendix E verifies finiteness for the causal-diamond application using (5.39c), a consequence of \S5.2. If that verification were then the justification for the gluing premise in \S5.2, the conclusion would be among its own inputs. The primary manuscript presents Appendix E afterwards. Its placement alone neither creates that circle nor supplies an independent proof. The review did not locate an earlier quantitative theorem identifying the signed cut limit or the finite identity closure for this preparation. That is the precise point on which an author response could change the assessment.
+
+\parttitle{The signed boost argument}{The signed boost argument}
+The proof by contradiction compares unnormalized amplitudes. Assume provisionally that $\HH$ is infinite dimensional. Under that assumption the author constructs finite cuts whose normalized response to a one-sided boost is small. The uncut preparation is assigned a strictly larger response. The real insertion used to separate them has the form
+\begin{equation}\label{eq:signed}
+ X=\Delta_\eta O-\tfrac12\delta_\eta\id,\qquad
+ Z_P[X]=\Tr(PT)\langle X\rangle_P\le0<Z[X].
+\end{equation}
+Here $\delta_\eta>0$ is chosen by the source sign as in (5.37). If $Z_P[X]\to Z[X]$ in the ordinary sense, the closed half-line of nonpositive real numbers cannot contain a net converging to this strictly positive value. This last logical step is exact. The proposed contradiction needs the sign in the exact theory and the identification of the two ways of computing the amplitude.
+
+\subsection{A bound on the boost of a finite cut}
+Let $s_0$ be any real number. An overall phase leaves an expectation unchanged. On the conjugate factor the boost can therefore use $\areaop^*-s_0$ as generator, where the star denotes the corresponding conjugate-space operator, distinct from the numerical upper bound $s_*$. Write $V=\id\otimes\exp[i\eta(\areaop^*-s_0)/(2\pi)]$, $\psi_P=\Phi_P/\|\Phi_P\|$, and $\rho_P=PTP/\Tr(PT)$. Computing the marginal on the conjugate factor gives the transpose of $\rho_P$ in the selected basis. Its pairing with the conjugate area operator gives the ordinary trace on $H$. The scalar bound $|e^{ix}-1|\le|x|$ then yields
+\[
+ \|(V-\id)\psi_P\|^2
+ \le \frac{\eta^2}{4\pi^2}\Tr[\rho_P(\areaop-s_0)^2].
+\]
+For unit vectors $\psi,\phi$ and bounded $O$, insert and subtract $\langle\psi,O\phi\rangle$ to bound the change in expectation by $2\|O\|\|\psi-\phi\|$. Combining these two estimates gives (5.32),
+\[
+ |\langle\Delta_\eta O\rangle_P|
+ \le \frac{|\eta|}{\pi}\|O\|\sqrt{\Tr[\rho_P(\areaop-s_0)^2]} .
+\]
+This argument retains the factor of two from the difference of quadratic forms. Both bounds hold for a finite projection that fails to commute with area. The estimate controls the magnitude of a response; the later comparison of signs also requires real expectations.
+
+\subsection{Spectral concentration without commuting projections}
+Partition $[0,S]$ into finitely many Borel intervals of width at most $w$. If $H$ is infinite, at least one interval $I$ has spectral subspace of the same infinite Hilbert dimension as $H$. This follows by taking the finite cardinal sum of the dimensions of the spectral subspaces. For $s_0\in I$ and $Q=\id-\id_I(\areaop)$, functional calculus gives
+\[
+ (\areaop-s_0)^2\le w^2\id+S^2 Q .
+\]
+In forming the trace against $\rho_P$, use $PTP\le P$ and $\Tr(PT)\ge c\rank P$. The relevant positivity is positivity of the trace pairing: $\Tr(QPTP)=\Tr(QPTPQ)\le\Tr(QPQ)$. No inequality in the operator order between the unsymmetrized products $QPTP$ and $QP$ is needed. Consequently
+\begin{equation}\label{eq:spread}
+ \Tr[\rho_P(\areaop-s_0)^2]\le
+ w^2+\frac{S^2\,\Tr(PQ)}{c\,\rank P}.
+\end{equation}
+In a basis adapted to $I$, give each exterior vector $r-1$ interior partners and partition the remaining interior vectors into cycles of length $r$. Infinite-cardinal arithmetic allows reserving sufficiently many interior partners when both parts have the same infinite dimension. If the complement is finite, the construction needs only finitely many mixed cycles. Every union of $k$ complete cycles has rank $kr$ and contains at most $k$ exterior vectors. The last fraction in \eqref{eq:spread} is at most $S^2/(cr)$. One may first choose $w$ small and then $r$ large for a fixed nonzero target response. Positivity of $c$ makes this legitimate even when the required cycle length is impractically large.
+
+\subsection{Open matrix elements and rectangular sums}
+For one cut set $a=U_2^\dagger\phi$ and $b=U_1\psi$. The absolute sum in (4.30) satisfies
+\[
+ \sum_i|\langle a,e_i\rangle\langle e_i,b\rangle|
+ \le \left(\sum_i|\langle a,e_i\rangle|^2\right)^{1/2}
+       \left(\sum_i|\langle e_i,b\rangle|^2\right)^{1/2}
+ \le\|\phi\|\,\|\psi\| .
+\]
+This uses a Hilbert-space resolution of identity, normalizable external states and the bounded norm of the evolved vectors, here from unitarity. For a finite subdivision, telescoping (4.31) bounds the error by the sum of omitted-vector norms. Each subsequent unitary or projection is a contraction, with external states held fixed.
+
+Trying to use the same proof after doubling replaces the fixed external vector by a family with $\|\Phi_P\|^2\ge c\rank P$. The factor that bounded the earlier sum can now grow without limit. An elementary example sets $U_1=U_2=\id$, $\areaop=a\id$, $T=e^{-a}f_b(a)\id$ on $\ell^2$. All open amplitudes obey (4.30) while the closed positive sums diverge linearly. The example tests an inference between two mathematical operations. The full gravitational proof has additional, observable-specific information.
+
+\subsection{What can be concluded for a signed insertion?}
+At finite rank the decomposition
+\[
+ Z_P[X]=Z_P[\Delta_\eta O]-(\delta_\eta/2)\Tr(PT)
+\]
+is an identity. If $H$ is infinite and $T$ has a floor, the second term in magnitude diverges. The first can remain bounded, grow, or permit a cancellation, depending on the insertion and the chosen cut. An earlier edition described the two terms as necessarily divergent. The model in the next section supplies a case with a bounded first term and a diverging subtraction. Ordinary unnormalized trace gluing for arbitrary bounded observables would require more control than just the finiteness of each finite expression.
+
+The author's choice of cycles gives an additional defense against a cancellation objection. For fixed $\delta_\eta>0$, (5.32) and \eqref{eq:spread} permit choosing $w$ smaller and $r$ larger so that $|\langle\Delta_\eta O\rangle_P|\le\delta_\eta/4$ on every nonempty complete-cycle cut, provided the same boost and bounded observable are used. With real expectations this gives the stronger one-sided estimate
+\[
+ Z_P[X]\le -\tfrac14\delta_\eta\,\Tr(PT)
+          \le -\tfrac14\delta_\eta c\,\rank P .
+\]
+On that exhaustion the signed cut amplitudes tend to minus infinity under the infinite-dimension hypothesis. Thus estimating an indeterminate difference term by term is unnecessary. The sharper estimate strengthens the cut half of the contradiction. The essential question persists at the point where that limit is required to reproduce a positive uncut amplitude.
+
+There is a narrower route worth preserving. Suppose a gravitational argument establishes a finite exact expectation for the uncut observable and proves convergence of the normalized cut expectations to it for this particular state and observable. The normalized signs would then contradict one another directly. Strong convergence $P\to\id$ on a leg supplies no estimate for this changing family of states. We did not locate an observable-specific convergence theorem in the inspected passages.
+
+\parttitle{Controls for gluing and the strict sign}{Controls for gluing}
+\subsection{An operator model separating the hypotheses}
+A stronger test retains a normalizable state with an explicit nonzero boost response. On $H=\ell^2(\mathbb N)\oplus\mathbb C f$, choose $\areaop e_n=0$, $\areaop f=f$, $s_b=1/2$, and $\sigma_s=1$. Let $h=e^{-1/8}$, so the filter takes the value $h$ at each spectral point. Put
+\[
+ T=h\id_{\ell^2}\oplus he^{-1}\id_{\mathbb Cf},\quad C=T^{1/2},
+ \quad u=e_1\otimes\bar e_1,\quad v=f\otimes\bar f .
+\]
+On the doubled space use the norm-one self-adjoint observable $O=-|u\rangle\langle v|-|v\rangle\langle u|$ and the unit vector $\chi=(u+v)/\sqrt{2}$. A boost on one leg multiplies $v$ by $e^{i\theta}$ and fixes $u$. A direct two-by-two calculation gives the response $\delta=1-\cos\theta$. Choose $\theta$ so that $\delta>0$. This reference vector has $\langle X\rangle_\chi=\delta/2$ for $X=\Delta O-\delta\id/2$.
+
+Place $f,e_1,e_2,e_3$ in one special cycle and partition all remaining vectors into cycles of length four. A cut containing the special cycle and $k$ ordinary cycles has normalization $h(3+e^{-1}+4k)$. Only the two amplitudes on $u$ and $v$ enter the off-diagonal expectation. Their product is $he^{-1/2}$ before normalization. Therefore
+\[
+ \langle\Delta O\rangle_P
+ =\frac{2e^{-1/2}}{3+e^{-1}+4k}\,\delta<\frac{\delta}{2}.
+\]
+A cut omitting the special cycle has zero response. All nonempty cuts give a strictly negative unnormalized $Z_P[X]$. The unnormalized $Z_P[\Delta O]$ is either zero or the fixed value $2he^{-1/2}\delta$. This verifies directly the correction to the signed-trace argument on the preceding pages.
+
+The reference $\chi$ was specified independently of $C$. The model intentionally omits the identification between its positive reference expectation and a limit of its cuts. It satisfies useful algebraic features of both sign estimates simultaneously. It has no shear evolution, field equations, semiclassical limit, or gravitational gluing law. Its logical use is precise: the lower bound, the cycle construction, and the existence of a positive-response state do not imply that identification.
+
+\subsection{The missing information in a marginal state}
+The two unit vectors $(u+v)/\sqrt2$ and $(u-v)/\sqrt2$ have identical one-leg density matrices. Their expectations of the above $O$ have opposite signs. Recovering a one-sided distribution of areas, or even the entire one-sided density matrix, cannot determine every two-sided response. The density in (5.32) is valuable because it bounds a norm change from above. It is insufficient for prescribing the phase-sensitive response of an independently prepared uncut state.
+
+Even the topology of convergence of marginals matters. On $\mathcal B(\ell^2)$ take the normal states $\rho_n=P_n/n$, where $P_n$ projects onto the first $n$ basis vectors. Each fixed rank-one projection has expectation at most $1/n$. The identity has expectation one for every $n$. Any weak-star cluster point in the full state space annihilates finite-rank operators and hence the compacts. It is singular; it cannot be a normal state, since normality would sum the diagonal weights to one. This example occurs in a type-I factor. It separates a failure of normal convergence from a classification of the algebra.
+
+\subsection{F1. The JT comparison and its strongest limitation}
+In the JT prologue (2.17a) gives the same strictly positive diagonal matrix element of $W$ on infinitely many orthonormal states at the stated boundary data. For every $n$ the trace dominates $n\exp[-2\pi(\mathcal K_L+\mathcal K_R)/\hbar]$, so (2.17b) gives an infinite trace. This example comes from the manuscript itself. It supplies a physical control for the claim that covariance under changes of cut suffices, in general, to normalize a closed preparation.
+
+The author's strongest reply is that four-dimensional focusing constrains radiative excitations in a way this JT control does not. That reply identifies real physics. Focusing already enters \eqref{eq:floor} through (5.21). It also motivates the mode count at one loop in Appendix D.3. A bounded range of areas does not bound the multiplicity at a given area, and a regular-saddle count does not exhaust the full proposed representation. A derivation showing that focusing controls \emph{all} the relevant states in four dimensions would be a substantive answer. The JT comparison cannot decide its existence.
+
+\subsection{What Appendix D.3 actually tests}
+Equations (D.45)--(D.46) bound the number of graviton occupations in the regular one-loop family by estimating a thermal generating function and optimizing an auxiliary inverse temperature. In the notation of (D.46c) the logarithmic count grows at most on the indicated $(sQ_*)^{3/4}$ scale, subject to the constants and fixed parameters there. This connects the focusing estimate to angular as well as radial modes. It gives a physical reason that summing those fluctuations need not wash out the cyclic signal.
+
+For the regular family let $k_a(s)$ denote the weights in (D.48) and $d(s)$ the counted multiplicity. Cauchy--Schwarz applied under the joint sum and integral gives
+\[
+ \left(\int ds\sum_a k_a(s)\right)^2
+ \le \left(\int ds\, e^s d(s)\right)
+     \left(\int ds\,e^{-s}\sum_a k_a(s)^2\right).
+\]
+This is the positive lower bound on the ratio $R_2^{\rm reg}$ in (D.49) at a fixed allowed range. It concerns a specified regular family and a perturbative count. To promote it to an exact norm estimate one would need control over the passage from these weights and saddles to the full physical trace, including contributions outside that family. A positive normalized ratio alone does not identify the absolute normalization of the uncut state. Rescaling every $k_a$ by a common factor leaves that ratio unchanged. This is a targeted reading of the count and its use; we have not audited the entire mode calculation from first principles.
+
+\subsection{A gap at finite separation}
+From (5.29) the boosted leading cross correlation relative to the original has factor
+\[
+ \frac{4e^\eta}{(1+e^\eta)^2}=\operatorname{sech}^2(\eta/2).
+\]
+For nonzero rapidity this provides a genuine leading signal. Appendix D.2 constructs smeared insertions and translates suppression of the signal into an excitation-energy requirement. The Fourier coefficient in (D.29) can be checked by changing variables $p=k+\xi$:
+\[
+ \int_0^\infty dk\int_0^\infty d\xi\,\xi|\widetilde g(k+\xi)|^2
+ =\tfrac12\int_0^\infty p^2|\widetilde g(p)|^2\,dp
+ =\tfrac{\pi}{2}\|g'\|_2^2
+\]
+in the paper's convention for real $g$. Cauchy--Schwarz in (D.32) bounds the single-mode occupation by $\|h\|_2^2 E_g/4$. The four cosine terms in the representation of the commuting sine product give the displayed factor in (D.35). These checks use the linearized oscillator representation and its smearing and energy assumptions. Applying a compact cutoff to a mode need not preserve the original vacuum; the comparison there concerns the vacuum of that single regular mode.
+
+For the exact inequality it would suffice to bound the difference between the exact and linearized uncut responses by $\varepsilon_{\rm full}$ and to have, in a common regime,
+\[
+ \varepsilon_{\rm full}+\sqrt{K(d/B+dB/b^2)}<\delta_\eta/2 .
+\]
+This is a proposed sufficient estimate. The square-root term follows the error structure of (D.36); its constant and the signal can depend on smearing shapes and fixed source ratios. Loop power counting at $\ell_P^2/(\Delta u)^2\ll1$ motivates small errors. It gives neither the relative error compared with this particular $\delta_\eta$ nor a uniform bound on the full remainder. Sending $d$ to zero with fixed $\ell_P$ would eventually violate the hierarchy. A positive gap at one admissible finite separation would suffice.
+
+\subsection{Selecting a state and a real observable}
+The scalar weight $e^{-s}f_b(s)$ cannot distinguish two radiative configurations with the same total area. The derivation of (5.36b) uses smooth-background, vacuum-subtracted shear data. Fixed cap data could select that state or a saddle dominating it. A useful derivation would exhibit how this selection is compatible with cancellation of the evolution in (5.23) and with summing the full clock-allowed cut basis. Without such a link, the small response of each constructed cut and the large response of a smooth reference can concern different preparations.
+
+For self-adjoint bounded sine factors $A$ and $B$, $(AB)^\dagger=BA$. Disjoint-support commutation holds at the linearized order used in the manuscript. An exact sign statement requires reality of the relevant expectation. Taking $(AB+BA)/2$ or the real part of the response would provide a candidate observable of norm at most one. The leading commuting result survives this replacement. Its exact response would still have to be estimated. No calculation here exhibits a nonzero exact dressed commutator.
+
+Finally the choices $\ell_P\ll\Delta u\ll d\ll B\ll b\ll R_c$ must work for the same geometry and cutoff. Increasing $r$ in the cycle construction poses no geometric difficulty once $c$ is fixed. Increasing the physical cap radius $b$ can change which clock domain is admissible. Footnote 22 suggests deriving the result for a larger clock interval and passing to a subspace. This requires a suitable larger diamond in the same representation and a compatible inclusion. It is a plausible separate route for small intervals.
+
+\parttitle{Closure after the dimension argument}{Consequences of closure}
+\subsection{The role of Appendix E}
+The axiomatic discussion distinguishes a gluing pairing, a positive inner product, and a trace on a class of preparations. In (E.4)--(E.5) the allowed energy smearings and the finiteness of compatible closures constrain this class. Moving a cut can express tracial symmetry on that domain. A semifinite trace permits some positive bounded operators to have infinite trace. Existence of the trace functional in that sense and finiteness on the specific doubled cap are different assertions.
+
+For a bounded generator a smooth compactly supported spectral function can be chosen to equal one on the whole spectral interval. In that case energy smearing by this function supplies no decay on an infinite multiplicity inside the interval. One still has to establish the finiteness required of the preparation. Conversely an unbounded generator with rapidly decreasing smearing can give a trace-class operator on an infinite-dimensional space. Which situation applies depends on the operator, its spectral multiplicities and the actual smearing.
+
+Equation (E.15a) interprets the closed physical preparation as a Hilbert-space trace. In (E.17) the finite-dimensional estimate $|\Tr A|\le d_{\mathcal D}\|A\|$ verifies the diamond case, explicitly after the dimension argument. For the AdS boundary, the manuscript uses the bounded-energy ranks derived in (5.46). Both calculations run in a useful forward direction. The later factorization formulas (5.71)--(5.74) also develop Hilbert--Schmidt structure for connected fillings after \S5.2. None of those forward applications can on its own be reversed to establish the earlier gluing premise.
+
+\subsection{F4. A signed sum on a joint AdS cut}
+A related argument in (5.42)--(5.49) illuminates exactly which convergence is at issue. Suppose the diamond result and the transition between distinct area eigenspaces (5.41) are granted. Select an area band with probability $p\in(0,1)$ in the normalized state. Write $v_a>0$ for the probabilities of a finite diamond eigenbasis, $h_a=\id_I(A_a)-p$, and $w_i\ge0$ for the diagonal weights of the positive thermal operator on the separate AdS boundary. By construction $\sum_a v_a h_a=0$. The finite cut amplitude is
+\begin{equation}\label{eq:ads}
+ L_F=\sum_{(i,a)\in F} w_i v_a h_a .
+\end{equation}
+Grouping all $a$ for each $i$ makes every completed group zero. The proposed closure is stronger: it must be approached as arbitrary finite sets of pairs exhaust the joint basis. Given any finite set, choose a state $a_0$ outside the band and append pairs $(i,a_0)$ with unused $i$. The change in \eqref{eq:ads} is $-p v_{a_0}\sum_i w_i$ over the added indices. If the positive weights have infinite total, this change can exceed any fixed magnitude. Hence convergence over arbitrary finite supersets forces $\sum_i w_i<\infty$.
+
+For the converse, absolute summability of \eqref{eq:ads} follows from $\sum_i w_i<\infty$ and the finite sum $\sum_a v_a|h_a|$. Every exhaustive ordering then returns zero. This provides a direct way to state the premise: does the joint cut define an order-independent net of all finite partial amplitudes? Repeatedly completing whole rows only tests one cofinal grouping. Convergence of that grouping alone cannot imply convergence over the full directed set. The use of (5.44) to obtain (5.45) is mathematically intelligible once the stronger gluing requirement is made explicit.
+
+Upon establishing $Z_\beta=\Tr e^{-\beta(H-E_0)}<\infty$, the finite-rank conclusion has a short independent check. For $H-E_0\in[0,\Lambda_E]$ each thermal weight is at least $e^{-\beta\Lambda_E}$; thus the dimension of this spectral subspace is at most $e^{\beta\Lambda_E}Z_\beta$. This is (5.46) and uses the same positive-weight logic as Proposition~\ref{prop:rank}. Here the lower bound applies only to a bounded energy interval. The full boundary Hilbert space can be infinite. The ground-sector algebra and thermal state in (5.47)--(5.49) then use the boundary insertions and the spectral projection onto the ground space. The open issue in F4 lies in the upstream summation law. We found no independent contradiction in the finite-rank implication.
+
+\subsection{F3. Entropy and the role of the corner weight}
+After assuming (5.39), the dimensionless area defines a normalized state
+\[
+ \rho_{\mathcal D}=Z^{-1}e^{-\areaop},\qquad
+ Z=\Tr_{\HH} e^{-\areaop}.
+\]
+Taking its operator logarithm on the support gives $-\log\rho_{\mathcal D}=\areaop+\log Z$. Taking the expectation yields (5.50),
+\[
+ S(\rho_{\mathcal D})=\langle\widehat{\mathcal A}\rangle/(4G_N\hbar)+\log Z .
+\]
+This Gibbs identity fixes where the area coefficient enters. The physical step is the corner boost and its continuation to half turns, which supply the exponential weight and its normalization in units of area. Identifying the selected surface with a black-hole horizon uses the marginality condition and the Schwarzschild comparison around (5.51)--(5.53). The entropy identity is conditional on a normalized state. Presenting it as a second proof that the state has a finite trace would reverse the calculation.
+
+There is a state-counting consequence with additional assumptions that matter. Let $D(aS)$ count the states of area $s_i\le aS$, with multiplicity. Since each of these weights is at least $e^{-aS}$, $D(aS)\le e^{aS}Z$. For $0<\varepsilon<a$ suppose the band $((a-\varepsilon)S,aS]$ carries probability approaching a positive constant. Its contribution to $Z$ is at most its number of states times $e^{-(a-\varepsilon)S}$. Therefore $D(aS)\ge(\text{band probability})\,Z e^{(a-\varepsilon)S}$. When $\log Z=o(S)$, dividing the logarithms by $S$ and then letting $\varepsilon$ decrease gives the exponent $a$ in (5.64). This derivation needs the band-mass input as well as the Gibbs weight. Finite dimension of each member of a family imposes no such asymptotics by itself.
+
+\parttitle{Area bands and the logarithmic coefficient}{Area bands and the logarithmic coefficient}
+\subsection{Which exponent is obtained from the clock?}
+The large-hole calculation varies the maximum clock reading $\ell$ and considers a family at fixed macroscopic ratios as specified in (5.53)--(5.59). Let $Z(\ell)$ count the thermal weight of the states whose reading is at most $\ell$. A state of reading $u_i$ contributes $e^{-s_i}$ to $Z$ after its threshold is crossed. Integration with respect to that threshold gives exactly (5.56),
+\[
+ W(\ell):=\int_0^\ell Z(y)\,dy
+     =\sum_{u_i\le\ell}(\ell-u_i)e^{-s_i}
+     =Z(\ell)\,[\ell-\langle u\rangle_\ell] .
+\]
+Thus $\ell W'(\ell)/W(\ell)=\ell/(\ell-\langle u\rangle_\ell)$ almost everywhere where $W>0$. Taking the stated limiting ratio $q=\lim\langle u\rangle_\ell/\ell\in(0,1)$ yields $\log W=[1/(1-q)+o(1)]\log(\ell/\ell_0)$ up to an additive constant. Also $W/(\ell Z)\to1-q$. Subtracting $\log\ell$ gives (5.58),
+\begin{equation}\label{eq:q}
+ \log Z(\ell)=\left[\frac{q}{1-q}+o(1)\right]\log(\ell/\ell_0).
+\end{equation}
+The argument compares leading logarithms. It supplies no limiting constant prefactor in a power law. For example a factor $(\log\ell)^b$ in $Z$ would change $\log Z$ by $b\log\log\ell$, compatible with \eqref{eq:q}. An $O(1)$ claim in an early review of this equation must be weakened accordingly.
+
+A different statement comes from footnote 24 and (5.63). Under the ensemble assumptions there, for fixed $0<a\le1$,
+\begin{equation}\label{eq:cdf}
+ \Prob(s_i/S\le a)\longrightarrow a^\alpha,\qquad
+ \alpha=\frac{q}{2(1-q)} .
+\end{equation}
+Granting this limiting distribution is stronger than granting a mere upper area bound. We do not infer it from the trace lemma, nor do we prove it for independently constructed microscopic gravitational states. It implies a strictly positive limiting mass for each interior band with nonzero rescaled width. In particular the band $(1/4,1/2)$ in units of $S$ has mass $2^{-\alpha}-4^{-\alpha}$. A continuous limiting distribution permits either convention for its endpoints.
+
+\subsection{A density for the Gaussian center}
+A potential objection to (5.66) is that the area spectrum terminates at $S$, while the integral over the Gaussian center extends to infinity and the background estimate is made for large holes. This objection conflates two random variables. Write $s$ for the spectral area and $t=s_b$ for the center, and use $\sigma_s^2=2t$ as in (5.66). The kernel including the measure is
+\begin{equation}\label{eq:kernel}
+ K(s,t)=\frac{1}{\sqrt{4\pi t}}\exp[-(s-t)^2/(4t)],\quad s\ge0,\quad t>0 .
+\end{equation}
+It integrates to one in $t$ for each fixed $s$. Expanding the square reduces the integral to the elementary Gaussian identity
+\[
+ \int_0^\infty t^{-1/2}e^{-At-B/t}\,dt
+     =\sqrt{\pi/A}\,e^{-2\sqrt{AB}},\qquad A>0,\ B\ge0 .
+\]
+One proof substitutes $t=x^2$ and differentiates the resulting integral in $B>0$. The change $x\mapsto\sqrt{B/A}/x$ in the derivative gives its logarithmic derivative $-\sqrt{A/B}$. At $B=0$ the ordinary half-Gaussian fixes the constant. These manipulations are justified by exponential decay at both ends away from $B=0$, followed by continuity at zero.
+
+Let $\mu_S$ denote the unnormalized measure assigning weight $e^{-s_i}$ to each state and counting degeneracies. Conditional on $s\sim\mu_S/Z$, draw $t$ with density $K(s,t)$. Positivity allows exchanging integration and summation. Equations (5.25) and (5.66) identify the joint law in two equivalent forms:
+\[
+ \Prob(t\in I)=\frac{1}{Z}\int\mu_S(ds)\int_I K(s,t)\,dt
+   =\frac{1}{Z}\int_I\frac{\Tr(C_b^\dagger C_b)}{\sqrt{4\pi t}}\,dt .
+\]
+The trace in this last expression depends on the center $t$ and on the selected diamond $S$. This dependence on two parameters is precisely what a uniform saddle approximation must address.
+
+\subsection{The earlier tail estimate and its limit}
+A first check takes spectral areas $s\in[S/4,S/2]$ and a slightly wider center window $[S/8,3S/4]$. On the lower omitted tail, $(s-t)^2/(4t)\ge S/32$. Integrating the prefactor bounds that tail by $\sqrt{S/(8\pi)}e^{-S/32}$. On the upper omitted tail $s\le2t/3$, hence the exponent is at least $t/36$. Direct integration bounds it by $3\,\operatorname{erfc}(\sqrt{S/48})$. The bounds hold uniformly on the selected spectral band.
+
+This first argument proves that the wider center window captures a positive fraction of the full integral, assuming \eqref{eq:cdf}. It does not determine the fraction for the original center band and it says little about which \emph{other} interior areas contribute substantial mass. Demanding that the tails of the entire trace vanish relative to every chosen window would be unnecessary. A subintegral containing a fixed positive fraction already has the same leading logarithmic exponent as the whole. The following result gives the fraction exactly in the limit.
+
+\begin{prop}[Distribution of centers]\label{prop:center}
+Assume \eqref{eq:cdf}, the positive ensemble above, and $0\le s\le S$. The rescaled center $t/S$ has the same limiting distribution as $s/S$. In particular, the fraction of (5.66) coming from centers $S/4<t<S/2$ tends to $c_0=2^{-\alpha}-4^{-\alpha}>0$.
+\end{prop}
+\begin{proof}
+With $z<1/4$, use the integral identity for \eqref{eq:kernel} after multiplying its integrand by $e^{zt}$. The conditional moment generating function and its first two cumulants are
+\begin{align*}
+ M_s(z)&=(1-4z)^{-1/2}
+       \exp\{s[1-\sqrt{1-4z}]/2\},\\
+ \E[t\mid s]&=s+2,\qquad \var(t\mid s)=2s+8.
+\end{align*}
+In particular $\E[(t-s)^2\mid s]=2s+12$, also at $s=0$. The exponential moment exists in a neighborhood of zero, so these derivatives give genuine moments. For any fixed $\varepsilon>0$ Markov's inequality gives
+\begin{equation}\label{eq:moment}
+ \Prob\!\left(\left|\frac{t}{S}-\frac{s}{S}\right|>\varepsilon\right)
+ \le \frac{2S+12}{\varepsilon^2 S^2}\longrightarrow0 .
+\end{equation}
+Sandwich the center probability below a fixed threshold $a$ between the spectral probabilities below $a-\varepsilon$ and $a+\varepsilon$, allowing the exceptional probability in \eqref{eq:moment} on both sides. The limiting distribution is continuous. Letting first $S$ tend to infinity and then $\varepsilon$ to zero proves the assertion. Subtracting the results at $1/4$ and $1/2$ yields the band fraction.
+\end{proof}
+At $q=257/302$ one gets $\alpha=257/90$ and $c_0\simeq0.119074070334$. Most of the integral comes from outside this particular band even in the limit. The reason the band can determine an exponent is its stable positive fraction, rather than dominance in the sense of probability tending to one. Positivity is essential: the argument would not apply to two signed contributions which nearly cancel. Nor does applying a probability calculation to the normalized ensemble establish the existence of that ensemble in the original four-dimensional construction.
+
+\subsection{F2. A sufficient integrated saddle estimate}
+Let $I_S=[S/4,S/2]$. Parametrize the one-loop calculation in (5.67c) on this window as
+\[
+ L_S(t):=\log\Tr(C_b^\dagger C_b)=p\log t+R_S(t).
+\]
+A uniform bounded remainder gives positive, $S$-independent upper and lower multiples of $t^p$ for the trace on $I_S$. The band measure carries $t^{-1/2}dt$, so its integral has upper and lower multiples of $S^{p+1/2}$. The substitution $t=Sv$ makes this explicit. The integral of $v^{p-1/2}$ from $1/4$ to $1/2$ is finite and positive for every finite real $p$, including $p=-1/2$. Inferring that the full integral has the same order uses Proposition~\ref{prop:center}.
+
+For the actual coefficient a weaker sufficient condition is
+\begin{equation}\label{eq:rem}
+ \sup_{t\in I_S}|R_S(t)|=o(\log S).
+\end{equation}
+Multiplying the integral of $t^{p-1/2}$ by $S^{\pm o(1)}$ bounds the integrated remainder on both sides. Dividing by the limiting band fraction changes the logarithm by only a bounded quantity. It follows that
+\[
+ \log Z=(p+1/2)\log S+o(\log S).
+\]
+An estimate directly on the integrated trace could supply the same conclusion without pointwise control at every center. Compactness of the rescaled interval alone cannot make an unquantified two-parameter asymptotic uniform. The heat-kernel calculation fixes the displayed local coefficient on a Schwarzschild saddle; we did not derive a bound on its remainder throughout a growing clock-restricted family.
+
+To see why this distinction is worth making, consider as a purely analytic control $L_S(t)=p\log t+\sqrt{\log S}$ throughout the window. Its remainder grows without bound; nevertheless it preserves the leading power of $Z$. Conversely, a sequence of narrow moving subintervals on which the integrand grows rapidly can dominate an integral while escaping every fixed-point estimate away from an endpoint. For example in $v=t/S$ take an extra multiplicative weight $S^3$ on $1/4+1/S<v<1/4+2/S$ and weight one elsewhere. Every fixed $v$ eventually sees weight one, while the exceptional band's integral is of order $S^2$ relative to the ordinary rescaled integral. This example involves no gravitational determinant. It specifies why an integrated error estimate is a substantive request.
+
+\subsection{What the agreement with Sen tests}
+Here $S\propto\ell^2$. Matching the leading logarithm to \eqref{eq:q} requires
+\[
+ \frac{q}{1-q}=2p+1,\qquad q=\frac{p+1/2}{p+1}.
+\]
+The physical branch $0<q<1$ requires $p>-1/2$. Substitution into the fixed-mass expression in (5.69) gives
+\begin{equation}\label{eq:coef}
+ \frac{q}{2(1-q)}-\frac12=p.
+\end{equation}
+For $p=106/45$ this returns $q=257/302$ and the original coefficient. The measure in (5.66) and the fixed-mass conversion in (5.69) account for the two half-unit shifts. The latter uses the Schwarzschild relation $s_b\propto M^2$ with the angular-momentum prescription of the paper. Footnote 23 offers an internal consistency relation $q=2x^2/(1+x^2)$. With this $q$, it gives $x^2=257/347$, inside the stated range. This arithmetic checks compatibility, not an independent prediction of $q$.
+
+Equation (5.67) uses the Ricci-flat Schwarzschild geometry, the change in conical opening angle, marginality, the two-sphere curvature integral and a graviton and ghost heat-kernel coefficient. Those steps supply genuine physical input. In the comparison with Sen \cite{sen}, using a linear size or its square as the logarithm's argument also changes the printed coefficient by a factor of two. The ensemble, fluctuating or fixed charges, and zero-mode treatment matter when comparing different systems. We have checked the coefficient propagation for the stated case. Extending the numerical identity to arbitrary matter or ensembles would require rechecking those inputs. Equation \eqref{eq:coef} explains why agreement provides a consistency check on the conversion and limited independent evidence for the underlying null-cone quantization.
+
+\parttitle{The graviton-pair amplitude}{The graviton-pair amplitude}
+\subsection{F5. A transition amplitude with two orders of limits}
+The amplitude in (4.32)--(4.34) is a particularly clean check because its series can be evaluated without a gravitational regularization prescription. It uses a chosen Gaussian with $(\Delta q_k)^2=1/(2sk)$ and a boundary unitary giving phase $e^{-ik/s}$ to each line. At fixed positive dimensionless area $s$, Wick's rule gives two connected contractions. The two line phases multiply and only diagonal modes survive. Writing the result with a finite mode cutoff $n$,
+\[
+ A_n(s)=\frac1{2s^2}\sum_{k=1}^n \frac{e^{-2ik/s}}{k^2},\qquad
+ A(s)=\frac{\operatorname{Li}_2(e^{-2i/s})}{2s^2}.
+\]
+The $k^{-2}$ factor suffices for absolute convergence. The elementary tail estimate $|A-A_n|\le(2s^2n)^{-1}$ is valid for every phase of modulus one, including the case when the phase equals one for every mode. Removing the phase gives $\zeta(2)/(2s^2)$ exactly. The series is finite even at positive $s$ for which the dilogarithm is evaluated at its branch point $z=1$; derivatives near that point are a separate question.
+
+For the weak-coupling limit hold the \emph{physical} area $\mathcal A$ and $\hbar$ fixed. Since $s=\mathcal A/(4G_N\hbar)$, this sends $s\to\infty$. Dominated convergence can be applied to $s^2A(s)$ with majorant $1/(2k^2)$. Hence
+\[
+ \lim_{G_N\downarrow0} A(s)=0,\qquad
+ \lim_{G_N\downarrow0}s^2 A(s)=\pi^2/12 .
+\]
+The numerical statement in an early version that the limit was $\zeta(2)/(2s^2)$ left the limiting variable on the right. That expression instead describes the phase-free amplitude at finite $s$, and its leading asymptotic in the phased case. Keeping the rescaled and unscaled limits separate resolves the ambiguity.
+
+\subsection{Where the harmonic series comes from}
+Put $x=1/s$. At fixed $n$ the $x^3$ coefficient of the Taylor expansion of $A_n$ at $x=0$ is $-i\sum_{k=1}^n1/k$. The coefficient grows like $-i\log n$. Differentiating three times removes the small prefactor that made the original series summable. Uniform convergence of a sequence of functions alone does not imply convergence of their third derivatives. In particular an exact amplitude continuous at zero may fail to possess a finite third-order Taylor coefficient there.
+
+The asymptotic of the summed function can be obtained analytically without extrapolating a numerical fit. Set $t=2/s>0$. For $t$ small on the principal branch,
+\[
+ \frac{d}{dt}\operatorname{Li}_2(e^{-it})=i\log(1-e^{-it}),
+ \qquad \log(1-e^{-it})=\log(it)-it/2+O(t^2).
+\]
+These follow by initially staying inside the unit disk or using analytic continuation from it, with the logarithm continued on the indicated side. Integration from zero, using $\operatorname{Li}_2(1)=\pi^2/6$, gives the $it(\log(it)-1)$ term. The original amplitude is $t^2\operatorname{Li}_2(e^{-it})/8$. Returning to $s$ gives
+\begin{equation}
+ A(s)=\frac{\pi^2}{12s^2}
+   +\frac{i[\log(2i/s)-1]}{s^3}+O(s^{-4}).
+\end{equation}
+The real contribution from the logarithm's argument is $-\pi/(2s^3)$ and the imaginary logarithmic contribution is $-i\log s/s^3$. Both the powers of $s$ and the branch matter for comparison with the finite-cutoff derivative. Modes with $k$ of order $s$ acquire a phase of order one even when each fixed mode has phase tending to one.
+
+\subsection{Numerical checks and their reach}
+With $n=200{,}000$, the differences between the directly summed complex series and the evaluated dilogarithm were approximately $6.26\times10^{-13}$ at $s=10$ and $6.25\times10^{-14}$ at $s=100$. The conservative absolute tail bounds at those points are $2.5\times10^{-8}$ and $2.5\times10^{-10}$. Oscillations can make the observed errors far smaller than a bound that discards every phase. The asserting script also tests the first omitted power in the asymptotic formula at three larger values of $s$. Its role is to detect sign, branch and prefactor mistakes. The series identity and limiting statements follow from the preceding derivation.
+
+\begin{center}\small
+\begin{tabular}{rrr}\toprule
+$s$ & $\operatorname{Re}(s^2A)$ & $\operatorname{Im}(s^2A)$\\\midrule
+100 & 0.806809 & $-0.049120$\\
+1,000 & 0.820897 & $-0.007214$\\
+10,000 & 0.822310 & $-0.000952$\\
+$\infty$ & $\pi^2/12$ & 0\\\bottomrule
+\end{tabular}
+\end{center}
+The paper chooses the relative phase with a boundary unitary and motivates it by analogy. The calculation exhibits exactly what that chosen change of phase does. No interaction vertices enter these quadratic Gaussian contractions. Establishing preservation of the variance or production of the phase under a nonlinear Hamiltonian would extend the physical scope, but the author does not need either fact to calculate this prepared overlap. Connecting $k\sim s$ to a universal physical momentum scale would require the appropriate mode-to-momentum relation and its dependence on geometry. The two-loop counterterm cited before the example is a different observable \cite{gs}.
+
+\subsection{A multiple-cut control for interpreting absolute convergence}
+There is a useful mathematical distinction within \S4.4. Absolute convergence in the one-index sum (4.30) and convergence along independent finite projections in (4.31) are sufficient for the open amplitudes stated there. The latter permits a rectangular sum over several basis indices. It need not control the sum of absolute values of every individual path in a joint expansion. The following elementary construction makes the distinction testable.
+
+Take an orthogonal direct sum of blocks of dimension $d_m=4^m$, $m\ge1$. On each block let $U$ be its normalized discrete Fourier matrix, with all entries of absolute value $1/\sqrt{d_m}$. Choose external vectors $\phi=\psi$ with all components on block $m$ equal to $a_m/\sqrt{d_m}$, where $a_m=1/m$. The two vectors have finite squared norm $\sum_m a_m^2$; normalization would multiply every expression by a common finite constant. The operator $U$ is unitary. For finite basis projections $P,Q$ tending strongly to the identity, $\langle\phi,QUP\psi\rangle\to\langle\phi,U\psi\rangle$ by the contraction estimate. This is the type of convergence in (4.31).
+
+Taking absolute values before summing all pairs within block $m$ instead gives $d_m^2(a_m/\sqrt{d_m})^2/\sqrt{d_m}=2^m/m^2$. These positive block totals have divergent sum. In contrast, summing the Fourier phases within each complete block leaves a signed block contribution $a_m^2/\sqrt{d_m}$ in the usual Fourier convention. This is a control for a \emph{stronger} reading of a multi-index sum. It preserves the single-cut inequality and the finite-subdivision result actually written in the manuscript. The construction also shows why the order and class of cut exhaustions should be specified in any trace-closing argument.
+
+\parttitle{The low-energy comparison and the representation}{Low energy and representation}
+\subsection{F6. What is varied in the semiclassical calculation?}
+At classical order the construction starts from a reduced phase space of general relativity. Stationarity of the corresponding action in appropriately peaked states should reproduce its classical equations. This expectation is a consistency requirement: a poor boundary term, incorrect symplectic reduction, or mismatched state prescription could spoil it. The next test includes graviton fluctuations and their gravitational backreaction. It is more restrictive than formal agreement of the classical actions.
+
+The quantities in (6.9)--(6.16) include the expectation of a dressed metric, its connected two-point function and a quadratic source for the correction to the mean. With $E_{ab}[g]=G_{ab}[g]+\Lambda g_{ab}$ and with the incoming state and frame data fixed, the comparison is of the form
+\[
+ E_{ab}[\bar g]+\langle E^{(2)}_{ab}[h,h]\rangle_{\mathcal G}
+       =O(\hbar^2).
+\]
+Equation (6.14) differentiates a two-point function at separated points and then takes coincidence at fixed smearing. The choice of smearing is part of the observable. A change of test function is ordinarily a change of quantity being evaluated. An independence claim would have to specify which cutoff is being removed or which observables are being held equal.
+
+Appendix D.1 uses a Schwinger--Keldysh contour. The initial density operator contributes a boundary term, the forward and backward histories are joined at the final cap, and the inverse kernel obeys the resulting boundary conditions. The functional in (D.2) includes the difference at zero sources and the measure evaluated at the saddle; (D.12) relates its first variation to the effective equation. In (6.16) the retarded Green function propagates the quadratic source, along with a homogeneous term fixed by the initial data. These are specified features of the comparison. Asking for all boundary conditions as though the contour and state were absent would miss part of the derivation.
+
+\subsection{Coincidence, conservation and renormalization}
+At the classical perturbative level (6.15) has a short explanation. Expand the contracted Bianchi identity for $g_0+\epsilon h$ about a background solving $E[g_0]=0$. The terms in the second-order identity that involve varying the divergence operator multiply either the background equation or the linearized equation $E^{(1)}[h]=0$. The remaining term states the conservation of the quadratic source for on-shell $h$. Contracting two quantum fluctuations at the same point adds a prescription for a singular composite operator. Conservation of the resulting expectation can depend on the definition of local terms and on boundary contact terms.
+
+Appendix D.2 explicitly subtracts the local vacuum singularity for the shear contraction just after (D.20) before taking coincidence in the affine and transverse coordinates. It also discusses the local curvature terms there. A blanket assertion that the paper supplies no subtraction prescription would therefore be inaccurate. The narrower question is how the prescription extends to the full composite gravitational source in (6.14) and the determinant variations appearing in (D.2), (D.9) and (D.12), with the given contour and boundaries. Is there a common regulator and renormalization of those quantities for which the appropriate conservation identity follows? A formal match can be informative before this further question is resolved.
+
+The familiar one-loop result of 't Hooft and Veltman concerns the ultraviolet divergence of pure gravity on shell in the zero-cosmological-constant setting \cite{thv}. It should not be generalized to arbitrary off-shell composite observables, infrared-finite scattering, or contours with boundaries. For nonzero $\Lambda$ the on-shell divergence includes a term proportional to $\Lambda^2$ in addition to the Euler term \cite{bps}. The distinction matters because the manuscript permits $\Lambda$ and examines a smeared, boundary-sensitive low-energy functional. Thus an earlier claim that agreement was tested only where gravity is already finite has been withdrawn.
+
+\subsection{A two-loop comparison would answer a different question}
+Goroff and Sagnotti identify a nonvanishing two-loop ultraviolet divergence of pure gravity, with a cubic curvature counterterm on shell \cite{gs}. Section 6 and Appendix D.1 of the reviewed paper stop at one loop. A two-loop comparison could specify the same low-energy observable, state, boundary conditions and renormalization prescription on both sides, then derive how the known low-energy coefficient arises or why the comparison changes. Computing a different quantity and observing finiteness there would leave the matching question open.
+
+Conversely, a finite nonperturbative observable can have a singular expansion in a coupling. The pair-amplitude example supplies an explicit mathematical mechanism of that kind. Seeing the usual perturbative divergence would therefore not automatically refute the proposed quantization. The informative question concerns consistency of its low-energy expansion and the independent existence of its full interacting observable. Those are two distinct claims. We have not computed the interacting two-loop amplitude or rederived the reduced measure and all its determinants.
+
+\subsection{F7. What the pure extension actually gives}
+In \S4.2 the incoming Gaussian state is extended to a pure state $\omega$ on the larger observable $C^*$-algebra $\mathcal A$. Its GNS representation is irreducible. Therefore the commutant is scalar and
+\[
+  \pi_\omega(\mathcal A)'=\mathbb C\id,\qquad
+  \pi_\omega(\mathcal A)''=\mathcal B(\mathcal H_\omega).
+\]
+The second equality is the bicommutant, hence the weak operator closure, in (4.17). The norm-closed image may be proper. For example, the compact operators together with the identity on an infinite-dimensional Hilbert space act irreducibly; their commutant is scalar. A projection with both infinite rank and infinite corank does not belong to that norm-closed algebra. This example distinguishes equality at the two levels of closure without invoking gravity.
+
+An abstract type-III von Neumann algebra can also be considered only as a $C^*$-algebra. A pure-state representation with a type-I bicommutant generally fails to preserve the original normal representation in this comparison. The classification of the original local algebra is independent of this change of representation. Likewise the author's cited earlier crossed-product type-II work describes other algebras and physical regimes. Relating their restrictions, limits and states to the present proposal could provide insight. The mere difference of types gives no contradiction.
+
+\subsection{Which predictions could depend on the extension?}
+As a small test, embed the scalar algebra diagonally in $M_2(\mathbb C)\oplus M_3(\mathbb C)$. Its state has a pure vector-state extension supported on either summand. The GNS spaces have dimensions two and three. Both associated bicommutants are full matrix algebras. Existence of a pure extension is therefore compatible with inequivalent representations. The incoming gravitational algebra has additional structure absent here; this example has no clock and no area observable until they are separately specified.
+
+To establish equality of physical predictions for two admissible extensions, it would suffice to give a unitary that intertwines the represented operators, their relevant spectral projections, and the preparation and state data. It would then identify the clock-selected spaces, spectral probabilities and entropies. Equality of particular numerical predictions is a weaker statement. For example, two inequivalent realizations can have equal ranks of selected projections; rank is only one invariant. A proof of equality of an entropy need not identify every observable of the full theory. The earlier formulation that representation independence of every quantity \emph{requires} unitary equivalence was too strong for individual predictions.
+
+Footnote 20 defers unitary equivalence for the same clock range. Appendix C.2 discusses the fixed-area construction and (C.21) treats general intermediate insertions on $\mathcal H_\omega$. A precise request is to describe how the full clock spectral projections and the area-changing preparation compare across the physically admissible pure extensions. Kadison and Singer are cited in the state-extension discussion \cite{ks}; existence of an extension supplies no uniqueness or equivalence theorem for this particular inclusion. We have exhibited no two gravitational extensions with distinct physical predictions.
+
+\parttitle{Formal and numerical verification}{Formal and numerical verification}
+\subsection{From finite partial sums to an ambient dimension}
+The original \texttt{TraceDim.lean} formalizes three elementary steps over a real or complex inner-product space. The first uses the real part of the quadratic form of a bounded linear map $T$ to avoid assuming an order on complex numbers. Its hypothesis is $c\|x\|^2\le\operatorname{Re}\langle x,Tx\rangle$ for every $x$. Substituting elements of an orthonormal family and summing yields $c|F|\le\sum_{i\in F}\operatorname{Re}\langle e_i,Te_i\rangle$. The second theorem assumes $c>0$ and an upper bound $N$ for all such finite sums in the given family and deduces $|F|\le N/c$.
+
+The third theorem supposes that the family's indexing type is infinite. It can then select a finite subset of cardinality $\lfloor N/c\rfloor_++1$, where the floor is taken in the natural numbers. This contradicts the second bound. The conclusion is finiteness of the indexing type. For an arbitrary family this says nothing about whether there are additional orthogonal directions outside its span. Even the one-vector family consisting of the first standard basis vector in $\ell^2$ is finite. To extract a dimension theorem, the spanning or completeness assumption must appear explicitly.
+
+The v1.5 extension \texttt{TraceDimBasis.lean} supplies that last step. It takes an actual Hilbert basis $b$, so its linear span is dense by the definition encoded in Mathlib. Applying the existing theorem supplies a finite index type. A finite Hilbert basis then gives an orthonormal algebraic basis, and its cardinal is the finrank of the space. Applying the bound on partial sums to the full finite index set proves
+\[
+ \mathrm{FiniteDimensional}\ \mathbb K\ E
+ \quad\text{and}\quad
+       (\mathrm{finrank}_{\mathbb K}E:\mathbb R)\le N/c .
+\]
+A complete basis in this statement is a hypothesis about the family to which the estimate applies. A physical proof could establish a uniform estimate on all finite orthonormal families, or establish it on finite subsets of one complete basis. In the complete-cycle reading, positivity supplies the latter estimate as in Proposition~\ref{prop:rank}. The Lean extension starts at this basis estimate. It does not construct the cut exhaustion, its identification with the uncut amplitude, or a uniform semiclassical remainder.
+
+The axiom audit of the original three declarations and the new declaration reports \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. The ground field, bounded operator, basis, constants and lower and upper inequalities are all visible in the theorem's type. This makes it possible to locate precisely where a proposed physical proof would attach: it must supply the lower inequality and the common upper bound for the same space, map, and basis. The physical interpretation of the symbols is outside the kernel check.
+
+\subsection{Which numerical experiments discriminate between claims?}
+The finite-matrix run draws 500 seeded instances in dimensions 3 through 14. It checks the ordering of partial traces, the spectral-spread estimate and the response bound for random projections, including projections which do not commute with the diagonal area. The largest recorded ratio of measured boost change to its upper bound is approximately $0.3985$. That number depends on the chosen samples. It supplies no improved universal constant in (5.32). Its value as a diagnostic is that a missing factor or erroneous ordering in a finite-matrix implementation can produce a violation even at small dimension.
+
+In the separation model take $\theta=0.5$, giving $\delta\simeq0.1224174$ and $\langle X\rangle_\chi\simeq0.0612087$. For $k=0$ and $100$ additional cycles, respectively, the unnormalized cut values are approximately $-0.05087$ and $-21.65747$. The normalized boost responses, before subtracting $\delta/2$, are approximately $0.04409$ and $0.000368$. The directions of both changes follow from the exact denominator $3+e^{-1}+4k$. Interpreting convergence of the normalized responses as convergence of their unnormalized amplitudes would give a visibly different answer even for these finite sections.
+
+For the center-kernel derivation we used two controls. Symbolic differentiation of $M_s(z)$ checks the conditional mean and variance and the coefficient arithmetic. Direct quadrature instead integrates \eqref{eq:kernel} and its moments at $s=0,1,20,200$. Making the substitution $t=x^2$ removes the square-root endpoint singularity at $s=0$. The check tests normalization, the first moment and the second moment about $s$, the latter being $2s+12$ rather than the conditional variance $2s+8$. The equality of limiting distributions follows from \eqref{eq:moment} and continuity, independently of the numerical quadrature. A finite sample cannot test the gravitational saddle assumption \eqref{eq:rem}.
+
+The reproduction directory contains the original Lean source, its wrapper for printing axiom dependencies, the new basis theorem, the pinned dependency manifest and the numerical scripts with their reference outputs. The additional Fourier-block check verifies the signed and absolute totals on four finite blocks. It illustrates the analytic divergence argument in the section on pair amplitudes. Packages and execution commands are given in the release README. Historical checks remain separately identifiable from the v1.5 run.
+
+\parttitle{What would resolve the outstanding questions?}{What would resolve the questions?}
+\subsection{A direct construction of the cap}
+The most economical positive answer would construct the uncut cap in a normed preparation space, define sewing for a dense test class and control its extension to this $C_b$. A suitable estimate might be $\sum_{i\in F}\|C_be_i\|^2\le N_b$ independently of the finite subset $F$ of a complete basis. One should identify the source of $N_b$, its parameters and the cut measure. For a fixed diamond it may depend arbitrarily strongly on the cutoff $S$, the width of the Gaussian or other fixed boundary data. No uniformity in the large-hole limit is required for the conclusion that this one diamond is finite dimensional.
+
+There are diagnostic questions for such a proof. Does the estimate apply to the unshifted $X=\id$ prep\-aration? Is the constant still finite before invoking finite dimension or a normalized thermal state on that diamond? Are energy smearings removed or held fixed? If a bounded spectral cutoff equals one on the whole clock range, what suppresses the multiplicity at equal area? Giving a normalizable open state for every external leg answers a different question from bounding their total squared contribution. Conversely, a genuine summability estimate would settle the conditional dimension theorem without the need to control a signed difference.
+
+Changing the trace by dividing every finite cut sum by its rank would produce a bounded identity expectation in the separation model. This is a change of normalization with physical consequences. For a fixed rank-one projection its normalized weight tends to zero while the identity retains weight one. That cannot be the ordinary normal trace state with all the claimed finite-dimensional interpretations. A renormalized sewing rule could be considered on its own terms, provided it identifies which amplitudes and entropy formulas survive that choice. It cannot be substituted silently into \eqref{eq:norm}.
+
+\subsection{An observable-specific construction}
+A second route is to establish directly that the signed cut functionals converge on the single bounded insertion of (5.37), or that normalized expectations converge to the specified uncut response. There may be cancellations in a signed sum for which no uniform estimate holds on all bounded observables. The proof would then need to justify its chosen net or ordering and its transformation under the relative boost. Convergence on a dense set of insertions, without a common norm bound on the corresponding functionals, need not extend to their operator-norm closure. Even equality on all one-leg operators would leave the relative phases of two-leg correlations uncontrolled.
+
+An effective statement would give the exact quantity to which the error estimate applies, keep both cut and uncut data fixed, exhibit a response gap in the full theory, and specify which limiting operations preserve that gap. Once these inputs are in hand the sign contradiction is immediate. If a four-dimensional estimate already gives finite uncut norm for the full family and equality for the identity, it would be valuable to state that stronger theorem explicitly. A reader could then use Proposition~\ref{prop:rank} to isolate which part of the argument concerns finiteness and which establishes the new physical response.
+
+\subsection{Entropy is an independent diagnostic only with additional inputs}
+Even a well-defined normalized density does not settle a question of dimension. On $\ell^2(\mathbb N)$ the probabilities $p_n=2^{-n}$, $n\ge1$, sum to one and have finite entropy $2\log2$. A diagonal state with probabilities proportional to $1/[n(\log n)^2]$ for $n\ge2$ is also normal, but its entropy diverges by comparison with the logarithmic harmonic series. The first example shows finite entropy in infinite dimension; the second shows that finite normalization need not control entropy. Neither state obeys a uniform positive spectral floor on an infinite-dimensional space. The gravitational lower bound is what makes the trace route unusually strong.
+
+The conditional center-band theorem answers an ensemble question after normalization is available. To strengthen the logarithmic-coefficient comparison one could derive a bound on the band integral of the determinant including the cap and boundary measure, or display uniform $o(\log S)$ control as in \eqref{eq:rem}. An independent determination of the relevant clock exponent without the same heat-kernel coefficient would provide a different comparison with Sen. Recovery of $p$ under the existing input tests the consistency of the calculation even while it leaves these other questions open.
+
+\subsection{Assessment}
+The finite-trace implication, the finite-cut boost inequalities, the separation example, the Gaussian-center concentration and the coefficient conversion can be stated as reproducible results with explicit assumptions. Together they support a technical request for clarification of \S5.2 and a more precise reading of the semiclassical and entropy checks. A resolution of the gravitational argument would require information beyond those results. We would revise this assessment in light of an independent estimate for the specified doubled preparation, a construction proving signed gluing for the chosen observable, or a derivation identifying an overlooked step in the cited manuscript.
+
+\paragraph{Research history and contributions.}
+Justin of Nous Enterprises LLC directed this investigation and selected the source manuscript and review questions. The earlier editions credit ChatGPT with the initial triage, Claude with the v1.4 manuscript, findings F1--F7 and the original Lean file, and Codex with adversarial checks, the separation model and compilation. Gemini Neon subsequently reviewed the manuscript and the versioned review material, including source files supplied as text. Neon reported analytic comparison and relied on the supplied execution records for the code. Codex prepared this synthesis, checked the Gaussian-center calculation, added the complete-basis Lean theorem and reran the packaged checks. The systems saw one another's work. Their agreement is a record of successive scrutiny, and no external referee or author endorsement is implied.
+
+\clearpage\markboth{References}{}
+\begin{thebibliography}{9}
+\bibitem{VC} V. Chandrasekaran, \emph{An algebraic quantization of gravity from the null cone}, arXiv:2611.34924v1 (2026). \href{https://arxiv.org/abs/2611.34924v1}{Primary manuscript, version 1}.
+\bibitem{sen} A. Sen, \emph{Logarithmic corrections to Schwarzschild and other non-extremal black hole entropy in different dimensions}, JHEP \textbf{04} (2013) 156. \href{https://arxiv.org/abs/1205.0971}{arXiv:1205.0971}.
+\bibitem{thv} G. 't Hooft and M. Veltman, \emph{One-loop divergencies in the theory of gravitation}, Ann. Inst. H. Poincar\'e A \textbf{20} (1974) 69--94. \href{https://www.numdam.org/item/AIHPA_1974__20_1_69_0/}{Journal article}.
+\bibitem{gs} M. H. Goroff and A. Sagnotti, \emph{The ultraviolet behavior of Einstein gravity}, Nucl. Phys. B \textbf{266} (1986) 709--736. \href{https://doi.org/10.1016/0550-3213(86)90193-8}{Journal article}.
+\bibitem{bps} G. de Berredo-Peixoto, A. B. Penna-Firme and I. L. Shapiro, \emph{1-loop divergences of quantum gravity using conformal parametrization}, Mod. Phys. Lett. A \textbf{15} (2000) 2335--2343. \href{https://arxiv.org/abs/gr-qc/0103043}{arXiv:gr-qc/0103043}.
+\bibitem{ks} R. V. Kadison and I. M. Singer, \emph{Extensions of pure states}, Amer. J. Math. \textbf{81} (1959) 383--400. \href{https://doi.org/10.2307/2372748}{Journal article}.
+\bibitem{repo} Nous Enterprises LLC, \emph{Chandrasekaran \S5.2 independent review}. Original inputs, edition history, review and verification records. \href{https://github.com/nousentllc/chandrasekaran-section-5-2-review}{Public repository}.
+\end{thebibliography}
+\end{document}

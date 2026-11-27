@@ -1,0 +1,90 @@
+operator_checks.py
+{
+  "seed": 261134924,
+  "random_trials": 500,
+  "dimension_range": [
+    3,
+    14
+  ],
+  "trace_lower_and_upper_min_slack": 0.05134885095640133,
+  "spread_bound_min_slack": 59.342280999101355,
+  "largest_observed_boost_change_over_bound": 0.3984655406864616,
+  "symbolic_boost_identity": "verified by exact simplification",
+  "countermodel_sections": [
+    {
+      "rank": 1,
+      "trace_T_for_T_identity": 1,
+      "normalized_rank_one_expectation": 1.0
+    },
+    {
+      "rank": 10,
+      "trace_T_for_T_identity": 10,
+      "normalized_rank_one_expectation": 0.1
+    },
+    {
+      "rank": 100,
+      "trace_T_for_T_identity": 100,
+      "normalized_rank_one_expectation": 0.01
+    },
+    {
+      "rank": 1000,
+      "trace_T_for_T_identity": 1000,
+      "normalized_rank_one_expectation": 0.001
+    }
+  ],
+  "scope": "Finite-matrix diagnostics, not a proof of infinite-dimensional or gravitational statements."
+}
+countermodel.py
+{
+  "theta": 0.5,
+  "delta": 0.12241743810962724,
+  "uncut_X_expectation": 0.06120871905481362,
+  "cut_results": [
+    {
+      "additional_zero_area_cycles": 0,
+      "normalized_cut_response": 0.04409298538972434,
+      "cut_X_amplitude": -0.05087041099973214
+    },
+    {
+      "additional_zero_area_cycles": 1,
+      "normalized_cut_response": 0.02015503377594828,
+      "cut_X_amplitude": -0.2669364309079071
+    },
+    {
+      "additional_zero_area_cycles": 10,
+      "normalized_cut_response": 0.003424189997469568,
+      "cut_X_amplitude": -2.211530610081481
+    },
+    {
+      "additional_zero_area_cycles": 100,
+      "normalized_cut_response": 0.0003681499359831479,
+      "cut_X_amplitude": -21.657472401817223
+    }
+  ],
+  "scope": "An operator-theoretic separation model; its independently chosen uncut vector does not satisfy the cut-to-uncut gluing identification, and it is not a model of gravitational dynamics."
+}
+section5-3_coefficient_identity.py
+q(p) = (p + 1/2)/(p + 1)   final coefficient = p
+p=106/45 -> q = 257/302
+normalization integral = 1
+x^2 = 257/347  fn23 q=2x^2/(1+x^2) -> 257/302
+verify_v1_2_f5.py
+s=10: partial error=6.2605764e-13, tail bound=2.5e-8
+s=100: partial error=6.2500909e-14, tail bound=2.5e-10
+s=100: A=(8.06809070156e-5 - 4.91202856099e-6j), s²A=(0.806809070156 - 0.0491202856099j), s²A(no phase)=0.822467033424
+s=1000: A=(8.20896737097e-7 - 7.21460815398e-9j), s²A=(0.820896737097 - 0.00721460815398j), s²A(no phase)=0.822467033424
+s=10000: A=(8.22309958791e-9 - 9.51719319197e-12j), s²A=(0.822309958791 - 0.000951719319197j), s²A(no phase)=0.822467033424
+As s→∞, A(s)→0 while s²A(s)→ζ(2)/2.
+check_gaussian_band.py
+S = 64: normalization and both tail bounds passed at three areas
+S = 256: normalization and both tail bounds passed at three areas
+S = 1024: normalization and both tail bounds passed at three areas
+check_center_moments.py
+Symbolic and numerical moment checks passed. Band fraction: 0.119074070334
+check_fourier_blocks.py
+block 1, dimension 4, absolute sum 2.00000000
+block 2, dimension 16, absolute sum 1.00000000
+block 3, dimension 64, absolute sum 0.88888889
+block 4, dimension 256, absolute sum 1.00000000
+operator_checks.json: byte-identical to archived run = True
+countermodel_checks.json: byte-identical to archived run = True

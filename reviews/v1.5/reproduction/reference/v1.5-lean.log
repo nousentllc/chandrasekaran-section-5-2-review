@@ -1,0 +1,7 @@
+⚠ [9047/9048] Built TraceDim (35s)
+warning: TraceDim.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (9048 jobs).
+'card_mul_le_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'card_le_of_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'finite_of_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'dimension_of_basis_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
