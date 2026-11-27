@@ -16,6 +16,8 @@ Start with [the technical review](REVIEW.md). If the preparation operator in (5.
 
 The current manuscript is [version 1.5, *Finite closure in null-cone quantization of gravity*](reviews/v1.5/). It includes a conditional dimension theorem checked in Lean, a proof of center-band convergence in the entropy integral, a revised assessment of F1–F7, and reproduction materials. The earlier [v1.4 manuscript and Neon review](reviews/v1.4/) remain available.
 
+Read the [post-publication clarification and checked inequality](reviews/v1.5-clarification/). On the refined complete-cycle cuts in §5.2, eventual boundedness of the unnormalized signed amplitudes already forces finite dimension. The clarification revises the referee question, distinguishes normalized gluing, and checks the clock-domain, corner-boost and conservation issues against the source.
+
 Read the [v1.2 red-team note](reviews/v1.2/Chandrasekaran_2611.34924_RedTeam_v1.2.pdf) alongside the [subsequent assessment of F5–F7](reviews/v1.2/ADVERSARIAL_REVIEW_V1_2.md). The assessment proposes revisions to the zero-coupling limit, the scope of one-loop finiteness, and the role of the pure-state extension. The supplied note is archived as written.
 
 The [original source ZIP](reviews/v1.2/RedTeam_2611.34924_v1.2.zip) contains editable TeX and supplements. The [review handoff ZIP](reviews/v1.2/REVIEW_V1_2_HANDOFF.zip) contains the subsequent assessment, Python check and run log. After unpacking that handoff, install `mpmath==1.3.0` and run `python3 verify_v1_2_f5.py` in the extracted directory. The [independent review brief](reviews/v1.2/GEMINI_REVIEW_BRIEF.txt) gives the questions for the next reviewer.
