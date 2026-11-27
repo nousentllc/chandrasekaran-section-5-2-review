@@ -1,0 +1,35 @@
+{
+  "seed": 261134924,
+  "random_trials": 500,
+  "dimension_range": [
+    3,
+    14
+  ],
+  "trace_lower_and_upper_min_slack": 0.05134885095640133,
+  "spread_bound_min_slack": 59.342280999101355,
+  "largest_observed_boost_change_over_bound": 0.3984655406864616,
+  "symbolic_boost_identity": "verified by exact simplification",
+  "countermodel_sections": [
+    {
+      "rank": 1,
+      "trace_T_for_T_identity": 1,
+      "normalized_rank_one_expectation": 1.0
+    },
+    {
+      "rank": 10,
+      "trace_T_for_T_identity": 10,
+      "normalized_rank_one_expectation": 0.1
+    },
+    {
+      "rank": 100,
+      "trace_T_for_T_identity": 100,
+      "normalized_rank_one_expectation": 0.01
+    },
+    {
+      "rank": 1000,
+      "trace_T_for_T_identity": 1000,
+      "normalized_rank_one_expectation": 0.001
+    }
+  ],
+  "scope": "Finite-matrix diagnostics, not a proof of infinite-dimensional or gravitational statements."
+}

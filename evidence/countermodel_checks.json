@@ -1,0 +1,28 @@
+{
+  "theta": 0.5,
+  "delta": 0.12241743810962724,
+  "uncut_X_expectation": 0.06120871905481362,
+  "cut_results": [
+    {
+      "additional_zero_area_cycles": 0,
+      "normalized_cut_response": 0.04409298538972434,
+      "cut_X_amplitude": -0.05087041099973214
+    },
+    {
+      "additional_zero_area_cycles": 1,
+      "normalized_cut_response": 0.02015503377594828,
+      "cut_X_amplitude": -0.2669364309079071
+    },
+    {
+      "additional_zero_area_cycles": 10,
+      "normalized_cut_response": 0.003424189997469568,
+      "cut_X_amplitude": -2.211530610081481
+    },
+    {
+      "additional_zero_area_cycles": 100,
+      "normalized_cut_response": 0.0003681499359831479,
+      "cut_X_amplitude": -21.657472401817223
+    }
+  ],
+  "scope": "An operator-theoretic separation model; its independently chosen uncut vector does not satisfy the cut-to-uncut gluing identification, and it is not a model of gravitational dynamics."
+}
