@@ -2,7 +2,7 @@
 
 This repository contains an equation-by-equation review of the causal-diamond finite-dimensionality argument in [Chandrasekaran, *An algebraic quantization of gravity from the null cone*, arXiv:2611.34924v1](https://arxiv.org/abs/2611.34924v1). The review derives the trace implication, checks the boost and spectral inequalities, and gives an infinite-dimensional operator model that isolates the cut-to-uncut identification.
 
-Start with [the technical review](REVIEW.md). If the preparation operator in (5.30c) has a uniform positive lower bound and the identity gluing in (5.38) gives a finite ordinary trace, finite dimension follows directly. The review identifies the independent justification required for that gluing, and the approximation control required to transfer the linearized graviton calculation to the strict sign in (5.37b).
+Start with [the technical review](REVIEW.md). If the preparation operator in (5.30c) has a uniform positive lower bound and the cut-to-uncut identification used for (5.38) also gives a finite ordinary trace for the identity insertion, finite dimension follows directly. The review identifies the independent justification required for that gluing, and the approximation control required to transfer the linearized graviton calculation to the strict sign in (5.37b).
 
 | Material | What to check |
 | --- | --- |
@@ -17,6 +17,8 @@ Start with [the technical review](REVIEW.md). If the preparation operator in (5.
 Read the [v1.2 red-team note](reviews/v1.2/Chandrasekaran_2611.34924_RedTeam_v1.2.pdf) alongside the [subsequent assessment of F5–F7](reviews/v1.2/ADVERSARIAL_REVIEW_V1_2.md). The assessment proposes revisions to the zero-coupling limit, the scope of one-loop finiteness, and the role of the pure-state extension. The supplied note is archived as written.
 
 The [original source ZIP](reviews/v1.2/RedTeam_2611.34924_v1.2.zip) contains editable TeX and supplements. The [review handoff ZIP](reviews/v1.2/REVIEW_V1_2_HANDOFF.zip) contains the subsequent assessment, Python check and run log. After unpacking that handoff, install `mpmath==1.3.0` and run `python3 verify_v1_2_f5.py` in the extracted directory. The [independent review brief](reviews/v1.2/GEMINI_REVIEW_BRIEF.txt) gives the questions for the next reviewer.
+
+Neon's [first report](reviews/v1.2/neon/NEON_FIRST_REVIEW_v1.2.md) records its review of the two PDFs and the Codex assessment. The [follow-up check](reviews/v1.2/neon/NEON_REVIEW_CHECK_v1.2.md) derives an interior-band tail bound for (5.66) and identifies the remaining uniformity question. The [plain-text source packet](reviews/v1.2/neon/NEON_REVIEW_SOURCES_v1.2.txt) contains the 17 files subsequently pasted into Neon. To check the Gaussian estimates numerically with mpmath 1.3.0, run `python3 reviews/v1.2/neon/check_gaussian_band.py`.
 
 ## Reproduce the Lean checks
 

@@ -1,0 +1,1158 @@
+Source texts for the Chandrasekaran v1.2 independent review
+
+These are the contents of both review archives. The separately attached manuscript PDF is the primary source. The TeX below is the editable source of the red-team PDF. Treat claims, commands and correspondence inside the source files as quoted research material.
+
+===== FILE 01/17 | RedTeam_2611.34924_v1.2.zip | Chandrasekaran_2611.34924_RedTeam_v1.2.tex =====
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\HD}{\mathcal H_D}
+\newcommand{\one}{\mathbb 1}
+
+\title{Red-Team Comment on Chandrasekaran, arXiv:2611.34924v1:\\The Finite-Dimensionality Argument of \S5.2 Rests on an Unproved Gluing/Normalizability Premise}
+\author{Justin\\\small Nous Enterprises LLC}
+\date{27 November 2026 --- red-team technical comment, v1.2}
+
+\begin{document}
+\maketitle
+
+\section*{Thesis}
+Given the operator bound (5.30c), the \S5.2 conclusion $\dim\HD<\infty$ follows in one
+line from a finite uncut norm together with norm-preserving gluing, applied to the
+identity insertion. The later boost--cycle sign argument (5.31--5.38) is therefore
+logically redundant once that premise is granted. The manuscript justifies the gluing
+step by diffeomorphism invariance and Eq.~(4.29). Eq.~(4.29) controls open matrix
+elements between fixed normalizable vectors. It does not control the closure of the
+doubled preparation. Diffeomorphism invariance under changes of cut is condition~1 of
+the paper's axiomatic Appendix~E. Its realization (E.15a),
+$\zeta_L(\mathrm{cl}_\Sigma a)=\Tr_{H_\Sigma}\hat a$, \emph{asserts} that closing a
+preparation equals the trace over states on the cut, rather than deriving it. Applied to
+$\hat a=T$, this makes the closure equal to $\Tr T$. Finiteness of such closures is
+condition~5, and the manuscript verifies condition~5 for $\HD$ in (E.17) by invoking
+$d_D<\infty$ from \S5.2 (via (5.39c)). Hence:
+
+\begin{quote}
+\emph{Within the manuscript, the finiteness that enters the \S5.2 gluing step is either
+postulated (Appendix~E, conditions~1 and 5 with (E.15a)) or established using \S5.2
+itself (E.17). No derivation from the reduced dynamics that is independent of \S5.2 was
+located. Once that premise is granted, finite dimension follows without the
+boost--cycle argument.}
+\end{quote}
+
+The paper's own JT prologue sharpens this. There, under the same diffeomorphism-invariant
+gluing, closing the preparation gives $\Tr W=\infty$ for an operator bounded below on an
+infinite orthonormal family (2.17b). So diffeomorphism invariance does not by itself
+supply a finite uncut norm, even within the manuscript (Section~\ref{sec:more}).
+
+This is a missing proof obligation. It is not a refutation of the proof, and it is not
+a claim that $\HD$ is infinite dimensional. Section~\ref{sec:more} also shows that the
+headline log-coefficient match with Sen is an algebraic identity of the one-loop
+heat-kernel input, and so carries no information about the null-cone quantization. It
+also shows (F5--F7) that the paper's other headline supports carry less weight than
+presented. The finite graviton-pair amplitude is a free-field Fourier series that is
+finite even at $G_N=0$. The semiclassical limit is tested only at one loop, where pure
+gravity has no on-shell divergence. The type~I structure follows from the choice of a
+pure state, and the paper leaves open whether that choice matters.
+
+\section{Premises extracted from the manuscript}
+\begin{itemize}
+  \item[(S1)] (5.23), (5.25), (5.30c): $T\coloneqq C_b^\dagger C_b=e^{-\hat s}f_b(\hat s)$
+  on $\HD$, with $c\,\one\le T\le\one$ and $c=e^{-s_*}m_{b,D}>0$. The positivity of
+  $c$ uses the focusing-based area bound (5.21), (5.30a), so that upstream focusing input
+  is \emph{not} redundant.
+  \item[(S2)] Doubled cut preparation. For a finite-rank basis projection $P$,
+  $\Phi_P=\sum_{i\in P}C_b e_i\otimes\bar e_i$, with $\|\Phi_P\|^2=\Tr(PT)$.
+  \item[(S3)] $Z_P[X]=\Tr(PT)\,\langle X\rangle_P$ (5.38).
+  \item[(S4)] Gluing (pp.~35, 42--43): as $P\to\one$ through complete-cycle unions,
+  $Z_P[X]\to Z[X]=\|C_b\|^2_{\rm uncut}\langle X\rangle_{C_b}$. Justification offered:
+  (4.29) and diffeomorphism invariance (\S3.6).
+  \item[(S5)] $X=\Delta_\eta\hat O-\tfrac{\delta_\eta}{2}\one$, with
+  $\langle X\rangle_P\le0$ on every cut and $\langle X\rangle_{C_b}>0$ (5.37).
+\end{itemize}
+
+\section{Results}
+\begin{lemma}[Trace--dimension equivalence]\label{lem:equiv}
+Under (S1), every finite orthonormal family $F$ satisfies $c|F|\le\Tr(P_FT)\le|F|$.
+With $\Tr T\coloneqq\sup_F\Tr(P_FT)\in[0,\infty]$, we get $\Tr T<\infty$ if and only if
+$\dim\HD<\infty$, and $c\dim\HD\le\Tr T\le\dim\HD$. No separability is assumed.
+\end{lemma}
+
+\begin{proposition}[Identity insertion]\label{prop:one}
+If (S4) holds for $X=\one$ with $N\coloneqq\|C_b\|^2_{\rm uncut}<\infty$, then
+$\dim\HD\le N/c$. The boost--cycle argument (5.31--5.38) is not needed.
+\end{proposition}
+\begin{proof}
+$Z_P[\one]=\Tr(PT)$ increases monotonically to $N$, and Lemma~\ref{lem:equiv} then
+bounds $|F|\le N/c$.
+\end{proof}
+
+\begin{remark}[Scope]
+Only \emph{finite trace} is equivalent to finite dimension. The full content of (S4)
+is stronger. It identifies the cut limit with a specific gravitational amplitude, with
+a prescribed measure, normalization, and insertions. Equivalence between a premise and
+the conclusion is not, by itself, circularity. An independent proof of finite uncut
+norm plus a valid gluing theorem would establish the result through
+Prop.~\ref{prop:one}.
+\end{remark}
+
+\begin{proposition}[What fails without the premise]\label{prop:none}
+Suppose $\dim\HD=\infty$. Then:
+\begin{enumerate}
+  \item $\|\Phi_P\|^2\ge c\,\mathrm{rank}\,P\to\infty$. The \emph{cut} preparations
+  diverge, so (4.29), whose bound is $\le\|\phi\|\|\psi\|$ for fixed vectors, does not
+  apply to their closure. This says nothing about whether an \emph{uncut} object is
+  finite, fails to exist, or is simply not the limit of the cuts. That identification is
+  exactly what is disputed.
+  \item For the signed insertion, $Z_P[X]=Z_P[\Delta_\eta\hat O]-\tfrac{\delta_\eta}{2}
+  \Tr(PT)$ is a difference of two divergent quantities. No trace or cancellation
+  prescription is supplied for the limit.
+  \item The normalized one-sided densities $\rho_P=PTP/\Tr(PT)$ need not determine the
+  two-sided expectation $\langle X\rangle$. Even in $\mathcal B(\ell^2)$, normalized
+  finite-rank identity densities have only singular weak-$*$ cluster points. The failure
+  therefore occurs within type~I and does not by itself diagnose a non-type-I algebra.
+\end{enumerate}
+\end{proposition}
+
+\paragraph{Separation model (due to the Codex review; verified by hand).}
+Let $H=\ell^2(\mathbb N)\oplus\mathbb C f$ with $\hat s e_n=0$ and $\hat sf=f$. Take
+$T=q\one\oplus qe^{-1}$, $q=e^{-1/8}$, $C=T^{1/2}$, $u=e_1\otimes\bar e_1$,
+$v=f\otimes\bar f$, $O=-|u\rangle\langle v|-|v\rangle\langle u|$, and
+$\chi=(u+v)/\sqrt2$. A one-sided boost multiplies $v$ by $e^{i\theta}$, which gives
+$\langle\Delta O\rangle_\chi=\delta\coloneqq1-\cos\theta$. Put $\{f,e_1,e_2,e_3\}$ in
+one 4-cycle, with $k$ further 4-cycles. Then
+\[
+\langle\Delta O\rangle_P=\frac{2e^{-1/2}}{3+e^{-1}+4k}\,\delta<\frac\delta2,
+\]
+so every cut has negative unnormalized amplitude while $\langle X\rangle_\chi>0$. This is
+consistent because $\chi$ is not the cut limit of $C$. The model is not gravitational.
+It isolates the missing identification step.
+
+\section{Where the gluing step could be grounded}
+\begin{center}
+\begin{tabular}{p{0.27\textwidth}p{0.63\textwidth}}
+\hline
+Candidate & Status\\\hline
+Eq.~(4.29)--(4.31) & Controls open matrix elements and finite subdivisions with fixed external vectors. Insufficient for trace closure.\\
+\S3.6 diffeo.\ invariance & Asserted. Not a quantitative convergence theorem.\\
+App.~E, cond.~1, (E.15a) & Closure $=$ trace on the cut is asserted (``we can evaluate the same amplitude by closing \ldots\ or by summing over the states''). Applied to $T$, it gives closure $=\Tr T$.\\
+App.~E, cond.~5, (E.4--E.5) & Finite closures are required axiomatically and verified in (E.17) using $d_D<\infty$ from \S5.2 via (5.39c). Citing this would close the cycle.\\
+Introduction (p.~5) & States that the Lorentzian axioms match the Euclidean ones ``when the Euclidean cylinder has finite trace.'' Finite trace appears here as a condition, not a result.\\
+\S5.4, (5.71--5.74), p.~50 & Factorization and Hilbert--Schmidt structure of connected fillings, developed \emph{after} \S5.2. Not an independent input.\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Further obligations in the sign argument (from the Codex review)}
+These are independent of the trace observation. They would matter even if the gluing
+step were repaired.
+\begin{enumerate}
+  \item \textbf{Approximation control.} The vacuum response (5.28--5.29, D.15--D.20)
+  and (D.36) are computed in the linearized shear description. The strict exact
+  inequality (5.37b) needs a bound on the full remainder that is smaller than
+  $\delta_\eta/2$ in a single compatible parameter regime. Power counting in
+  $\ell_P^2/(\Delta u)^2$ does not supply this.
+  \item \textbf{State identification.} The filter $e^{-\hat s}f_b(\hat s)$ distinguishes
+  areas, not radiative states at fixed area. Assigning the smooth-background excitation
+  bound (5.36b) to $C_b$ therefore needs a selection or dominance argument.
+  \item \textbf{Exact self-adjointness.} $\sin(j_L\hat\sigma_{f_L})\sin(j_R\hat\sigma_{f_R})$
+  is self-adjoint only if the factors commute. Commutativity is shown at linearized
+  order. Gravitationally dressed observables at spacelike separation need not commute,
+  so this is not merely cosmetic. Symmetrizing the product is a candidate repair.
+  \item \textbf{Parameter hierarchy.} $\ell_P\ll\Delta u\ll d\ll B\ll b\ll R_c$ must fit
+  inside a fixed diamond whose area is bounded.
+  \item \textbf{Acknowledged heuristic upstream.} Footnote~18 (after (5.16)) calls the
+  transfer of a classical tail estimate to the exact matrix element a heuristic. This
+  bears on the projected preparation used in (5.20).
+\end{enumerate}
+
+\section{Further findings}\label{sec:more}
+
+\paragraph{F1. The JT prologue is an in-paper test of the gluing premise.}
+In \S2 (pp.~10--11) the paper glues the JT preparation $C_D$ to its time reflection and
+obtains $\langle\Psi_m|W|\Psi_n\rangle=e^{-2\pi(K_L+K_R)/\hbar}\delta_{mn}$ for an
+infinite orthonormal family. Hence $\Tr_{\HD}W\ge N e^{-2\pi(K_L+K_R)/\hbar}$ for
+every $N$, and ``$\Tr W=\infty$ and $W/\Tr W$ cannot define a density matrix''
+(2.17a--b). This is exactly the structure of (S1), a positive lower bound on an infinite
+family, inside a framework with the same diffeomorphism-invariant gluing and the same
+appeal to summing over states on the cut. The justification offered for the 4D gluing
+step (diffeomorphism invariance; (4.29)) is not specific to four dimensions. If it
+implied a finite uncut norm, it would imply one in JT, contradicting (2.17b).
+
+The paper attributes the 4D difference to focusing, which restricts radiative states.
+In \S5.2, however, focusing enters only through the sign comparison (5.37--5.38). That
+comparison needs $Z[X]$ to be a definite finite quantity. With $Z[\one]=\infty$, as in
+JT, $Z[X]=Z[\Delta_\eta\hat O]-\tfrac{\delta_\eta}{2}Z[\one]$ has no prescribed value. The
+abstract itself credits the result to ``diffeomorphism invariance of the path
+integral.'' The JT case shows that this is not sufficient. A finite 4D uncut norm is an
+additional input that is not established before \S5.2.
+
+\paragraph{F2. The $\tfrac{106}{45}$ match is an algebraic identity of the input.}
+Let the one-loop computation give $\Tr(C_b^\dagger C_b)\propto s_b^{\,p}$ (5.67c). Then
+(5.66) gives $Z(\ell)\propto s_*^{\,p+1/2}\propto\ell^{\,2p+1}$, and (5.58) gives
+$q/(1-q)=2p+1$, i.e.\ $q=(p+\tfrac12)/(p+1)$. The fixed-mass coefficient (5.69) is then
+\[
+\frac{q}{2(1-q)}-\frac12 \;=\; p\qquad\text{identically in }p .
+\]
+(Verified symbolically, along with $q(106/45)=257/302$. The normalization in (5.66),
+\[\int_0^\infty e^{-(s-t)^2/4t}\,(4\pi t)^{-1/2}\,dt=1,\]
+is exact, so the paper is correct there.) The clock and ensemble machinery therefore maps the heat-kernel exponent back to
+itself, and the reported coefficient \emph{is} the one-loop conical-defect coefficient
+$p=\tfrac{106}{45}$. Sen's mixed-ensemble result for pure 4D gravity is
+$C_{\rm local}\ln a=\tfrac{212}{45}\ln a=\tfrac{106}{45}\ln A$. In this case it also
+reduces to the local Seeley--DeWitt term [Sen, arXiv:1205.0971, Eqs.~(1.2), (1.4)]. The
+agreement is therefore guaranteed by both calculations using the same local heat-kernel
+coefficient. It tests neither finite dimensionality nor the null-cone construction,
+and in four dimensions it would hold for any matter content whose heat-kernel coefficient is used as input. The ``Lorentzian'' route also uses an
+opening angle $4\pi$ at $S$ (Fig.~33) and an analytic continuation of the boost to a
+$2\pi$ rotation, which is the conical-singularity method underlying the Euclidean
+calculation. It is not an independent method.
+
+\paragraph{F3. The Bekenstein--Hawking term is fixed by the corner weight.}
+$S(\rho_D)=\langle\hat A\rangle/4G_N\hbar+\log Z_{D,1}$ (5.50) is the Gibbs identity for
+$\rho_D\propto e^{-\hat s}$. The weight $e^{-s_i}$ comes from continuing the corner boost
+through two half turns (\S5.3, Fig.~32), and the paper says plainly that this
+``boost weight yields the Bekenstein Hawking term.'' The state count (5.64),
+$\dim\sim e^{as_*}$, then follows from that weight together with $\log Z=o(s_*)$ and
+finite dimensionality. This is internally consistent. It is not, however, an
+independent microscopic derivation of $A/4G$, and it inherits the \S5.2 conditional.
+
+\paragraph{F4. A second instance of the premise at the AdS boundary.}
+The finiteness of $Z_\beta=\Tr(C^\dagger C)$ (5.44--5.45) is derived by requiring that
+closing the joint cut ``must yield zero.'' The argument uses $d_D<\infty$ from \S5.2,
+and it again presumes that the closed amplitude is the limit of partial sums.
+Discreteness of the AdS spectrum (5.46), the type~I boundary algebra (5.47--5.48), and
+the Hartle--Hawking state (5.49) inherit both dependencies.
+
+\paragraph{F5. The \S4.4 pair amplitude is weak evidence for UV finiteness.}
+The ``nonperturbative'' amplitude (4.33) is
+$\sum_k 2(\Delta q_k)^4e^{-2ik/s}=\mathrm{Li}_2(e^{-2i/s})/(2s^2)$, with
+$(\Delta q_k)^2=1/(2sk)$ (verified numerically). Three features limit what it shows.
+(i) Absolute convergence comes from the $k^{-2}$ Gaussian weight, not from gravity. The
+sum converges for every $s$ even without the phase, and at $G_N\to0$ it tends to
+$\zeta(2)/(2s^2)$. (ii) The phase $e^{-ik/s}$ per graviton is \emph{chosen}: ``we choose
+this relative phase \ldots\ by rotating the modes with a boundary unitary,'' an
+``affine shift'' motivated by analogy with a string worldsheet (p.~34). It is not derived
+from dynamics. (iii) The $\log N$ in (4.34) is the non-analyticity of a Fourier series
+at the edge of its domain:
+$\mathrm{Li}_2(e^{-it})-\pi^2/6=-it\,(1-\log(it))+O(t^2)$. Expanding term by term in
+$t=2/s\propto G_N$ produces $\log N$, and resumming replaces it with $\log s$. That is a
+Planck-scale cutoff introduced through the chosen phase. The computation involves a
+Gaussian state and quadratic insertions, so it has no interaction vertices and does not
+engage the two-loop $R^3$ divergence [Goroff--Sagnotti] that \S4.4 cites as its
+motivation. Eq.~(4.30) is Cauchy--Schwarz for unitary operators, which holds in any
+quantum theory.
+
+\paragraph{F6. The semiclassical limit is tested only where GR is already finite.}
+\S6.1 obtains the Einstein equations from stationarity of the reduced GR action in the
+$\hbar\to0$ limit of coherent states, which is the correspondence principle for a
+quantization of GR's own phase space. \S6.2 and App.~D.1 show agreement with constrained
+GR's \emph{one-loop} generating functional, at fixed smearing ((6.14): ``with smearing
+held fixed''). Pure gravity is on-shell finite at one loop ['t~Hooft--Veltman]. The
+first nonrenormalizable divergence appears at two loops, and the paper does not compute
+that order. So agreement through one loop cannot distinguish this construction from
+perturbative GR with a cutoff. The decisive test is the two-loop on-shell $R^3$
+coefficient, or the reason it is absent, and it is not addressed.
+
+\paragraph{F7. ``Type~I'' is a property of the chosen representation.}
+In \S4.2 the paper extends the incoming Gaussian state to a \emph{pure} state $\omega$
+on the full algebra, citing Kadison--Singer [60], and concludes
+$\pi_\omega(\mathcal A)''=\mathcal B(\mathcal H_\omega)$ (4.17). Every irreducible
+representation of every C$^*$-algebra has this property, including the C$^*$-algebras
+underlying type~III local QFT algebras. Type~I here therefore reflects the choice of a
+pure $\omega$, not gravitational dynamics. Pure extensions are generally not unique, and
+footnote~20 defers whether different $\omega$ give equivalent representations. Until
+that is settled, $d_D$, the area spectrum, and the entropy in \S5.3 may depend on
+$\omega$. The manuscript cites the author's earlier work on gravitational algebras of
+type~II [18, 19], but it does not explain how a type~I factor obtained by choosing a pure
+state relates to those type~II results. The JT prologue, where the paper finds a
+type~I$_\infty$ factor with $\Tr W=\infty$ (F1), shows that this type~I structure is
+compatible with infinite closure.
+
+\paragraph{Checked and consistent.} Footnote~23's $q=2x^2/(1+x^2)$ agrees with the
+one-loop $q=257/302$. The ratio $\ell(D)/r_h$ is not free; it is fixed by the ensemble
+($x^2=\langle s\rangle/s_*=257/347$).
+
+\section{Machine-checked component}
+\texttt{TraceDim.lean} compiled unchanged under Lean~4.35.0, Mathlib
+\texttt{56a0058}. All three declarations depend only on \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}, with no \texttt{sorryAx}. SHA-256
+\texttt{789ba2c8\ldots664893} matches between authoring and verification (Codex
+package). Scope: linear growth of finite orthonormal partial sums under a quadratic-form
+lower bound, and finiteness of the index type of an orthonormal family under the
+\emph{assumed} bound \texttt{hN}. Not formalized: the conclusion
+\texttt{FiniteDimensional} (this needs a Hilbert basis), the converse direction, the
+upper bound $T\le\one$, and any physical premise.
+
+\section{Assessment}
+The elementary operator deductions hold. The manuscript's $\dim\HD<\infty$ is
+conditional on a gluing/normalizability theorem that is not supplied independently.
+The sign argument carries further obligations of approximation control,
+state identification, and exact self-adjointness. Downstream results (discrete area
+spectrum, (5.39a), and the \S5.3 counting) inherit the conditional. The
+$\tfrac{106}{45}$ match is an identity of the one-loop heat-kernel input (F2) and is no
+evidence for finiteness.
+
+\paragraph{Cleanest repair.} Prove $C_b\in\mathcal S_2$ (Hilbert--Schmidt), or a finite
+norm-preserving closure for this specific preparation, from the reduced dynamics and
+without using \S5.2 or Appendix~E. Prop.~\ref{prop:one} then completes the argument.
+Alternatively, state finite closure as an explicit axiom and demonstrate a nontrivial
+realization of it.
+
+\paragraph{Scope.} This is a rapid red-team comment, not a full review.
+Appendix~D.3, the reduced quantization of \S\S3--4, \S6, and the entropy calculation
+beyond the coefficient check were not audited. Nothing here shows that $\HD$ is
+infinite dimensional or that the framework is inconsistent. Corrections from the author
+are invited and will be incorporated in a revised version.
+
+\paragraph{Contributions and AI use.} The author directed the review, selected its
+targets, and takes responsibility for all claims. AI systems were used as research
+tools, not authors. ChatGPT (OpenAI) produced an initial triage that flagged \S5.2.
+Claude Opus~5.5 (Anthropic) reduced the objection to the identity-insertion argument,
+drafted the note, and wrote \texttt{TraceDim.lean}. Claude's analysis was primed by the
+ChatGPT triage. OpenAI Codex then reviewed the draft adversarially. It corrected several
+of its claims, identified the (E.17) dependency and the obligations in Section~4,
+constructed the separation model, and compiled the Lean file. Because each system saw
+earlier outputs, their agreement is not independent replication. Every manuscript
+citation in this note was checked against the v1 PDF.
+
+\paragraph{Artifacts.} \texttt{TraceDim.lean}, the verification log, the
+finite-matrix checks, and the separation-model script are included as supplementary
+files.
+
+\end{document}
+
+===== END FILE 01 =====
+
+===== FILE 02/17 | REVIEW_V1_2_HANDOFF.zip | ADVERSARIAL_REVIEW_V1_2.md =====
+# Adversarial review of RedTeam v1.2: F5–F7
+
+27 November 2026. Review of `Chandrasekaran_2611.34924_RedTeam_v1.2.tex` and its associated PDF in `RedTeam_2611.34924_v1.2.zip`, against Chandrasekaran, *An algebraic quantization of gravity from the null cone*, [arXiv:2611.34924v1](https://arxiv.org/abs/2611.34924v1). This is a review of the three new findings and their framing in the thesis paragraph, not a fresh proof audit of F1–F4. The ZIP and separately supplied PDF have SHA-256 hashes `f0d528208ef96a2bc1f47a6be9e20746b6637d848278929fbd99092d1d1f93a5` and `00ec105355be759a8da5ffa860c7d9024bd29597a130a0e8da8c3583ec22fcc3`, respectively. The PDF inside the ZIP matches the separately supplied PDF byte for byte.
+
+## F5 — §4.4 pair amplitude
+
+**Supported core.** From the displayed variance in (4.32), `(Δq_k)^2=1/(2sk)`, the connected pair sum in (4.33) is exactly
+
+\[
+A(s)=\sum_{k\ge1}\frac{e^{-2ik/s}}{2s^2k^2}
+    =\frac{\operatorname{Li}_2(e^{-2i/s})}{2s^2},\qquad s>0.
+\]
+
+Absolute convergence follows from `Σk⁻²<∞`; the chosen phase is irrelevant to that convergence. Removing the phase leaves `ζ(2)/(2s²)`. The phase is selected through a boundary unitary and affine shift, as the paper says directly below (4.32), with a motivation in footnote 17. The sum has Gaussian quadratic insertions and no graviton interaction vertices. It does not calculate the two-loop scattering divergence cited immediately before the example. These are fair limits on the example's evidential reach.
+
+**Needed corrections.** At fixed corner area, `s=𝒜/(4G_Nℏ)`, so `G_N→0` means `s→∞`. The unscaled amplitude tends to **zero**; the precise finite nonzero limit is `s²A(s)→ζ(2)/2`. The phrase “finite even at `G_N=0`” in the v1.2 thesis paragraph is formally true but suggests a nonzero surviving amplitude. Replace it with the scaled statement. Also, “Planck-scale cutoff introduced through the chosen phase” is too strong: no hard momentum cutoff is inserted. The phase sets a crossover at mode number `k∼s` in an already absolutely convergent series. A link from that crossover to a physical Planck momentum needs the mode-frequency and geometric scale relation, which F5 does not supply.
+
+For `t=2/s→0⁺`, the principal-branch expansion is
+
+\[
+\operatorname{Li}_2(e^{-it})-\zeta(2)
+  =it(\log(it)-1)+O(t^2),
+\quad
+A(s)=\frac{\zeta(2)}{2s^2}
+  +\frac{i(\log(2i/s)-1)}{s^3}+O(s^{-4}).
+\]
+
+Thus the `-i log s/s³` term and the divergent third derivative in (4.34) are consistent with an amplitude finite for every positive `G_N` and continuous at zero. This is a valid order-of-limits illustration. The paper explicitly introduces it as an example of exchanging the expansion and UV sum, not as a calculation of the Goroff–Sagnotti diagram. The criticism should target extrapolation from that illustration to general UV finiteness, rather than imply that (4.33) itself fails. Equation (4.30) is Cauchy–Schwarz **given** a Hilbert-space resolution of identity, normalizable fixed external states, and unitary maps; saying only “Cauchy–Schwarz holds in any quantum theory” hides those premises. The supplied `section4-4_pair_amplitude_check.py` prints comparisons but has no assertions or tail estimate; [our separate check](verify_v1_2_f5.py) tests finite partial sums against the exact value with an analytic tail bound.
+
+**Suggested heading:** “The §4.4 example illustrates an order-of-limits effect, but does not establish UV finiteness of interacting amplitudes.”
+
+## F6 — §6 semiclassical limit
+
+**Supported core.** Equations (6.1)–(6.5) derive the classical Einstein equations from the reduced action and coherent-state limit. Equations (6.6)–(6.16) and Appendix D.1 work through first order in `ℏ`; the paper explicitly calls its generating-functional comparison one loop. Neither section computes a two-loop graviton amplitude or proves an all-orders UV bound. That is a meaningful scope limit, and [Goroff's thesis](https://thesis.caltech.edu/11445/) confirms the two-loop on-shell pure-gravity divergence in the conventional S matrix.
+
+**Important overstatement.** The heading “tested only where GR is already finite” and the blanket sentence “Pure gravity is on-shell finite at one loop” do not fit this paper's full setup. The familiar [’t Hooft–Veltman result](https://www.numdam.org/item/AIHPA_1974__20_1_69_0/) concerns the appropriate on-shell, zero-cosmological-constant pure-gravity setting, up to topological terms. Chandrasekaran allows `Λ` in (3.5), (6.4), and (6.13), and studies a generating functional and a coincident-point composite quantity in (6.14), rather than only an on-shell S matrix. [A one-loop calculation with cosmological constant](https://arxiv.org/html/gr-qc/0103043v1) gives nonzero on-shell terms proportional to the Euler density and `Λ²` in its Eq. (29). Fixed smearing does not by itself prove the absence of every UV or composite-operator renormalization issue. Conversely, one-loop agreement is still a substantive low-energy consistency check; the absence of an `R³` obstruction at that order does not make it vacuous.
+
+**Test requested of the author.** State precisely the regulator, renormalization and boundary conditions under which the determinant and coincident expression in (D.2), (D.12), and (6.14) exist, and whether the comparison is before or after renormalization. A two-loop construction is a natural next stress test, but its `R³` coefficient need not vanish: a finite nonperturbative amplitude can have a singular perturbative expansion, the mechanism the author is illustrating in (4.33)–(4.34). The right question is how the framework reproduces or resolves the known two-loop low-energy behavior while defining its full amplitude. Calling one test “decisive” overstates what it would establish.
+
+**Suggested heading:** “One-loop semiclassical agreement does not establish an all-orders UV completion.”
+
+## F7 — footnote 20 and type I
+
+**Supported core.** Section 4.2 first constructs an incoming Gaussian state, then chooses a *pure extension* `ω` to the full observable C\*-algebra. For a pure state, the GNS representation is irreducible; hence its commutant is scalar and the bicommutant is `π_ω(𝒜)″=B(ℋ_ω)`, exactly (4.17). This type-I bicommutant follows from the pure-state choice. It does not by itself show that a physically preferred or representation-independent full algebra has type I structure. Footnote 20 expressly leaves unitary equivalence for different `ω` open for the same range of clock readings.
+
+**Needed precision.** Say **bicommutant/weak closure**, not “every irreducible representation *is* `B(ℋ)`.” The C\*-image `π(𝒜)` can be a proper norm-closed subalgebra of `B(ℋ)`. For an abstract type-III von Neumann algebra viewed only as a C\*-algebra, a pure-state GNS representation of this sort is generally non-normal relative to its original von Neumann representation; this does not change the original local algebra's type. Nor does pure-state extension nonuniqueness alone prove that `d_D`, area spectra, or entropy differ in this gravitational model. The relevant open condition is whether allowed extensions are unitarily equivalent **and** intertwine the clock, area and preparation operators used to define those quantities. Uniqueness of the state is stronger than necessary. Thus “may depend on `ω`” is a legitimate unresolved possibility, not a demonstrated dependence.
+
+The cited earlier type-II work concerns different algebraic constructions. A demand to explain their relationship is reasonable; treating the coexistence of type I and type II as a contradiction is not justified. The JT example, (2.17), does show that a type-I factor can coexist with an infinite closure, but it does not establish that the four-dimensional representation choice creates a failure of (5.38).
+
+An abstract illustration of why equivalence is a genuine question: for `𝒜=M₂(ℂ)⊕M₃(ℂ)` and the scalar unital subalgebra, its unique state has pure extensions supported on either summand. Their GNS bicommutants are type I in both cases, but the representations have dimensions two and three and are inequivalent. This does **not** model Chandrasekaran's incoming algebra; it shows only that a pure-extension theorem cannot supply representation independence by itself.
+
+**Suggested heading:** “The type-I bicommutant follows from a pure-state extension; representation independence remains open.”
+
+## Changes before circulation
+
+1. Revise the v1.2 thesis paragraph's `G_N=0` clause to `A(s)→0` and `s²A(s)→ζ(2)/2`. Replace the “Planck-scale cutoff” wording in F5 with “mode-number crossover `k∼s`.”
+2. Narrow F6's one-loop finiteness statement to the zero-`Λ`, on-shell pure-gravity result, and distinguish it from the paper's `Λ`-admitting, boundary-sensitive, smeared generating functional. Replace “decisive test” with “natural next test.”
+3. Keep F7's exact (4.17) bicommutant notation and make representation dependence explicitly possible, not established. Avoid saying Kadison–Singer resolves uniqueness; the paper cites it for extension and separately defers equivalence.
+4. Add full citations for 't Hooft–Veltman and Goroff–Sagnotti to the note; v1.2 currently uses bracketed name labels without a bibliography. Separate the paper's explicit claims from stronger inferences about all amplitudes and all abstract claims.
+
+**Overall assessment.** F5 and F7 identify real scope limits; F6 identifies a real missing all-orders test. The mathematical identity and pure-GNS theorem check out. The current wording would invite avoidable objections, especially the one-loop and “Planck-scale cutoff” formulations. None of these findings refutes the paper's explicit (4.33), (4.17), or one-loop calculations. This review does not prove or disprove the §5.2 finite-dimensionality theorem, and it does not validate v1.2's earlier F1–F4 paragraphs afresh.
+
+**Reproduction.** `python3 outputs/verify_v1_2_f5.py` passed with Python 3.13 and mpmath 1.3.0. The exact series identity also follows directly from the defining power series of the dilogarithm; the numerical check is supporting evidence, not a proof of the physical interpretation.
+
+===== END FILE 02 =====
+
+===== FILE 03/17 | RedTeam_2611.34924_v1.2.zip | supplementary/Chandrasekaran_5-2_independent_review.md =====
+# Independent adversarial review of Chandrasekaran §5.2
+
+27 November 2026. Review by OpenAI Codex at the user's request.
+
+**Conclusion:** the trace argument in the supplied audit establishes a sharp conditional result. It exposes a substantial gluing/normalizability obligation, but does not by itself establish circularity or refute finite dimensionality. Independently, the transition from the linearized graviton estimates to the exact positive amplitude in (5.37)–(5.38) needs quantitative justification. The supplied Lean file compiles unchanged; its formal scope is narrower than a verification of either the manuscript or the entire audit.
+
+## Sources and review scope
+
+Primary source: the exact attached 83-page `2611.34924v1.pdf`, checked against the public [v1 manuscript](https://arxiv.org/abs/2611.34924v1). Equation numbers and page numbers below refer to the attached PDF. I read §5.2, Appendix D.2, and the relevant passages in §§3.6, 4.4, 5.1, 5.4 and Appendix E. I checked the rendered equation pages 41 and 73, in addition to extracting text. This is not a complete verification of the reduced quantization, Appendix D.3, the entropy calculation, or the full manuscript.
+
+Comparison documents: the exact attached `chandrasekaran_5-2_audit(1).tex`, labelled working note v0.2, and `TraceDim.lean`. Their contents were obtained from the referenced chat attachments, rather than substituted from similarly named Downloads files. The prior chat's conclusions were treated as claims to test.
+
+The review proceeded through a draft dependency reconstruction, adversarial checks and attempted countermodels, then this revised assessment. No claim of a refutation is made.
+
+## 1. Exact premises and dependency structure
+
+Write \(H=\mathcal H_{\mathscr D}\), \(s=\widehat{\mathscr A}/(4G_N\hbar)\), and \(T=C_b^\dagger C_b\). Identities below act on the allowed subspace \(H\).
+
+| Input | Manuscript location | Mathematical role and qualification |
+|---|---|---|
+| Clock and area restrictions | (5.21a–d), (5.30a) | Supply \(0\le s\le s_*<\infty\). This presumes the clock construction and its spectral restriction are available. |
+| Half-preparation and unitary evolution | (5.23a–b) | \(C_{\mathscr D}=Ue^{-s/2}P_{\mathscr D}\); hence \(C_{\mathscr D}^\dagger C_{\mathscr D}=e^{-s}\) on \(H\). |
+| Strictly positive Gaussian area filter | (5.25), (5.30b–c) | \(f_b(s)=\exp[-(s-s_b)^2/(2\sigma_s^2)]\), with finite positive width, gives \(T=e^{-s}f_b(s)\) and \(cI\le T\le I\), \(c=e^{-s_*}\min_{[0,s_*]}f_b>0\). |
+| Finite cut preparations | (5.31), (D.22) | For finite-rank basis projections \(P\), the unnormalized doubled vector is \(\Phi_P=\sum_{i\in P}C_b e_i\otimes\bar e_i\), with \(\|\Phi_P\|^2=\operatorname{Tr}(PT)\). The paper's \(\Psi_P\) in (D.22) is normalized. |
+| Boost estimate and cycle construction | (5.32), (D.23–D.25) | Under infinite dimension, construct a net of complete-cycle projections tending strongly to \(I\), each with small normalized boost response. |
+| Nonzero vacuum response | (5.28–5.29), (D.19–D.20) | Calculated in the linearized, smooth-background graviton description. |
+| Transfer to the uncut preparation | (5.36b), (D.36), (5.37b) | Requires control of the uncut state's excitation and errors beyond the approximation used. |
+| Identification of cut and uncut amplitudes | text surrounding (5.38), pp. 42–43; appeal to (4.29) | Requires \(Z_P[X]\to Z[X]\) for the specified preparation and insertion. This is the main analytic gluing obligation. |
+
+There are two distinct routes:
+
+1. **Trace route:** bounded area and positive filter give \(T\ge cI\). If identity gluing independently gives \(\operatorname{Tr}T=N<\infty\), finite dimension follows immediately.
+2. **Manuscript's sign route:** assume infinite dimension, construct cycles with nonpositive cut amplitudes, establish a strictly positive uncut amplitude, and use gluing convergence to contradict their signs.
+
+The sign route's last step is elementary once all its inputs hold. The questions are whether its uncut state, exact sign, and gluing convergence have been established in a common mathematical framework.
+
+## 2. Logical redundancy versus circularity
+
+For any finite orthonormal family \(F\),
+
+\[
+c|F|\le\sum_{e\in F}\langle e,Te\rangle\le |F|.
+\]
+
+Defining the extended positive trace as the supremum over such families yields
+
+\[
+\operatorname{Tr}T<\infty\quad\Longleftrightarrow\quad \dim H<\infty,
+\qquad c\dim H\le\operatorname{Tr}T\le\dim H.
+\]
+
+No separability assumption is needed. For the paper's cycle net, strong exhaustion of a complete orthonormal basis suffices to recover this positive trace. The cycle projections need not contain every arbitrary finite-dimensional subspace as a literal subspace.
+
+Thus, if gluing with \(X=I\) gives a finite uncut squared norm \(N\),
+
+\[
+\dim H\le N/c.
+\]
+
+**This proves redundancy of the later boost/cycle contradiction under that strengthened premise.** It does not make all focusing input redundant: focusing was already used to obtain bounded area in (5.21), which supports the uniform positive lower bound.
+
+Equivalence of a premise with a conclusion is not evidence of a circular derivation by itself. Inferring circularity from equivalence alone is a non sequitur. An independently proved finite norm plus a valid gluing theorem would establish finite dimension through this short argument. Alternatively, sufficiently strong gluing/finiteness axioms can imply finite dimension without a logical cycle; the remaining issue would be their realization in the proposed gravitational theory.
+
+The potentially circular dependency is specifically:
+
+\[
+\text{finite dimension}\ \Longrightarrow\ \text{finite closure norm}
+\ \Longrightarrow\ \text{gluing convergence used to prove finite dimension}.
+\]
+
+I did not locate an independent proof of the necessary finite closure norm and its identification with \(\operatorname{Tr}T\) in the reviewed passages. This supports a missing proof obligation, not a categorical finding that no such derivation can exist.
+
+## 3. Operator inequalities checked
+
+### (5.30c): the uniform positive lower bound
+
+Given the stated bounded self-adjoint area operator, unitary \(U\), commuting clock restriction, and positive Gaussian filter, this follows directly from functional calculus. The minimum of \(f_b\) on the compact interval is positive. An extremely small \(c\) is sufficient mathematically; no computationally feasible cycle length is required.
+
+A filter that vanishes on part of the spectrum would change the argument, but that is not the filter in (5.25).
+
+### (D.23) and (5.32): the boost-distance estimate
+
+Let \(\psi_P=\Phi_P/\sqrt{\operatorname{Tr}(PT)}\), and let
+\(V=I\otimes\exp[i\eta(s^*-s_0)/(2\pi)]\). Then
+
+\[
+\|(V-I)\psi_P\|^2\le
+\frac{\eta^2}{4\pi^2}\operatorname{Tr}[\rho_P(s-s_0)^2],
+\qquad \rho_P=PTP/\operatorname{Tr}(PT).
+\]
+
+This follows from \(|e^{ix}-1|\le |x|\). The density on the conjugate factor is represented by the transpose of \(PTP\); pairing it with \(s^*\) yields the displayed trace. For bounded \(O\) and normalized vectors,
+
+\[
+|\langle V\psi,O V\psi\rangle-\langle\psi,O\psi\rangle|
+\le2\|O\|\|(V-I)\psi\|,
+\]
+
+which gives precisely the factor \(|\eta|/\pi\) in (5.32). No assumption \([P,s]=0\) is necessary for this estimate.
+
+### (D.24–D.25): spectral spread and cycles
+
+For \(Q=I-\mathbf1_I(s)\), \(s_0\in I\), and interval width at most \(\Delta s\),
+
+\[
+(s-s_0)^2\le(\Delta s)^2 I+s_*^2Q.
+\]
+
+Since \(PTP\le P\) and \(\operatorname{Tr}(PT)\ge c\operatorname{rank}P\), positivity of trace pairing gives
+
+\[
+\operatorname{Tr}[\rho_P(s-s_0)^2]
+\le(\Delta s)^2+
+\frac{s_*^2\operatorname{Tr}(PQ)}{c\operatorname{rank}P}.
+\]
+
+This yields the displayed bounds when at most one member of each length-\(r\) cycle lies outside \(I\). A finite spectral partition of an infinite-dimensional Hilbert space has a part of the same infinite Hilbert dimension, so the cardinality argument also accommodates a nonseparable space, using the usual choice-based existence of bases.
+
+### (5.29), (D.28–D.35): linearized graviton calculation
+
+The boost ratio reduces to
+\[
+\frac{4e^\eta}{(1+e^\eta)^2}=\operatorname{sech}^2(\eta/2).
+\]
+Its loss is \(\tanh^2(\eta/2)\). I checked this identity symbolically.
+
+Within the free-field assumptions of Appendix D.2, the constants in the subsequent bound also check out. With the stated Fourier convention and real \(g\),
+\[
+\int_0^\infty dk\int_0^\infty d\xi\,\xi|\widetilde g(k+\xi)|^2
+=\frac12\int_0^\infty p^2|\widetilde g(p)|^2dp
+=\frac\pi2\|g'\|_2^2,
+\]
+recovering (D.29). Cauchy–Schwarz applied to (D.32) gives
+\(\langle a_h^\dagger a_h\rangle\le\|h\|_2^2 E_g/4\), yielding the coefficient in (D.34c). The four cosine terms in (D.30–D.31), each with coefficient magnitude \(1/2\), then give the factor 4 in (D.35).
+
+The compact cutoff in \(g h_+\) need not preserve annihilation of the original vacuum. The text instead uses the vacuum of the single mode \(a_h\), whose quadrature variance is \(v_h\). That distinction avoids an immediate objection to (D.33–D.34). The argument still requires an appropriate regular oscillator representation, the relevant state/domain assumptions, and finite local energy when a finite bound is claimed. It is not automatically a statement about every algebraic state in an arbitrary representation.
+
+As diagnostics, 500 reproducible random finite-matrix tests—including projections not commuting with area—satisfied the trace, spectral-spread and boost bounds within numerical tolerance. These tests are not proofs of the infinite-dimensional estimates or the gravitational interpretation. The analytic derivations above carry that mathematical burden.
+
+## 4. Gluing and convergence: the precise gap
+
+(4.29–4.30), p. 32, concern composition between fixed Hilbert-space vectors:
+
+\[
+\sum_i|\langle\phi,U_2e_i\rangle\langle e_i,U_1\psi\rangle|
+\le\|\phi\|\,\|\psi\|.
+\]
+
+This controls an open matrix element with square-summable coefficients. It does not establish a finite closed trace of an arbitrary bounded operator. The multiple-cut estimate (4.31) is likewise for a finite subdivision with fixed external vectors; it is not a uniform estimate for increasingly many boundary states or a trace closure.
+
+If \(H\) is infinite and \(T\ge cI\), the unnormalized doubled cut preparations satisfy
+\[
+\|\Phi_P\|^2\ge c\operatorname{rank}P\longrightarrow\infty.
+\]
+They cannot converge in Hilbert norm. A bounded operator \(C_b\) can map every individual finite-norm input to a finite-norm output without defining a Hilbert-space vector \(\sum_i C_be_i\otimes\bar e_i\). The latter requires \(C_b\) to be Hilbert–Schmidt.
+
+Strong convergence \(P\to I\) does ensure convergence against a fixed vector, and against a trace-class density. It does not license taking a trace against \(T\ge cI\) when dimension is infinite. For a bounded doubled observable \(X\), Hilbert–Schmidt control would repair the inference: \(\Phi_P\to\Phi\) in norm implies
+\[
+|\langle\Phi_P,X\Phi_P\rangle-\langle\Phi,X\Phi\rangle|
+\le\|X\|\,\|\Phi_P-\Phi\|(\|\Phi_P\|+\|\Phi\|)\to0.
+\]
+
+The normalized vectors are not unbounded in norm, but normalization alone does not make them converge to the independently selected uncut state. Nor does convergence of the one-sided \(\rho_P\) control an arbitrary two-sided \(X\).
+
+**Appendix E is not an independent repair.** Condition 5, (E.4–E.5), requires finite compatible closures for energy-smeared preparations. Given bounded boost spectrum, a compactly supported smooth function can equal one on the whole spectrum; such a finiteness requirement is already very strong. In E.3, (E.17), the manuscript explicitly invokes \(d_{\mathscr D}<\infty\) from §5.2 to establish closure finiteness. Using that verification to justify §5.2 would introduce the dependency cycle rather than resolve it.
+
+Likewise, §5.4, (5.71–5.74), relates connected fillings to Hilbert–Schmidt operators after the preceding finite-dimension result. It does not independently establish the needed pre-§5.2 trace estimate.
+
+## 5. Explicit separation models
+
+### Ordinary unitarity and positive operator bounds do not force finite dimension
+
+On \(H=\ell^2(\mathbb N)\), take \(U=I\), \(s=aI\) with finite \(a\ge0\), and the stated Gaussian filter. Then \(T=e^{-a}f_b(a)I\) has a uniform positive lower bound. Every open matrix-element sum in (4.30) converges absolutely, while \(\operatorname{Tr}T=\infty\). This is an elementary type-I example. It does not satisfy finite identity closure or the nonzero boost-response premise, and therefore is not a counterexample to the complete theorem.
+
+### Positive uncut response and uniformly suppressed cut response can coexist without identification
+
+Here is a stronger operator-theoretic model. Let
+\[
+H=\ell^2(\mathbb N)\oplus\mathbb C f,\quad se_n=0,\quad sf=f.
+\]
+Choose \(s_*=1\), \(s_b=1/2\), \(\sigma_s=1\), \(q=e^{-1/8}\), and
+\[
+T=e^{-s}f_b(s)=qI_{\ell^2}\oplus qe^{-1}I_{\mathbb C f},\qquad C=T^{1/2}.
+\]
+Thus (5.30c) holds with \(c=q/e\). On \(H\otimes\bar H\), write
+\(u=e_1\otimes\bar e_1\), \(v=f\otimes\bar f\), and take
+\[
+O=-|u\rangle\langle v|-|v\rangle\langle u|,\quad
+\chi=(u+v)/\sqrt2.
+\]
+This is a self-adjoint norm-one observable and a normalizable vector. For a one-sided boost giving \(v\) phase \(e^{i\theta}\),
+\[
+\langle\Delta O\rangle_\chi=\delta:=1-\cos\theta>0.
+\]
+Put \(f,e_1,e_2,e_3\) in one cycle of length four, and partition the remaining \(e_n\)'s into cycles of length four. The complete-cycle projections strongly exhaust \(H\). A projection containing the special cycle and \(k\) other cycles gives
+\[
+\langle\Delta O\rangle_P
+=\frac{2e^{-1/2}}{3+e^{-1}+4k}\,\delta
+<\frac\delta2.
+\]
+If the special cycle is absent, the response is zero. Thus, for \(X=\Delta O-\delta I/2\), every nonempty cycle cut has negative unnormalized amplitude, whereas \(\langle X\rangle_\chi=\delta/2>0\).
+
+There is no contradiction: \(\chi\) is not the cut limit of the operator \(C\). This model shows that the lower bound, cycle inequalities, and existence of a normalizable positive-response state do not establish that identification—even in a type-I algebra. It is not a gravitational model and does not realize the shear/focusing equations. It isolates the missing bridge rather than violating all of the manuscript's premises.
+
+No infinite-dimensional countermodel can satisfy both \(T\ge cI>0\) and finite identity closure under ordinary Hilbert-space trace. Their incompatibility is already proved in §2.
+
+## 6. Independent vulnerabilities beyond the supplied audit
+
+### A. Approximation control at the strict sign step
+
+(5.28a), (D.15–D.20), and the field in (5.35) are explicitly based on the quadratic action and linearized shear. The commutator used before (D.20) is stated at that order. Equation (D.36) controls an excitation/geometric discrepancy within that description; it is not, as written, a bound on the entire exact-minus-linearized gravitational remainder.
+
+To infer the exact strict inequality in (5.37b), one needs, for example,
+\[
+\big|\langle\Delta O\rangle_{\mathrm{exact}}-
+\langle\Delta O\rangle_{\mathrm{linearized}}\big|\le\varepsilon_{\mathrm{full}},
+\qquad
+\varepsilon_{\mathrm{full}}+\sqrt{K(d/B+dB/b^2)}<\delta/2,
+\]
+with a specified finite constant \(K\), in one compatible regime of smearings, sources, geometry and cutoff removal. This displayed estimate is a proposed sufficient repair, not a theorem extracted from the paper.
+
+The stated loop parameter \(\ell_P^2/(\Delta u)^2\) supplies power-counting evidence, not by itself a uniform remainder bound or control of nonperturbative contributions. The needed comparison is with the actual \(\delta\), which can be small for narrow, widely separated smearings. The finite constants may depend on fixed shape ratios such as \(\Delta u/d\).
+
+The \(d\to0\) argument in (D.21) also cannot by itself be interpreted as a physical limiting proof while preserving \(\ell_P\ll\Delta u\ll d\). The finite-separation argument is the appropriate route, with quantified errors.
+
+### B. Which exact state is smooth?
+
+The area-filtered operator has \(T=e^{-s}f_b(s)\). This suppresses some areas but does not distinguish different radiative or geometric states at the same area. To use (5.36b) for this particular uncut preparation, the argument must explain why the state represented by that operator has the smooth-background, small vacuum-subtracted shear expectation used in (D.36).
+
+Holding additional cap data fixed might supply a physical selection mechanism. It would then be necessary to show that this selection is compatible with the operator identity (5.23b), its cancellation of \(U\), and the gluing trace over all allowed states. Expanding about one smooth saddle does not alone prove that this saddle controls the exact preparation. This is an independent state-identification/dominance obligation, not just a convergence question.
+
+### C. Self-adjointness of the exact insertion
+
+For self-adjoint \(A,B\), \(\sin A\sin B\) has norm at most one, but is self-adjoint only when the two sine operators commute. Appendix D.2 establishes disjoint-support commutativity for the linearized shear at the stated order. An exact sign assertion such as (5.38) needs exact reality of the expectation or a formulation using its real part.
+
+I have not computed a nonzero exact dressed commutator, so this is an unestablished condition rather than a demonstrated violation. A natural algebraic repair is
+\[
+O_{\rm sym}=\tfrac12\{\sin(j_L\sigma_{f_L}),\sin(j_R\sigma_{f_R})\}.
+\]
+It is self-adjoint and has norm at most one, agrees with the commuting leading-order observable, and preserves the abstract boost bound. One must still control its full-theory response. The cosine identity (D.30) also needs adjustment beyond the commuting approximation.
+
+### D. Fixed-diamond quantifiers
+
+The paper requires \(\ell_P\ll\Delta u\ll d\ll B\ll b\ll R_c\), while bounded clock restricts the allowed area and hence the available \(b\). For a fixed target diamond, one cannot increase \(b\) without limit. A proof should demonstrate that the parameters achieving the strict response gap fit inside that diamond, or establish a suitable larger diamond in the same representation and then pass to its subspace. Footnote 22 indicates the latter strategy for smaller clock intervals; the embedding and existence hypotheses still matter.
+
+### E. An explicitly heuristic upstream step
+
+In §5.1, footnote 18 following (5.16), the manuscript acknowledges that transferring a classical tail estimate to the exact matrix element involving noncommuting operators is heuristic. The text describes the resulting convergence as strong evidence. This is relevant to the existence of the nonzero projected preparation used in (5.20). It should not be silently promoted to an exact theorem in a downstream proof. The present review does not establish that the projected state fails to exist.
+
+## 7. Revisions needed in the supplied audit
+
+1. **Retain the trace lemma and identity-insertion argument.** They identify the central conditional implication clearly.
+2. **Replace “circular as written” with a precise unproved gluing/normalizability obligation**, unless an actual dependency cycle is established. The later E.3 argument depends on §5.2 and cannot repair it independently.
+3. **Do not equate all of (S4) with finite dimension.** Under (S1), finite trace is equivalent to finite dimension. Equality to a particular gravitational amplitude, with the prescribed measure, normalization and insertions, is additional structure.
+4. **Do not infer an infinite uncut norm from an infinite cut trace while disputing their identification.** The established conclusion is divergence of the cut norm. The uncut object may remain independently finite, may fail to exist, or may not be identified by the proposed gluing map.
+5. **Avoid the blanket claim that \(+\infty\) times a positive number is undefined.** That product exists in extended nonnegative arithmetic. The relevant issue is the lack of a finite Hilbert-space normalization and, for a signed insertion, the lack of a justified trace or cancellation prescription.
+6. **Separate marginal and doubled-state convergence.** The \(\rho_P\) in (5.32) is a one-sided reduced density, while \(X\) is a two-sided observable. Marginal convergence alone need not determine its expectation.
+7. **Do not diagnose non-type-I structure from this failure.** On \(B(\ell^2)\), normalized finite-rank identity densities already have only singular weak-* cluster points: each fixed rank-one projection has limiting expectation zero while the identity retains expectation one. A normal limiting state cannot have both properties. The gluing problem occurs within type I.
+8. **Fix the factorization citation.** The cited “natural ... important” question occurs in §5.4, p. 50, not §6 or “p. 3355.” The paper immediately develops a proposed answer in (5.71–5.74); the issue is its dependency on earlier finiteness/gluing, not that the question is merely deferred.
+9. **Distinguish which focusing is redundant.** The later boost/focusing comparison is unnecessary once finite identity closure and (5.30c) are granted; the earlier focusing-to-area-bound argument is still part of the premise chain.
+
+The audit's distinction between finite norm and finite entanglement entropy should be retained. A normalized density can have infinite entropy; neither finite entropy nor a type-I algebra alone implies finite dimension.
+
+## 8. Lean verification and its limits
+
+The exact supplied `TraceDim.lean` compiled unchanged with **Lean 4.35.0**, using installed **Mathlib revision `56a005855ea17e0b0958f73ec801ae140b0a1679`**. The original file's SHA-256 is recorded in `verification_manifest.json`. A separate wrapper appends `#print axioms` to the unchanged source.
+
+All three supplied declarations depend only on `propext`, `Classical.choice`, and `Quot.sound`; no `sorryAx` appears in their printed axiom dependencies.
+
+| Declaration | Formal result |
+|---|---|
+| `card_mul_le_sum` | A uniform quadratic-form lower bound gives linear growth of every finite orthonormal partial sum. |
+| `card_le_of_trace_bound` | The explicit hypothesis `hN` bounds each finite family's cardinality by \(N/c\). |
+| `finite_of_trace_bound` | The indexing type of the supplied orthonormal family is finite. |
+
+The code does **not** formalize a positive operator trace, the upper bound \(T\le I\), Hilbert–Schmidt operators, the converse of the trace–dimension equivalence, or the physical gluing rule. It does not directly conclude `FiniteDimensional 𝕜 E`: one must additionally choose a complete Hilbert basis and connect its finite indexing set to finite-dimensionality. Without a completeness/spanning assumption, finiteness of one orthonormal family is not a dimension theorem about the ambient space.
+
+The crucial input `hN` is assumed, not derived. Therefore compilation verifies the algebraic core while leaving the physical interpretation unresolved. The source header saying “NOT YET COMPILED” is preserved in the original; this verification record supersedes that status for the tested environment.
+
+Promising additional formal obligations are the boost-distance inequality, the spectral-spread bound for noncommuting finite projections, monotone exhaustion of a positive trace, and a theorem deriving convergence of doubled amplitudes from Hilbert–Schmidt convergence. None would independently establish the gravitational hypotheses.
+
+## 9. Concrete repairs and final assessment
+
+The cleanest repair is to prove, independently of §5.2's conclusion, that the specific cap preparation lies in the domain of a norm-preserving gluing identification and has finite norm. Equivalently in the doubled Hilbert-space realization, establish \(C_b\in\mathcal S_2\). With (5.30c), the short trace proof then suffices.
+
+A different repair could state the strong gluing/finiteness requirement as an explicit axiom, prove the resulting conditional theorem, and separately demonstrate a nontrivial realization from the reduced gravitational dynamics. This is logically acceptable but changes what is being derived from the dynamics alone.
+
+If the sign argument is retained, it additionally needs a self-adjoint exact observable, a quantitative response gap for the exact uncut preparation, and a gluing theorem covering that same object and insertion. Normalized convergence on just that observable could support a sign contradiction without first proving every unnormalized trace finite, but that convergence must itself be proved, not obtained solely from \(P\to I\) strongly.
+
+**Assessment:** the elementary operator and trace deductions withstand the checks performed here. The exact gravitational conclusion remains conditional on the identified gluing and approximation-control obligations. The evidence supports a targeted technical challenge to the derivation; it does not prove that the causal-diamond Hilbert space is infinite, that the proposed theory is inconsistent, or that the claimed conclusion has been refuted.
+
+===== END FILE 03 =====
+
+===== FILE 04/17 | RedTeam_2611.34924_v1.2.zip | supplementary/TraceDim.lean =====
+/-
+  TraceDim.lean — verified core for the §5.2 audit of arXiv:2611.34924v1.
+
+  STATUS: written against current Mathlib, NOT YET COMPILED. The sandbox could not
+  install the Lean toolchain. To check it:
+    lake new tracedim math && cd tracedim
+    # put this file in Tracedim/TraceDim.lean
+    lake exe cache get && lake build
+
+  SCOPE. This file proves only pure mathematics:
+    (1) If c‖x‖² ≤ Re⟪x, T x⟫ for all x, then for any finite orthonormal family F,
+        c·|F| ≤ Σ_{i∈F} Re⟪eᵢ, T eᵢ⟫.
+    (2) If those partial sums are bounded by N and c > 0, then every finite
+        subfamily has |F| ≤ N/c, and so the orthonormal family is finite.
+
+  INTERPRETATION (not formalized). Take T = C_b† C_b and c = e^{-s*} m_{b,D}
+  from Eq. (5.30c). The hypothesis `hN` is what the paper's gluing premise
+  (Sec. 4.4 via Eq. 4.29, applied with the insertion X = 1) would supply. This file
+  does not claim the paper asserts `hN`. That question is open and is the
+  subject of the inquiry to the author.
+-/
+import Mathlib
+
+open scoped InnerProductSpace
+
+variable {𝕜 : Type*} [RCLike 𝕜] {E : Type*} [NormedAddCommGroup E] [InnerProductSpace 𝕜 E]
+
+/-- Lower operator bound ⇒ partial traces over orthonormal families grow at least
+linearly in the number of vectors. -/
+theorem card_mul_le_sum {ι : Type*} (T : E →L[𝕜] E) (c : ℝ)
+    (hlow : ∀ x : E, c * ‖x‖ ^ 2 ≤ RCLike.re ⟪x, T x⟫_𝕜)
+    (e : ι → E) (he : Orthonormal 𝕜 e) (F : Finset ι) :
+    c * F.card ≤ ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 := by
+  calc c * (F.card : ℝ) = ∑ i ∈ F, c * ‖e i‖ ^ 2 := by
+        simp [he.1, Finset.sum_const, nsmul_eq_mul, mul_comm]
+    _ ≤ ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 :=
+        Finset.sum_le_sum fun i _ => hlow (e i)
+
+/-- Bounded partial traces + positive lower bound ⇒ |F| ≤ N / c. -/
+theorem card_le_of_trace_bound {ι : Type*} (T : E →L[𝕜] E) {c N : ℝ} (hc : 0 < c)
+    (hlow : ∀ x : E, c * ‖x‖ ^ 2 ≤ RCLike.re ⟪x, T x⟫_𝕜)
+    (e : ι → E) (he : Orthonormal 𝕜 e)
+    (hN : ∀ F : Finset ι, ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 ≤ N)
+    (F : Finset ι) : (F.card : ℝ) ≤ N / c := by
+  rw [le_div_iff₀ hc, mul_comm]
+  exact (card_mul_le_sum T c hlow e he F).trans (hN F)
+
+/-- Hence the orthonormal family (e.g. a Hilbert basis of H_D) is finite. -/
+theorem finite_of_trace_bound {ι : Type*} (T : E →L[𝕜] E) {c N : ℝ} (hc : 0 < c)
+    (hlow : ∀ x : E, c * ‖x‖ ^ 2 ≤ RCLike.re ⟪x, T x⟫_𝕜)
+    (e : ι → E) (he : Orthonormal 𝕜 e)
+    (hN : ∀ F : Finset ι, ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 ≤ N) :
+    Finite ι := by
+  by_contra h
+  rw [not_finite_iff_infinite] at h
+  obtain ⟨F, hF⟩ := Infinite.exists_subset_card_eq ι (⌊N / c⌋₊ + 1)
+  have hle := card_le_of_trace_bound T hc hlow e he hN F
+  rw [hF] at hle
+  push_cast at hle
+  linarith [Nat.lt_floor_add_one (N / c)]
+
+===== END FILE 04 =====
+
+===== FILE 05/17 | RedTeam_2611.34924_v1.2.zip | supplementary/TraceDimCheck.lean =====
+/-
+  TraceDim.lean — verified core for the §5.2 audit of arXiv:2611.34924v1.
+
+  STATUS: written against current Mathlib, NOT YET COMPILED. The sandbox could not
+  install the Lean toolchain. To check it:
+    lake new tracedim math && cd tracedim
+    # put this file in Tracedim/TraceDim.lean
+    lake exe cache get && lake build
+
+  SCOPE. This file proves only pure mathematics:
+    (1) If c‖x‖² ≤ Re⟪x, T x⟫ for all x, then for any finite orthonormal family F,
+        c·|F| ≤ Σ_{i∈F} Re⟪eᵢ, T eᵢ⟫.
+    (2) If those partial sums are bounded by N and c > 0, then every finite
+        subfamily has |F| ≤ N/c, and so the orthonormal family is finite.
+
+  INTERPRETATION (not formalized). Take T = C_b† C_b and c = e^{-s*} m_{b,D}
+  from Eq. (5.30c). The hypothesis `hN` is what the paper's gluing premise
+  (Sec. 4.4 via Eq. 4.29, applied with the insertion X = 1) would supply. This file
+  does not claim the paper asserts `hN`. That question is open and is the
+  subject of the inquiry to the author.
+-/
+import Mathlib
+
+open scoped InnerProductSpace
+
+variable {𝕜 : Type*} [RCLike 𝕜] {E : Type*} [NormedAddCommGroup E] [InnerProductSpace 𝕜 E]
+
+/-- Lower operator bound ⇒ partial traces over orthonormal families grow at least
+linearly in the number of vectors. -/
+theorem card_mul_le_sum {ι : Type*} (T : E →L[𝕜] E) (c : ℝ)
+    (hlow : ∀ x : E, c * ‖x‖ ^ 2 ≤ RCLike.re ⟪x, T x⟫_𝕜)
+    (e : ι → E) (he : Orthonormal 𝕜 e) (F : Finset ι) :
+    c * F.card ≤ ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 := by
+  calc c * (F.card : ℝ) = ∑ i ∈ F, c * ‖e i‖ ^ 2 := by
+        simp [he.1, Finset.sum_const, nsmul_eq_mul, mul_comm]
+    _ ≤ ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 :=
+        Finset.sum_le_sum fun i _ => hlow (e i)
+
+/-- Bounded partial traces + positive lower bound ⇒ |F| ≤ N / c. -/
+theorem card_le_of_trace_bound {ι : Type*} (T : E →L[𝕜] E) {c N : ℝ} (hc : 0 < c)
+    (hlow : ∀ x : E, c * ‖x‖ ^ 2 ≤ RCLike.re ⟪x, T x⟫_𝕜)
+    (e : ι → E) (he : Orthonormal 𝕜 e)
+    (hN : ∀ F : Finset ι, ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 ≤ N)
+    (F : Finset ι) : (F.card : ℝ) ≤ N / c := by
+  rw [le_div_iff₀ hc, mul_comm]
+  exact (card_mul_le_sum T c hlow e he F).trans (hN F)
+
+/-- Hence the orthonormal family (e.g. a Hilbert basis of H_D) is finite. -/
+theorem finite_of_trace_bound {ι : Type*} (T : E →L[𝕜] E) {c N : ℝ} (hc : 0 < c)
+    (hlow : ∀ x : E, c * ‖x‖ ^ 2 ≤ RCLike.re ⟪x, T x⟫_𝕜)
+    (e : ι → E) (he : Orthonormal 𝕜 e)
+    (hN : ∀ F : Finset ι, ∑ i ∈ F, RCLike.re ⟪e i, T (e i)⟫_𝕜 ≤ N) :
+    Finite ι := by
+  by_contra h
+  rw [not_finite_iff_infinite] at h
+  obtain ⟨F, hF⟩ := Infinite.exists_subset_card_eq ι (⌊N / c⌋₊ + 1)
+  have hle := card_le_of_trace_bound T hc hlow e he hN F
+  rw [hF] at hle
+  push_cast at hle
+  linarith [Nat.lt_floor_add_one (N / c)]
+
+#print axioms card_mul_le_sum
+#print axioms card_le_of_trace_bound
+#print axioms finite_of_trace_bound
+
+===== END FILE 05 =====
+
+===== FILE 06/17 | RedTeam_2611.34924_v1.2.zip | supplementary/countermodel.py =====
+def verify_countermodel():
+    import json
+    import math
+    from pathlib import Path
+    theta = 0.5
+    delta = 1-math.cos(theta)
+    q = math.exp(-1/8)
+    rows = []
+    for extra_cycles in [0,1,10,100]:
+        denominator = 3+math.exp(-1)+4*extra_cycles
+        response = 2*math.exp(-0.5)/denominator*delta
+        norm_squared = q*denominator
+        cut_amplitude = norm_squared*(response-delta/2)
+        assert response < delta/2
+        assert cut_amplitude < 0
+        rows.append({'additional_zero_area_cycles':extra_cycles,'normalized_cut_response':response,'cut_X_amplitude':cut_amplitude})
+    result = {'theta':theta,'delta':delta,'uncut_X_expectation':delta/2,'cut_results':rows,'scope':'An operator-theoretic separation model; its independently chosen uncut vector does not satisfy the cut-to-uncut gluing identification, and it is not a model of gravitational dynamics.'}
+    Path('outputs/countermodel_checks.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(result,indent=2))
+
+if __name__ == '__main__':
+    verify_countermodel()
+
+===== END FILE 06 =====
+
+===== FILE 07/17 | RedTeam_2611.34924_v1.2.zip | supplementary/countermodel_checks.json =====
+{
+  "theta": 0.5,
+  "delta": 0.12241743810962724,
+  "uncut_X_expectation": 0.06120871905481362,
+  "cut_results": [
+    {
+      "additional_zero_area_cycles": 0,
+      "normalized_cut_response": 0.04409298538972434,
+      "cut_X_amplitude": -0.05087041099973214
+    },
+    {
+      "additional_zero_area_cycles": 1,
+      "normalized_cut_response": 0.02015503377594828,
+      "cut_X_amplitude": -0.2669364309079071
+    },
+    {
+      "additional_zero_area_cycles": 10,
+      "normalized_cut_response": 0.003424189997469568,
+      "cut_X_amplitude": -2.211530610081481
+    },
+    {
+      "additional_zero_area_cycles": 100,
+      "normalized_cut_response": 0.0003681499359831479,
+      "cut_X_amplitude": -21.657472401817223
+    }
+  ],
+  "scope": "An operator-theoretic separation model; its independently chosen uncut vector does not satisfy the cut-to-uncut gluing identification, and it is not a model of gravitational dynamics."
+}
+
+===== END FILE 07 =====
+
+===== FILE 08/17 | RedTeam_2611.34924_v1.2.zip | supplementary/lakefile.toml =====
+name = "tracedim_review"
+version = "0.1.0"
+defaultTargets = ["TraceDim"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "56a005855ea17e0b0958f73ec801ae140b0a1679"
+
+[[lean_lib]]
+name = "TraceDim"
+
+===== END FILE 08 =====
+
+===== FILE 09/17 | RedTeam_2611.34924_v1.2.zip | supplementary/lean-toolchain =====
+leanprover/lean4:v4.35.0
+
+===== END FILE 09 =====
+
+===== FILE 10/17 | RedTeam_2611.34924_v1.2.zip | supplementary/lean-verification.log =====
+'card_mul_le_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'card_le_of_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'finite_of_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Lean exit status: 0
+
+===== END FILE 10 =====
+
+===== FILE 11/17 | RedTeam_2611.34924_v1.2.zip | supplementary/operator_checks.json =====
+{
+  "seed": 261134924,
+  "random_trials": 500,
+  "dimension_range": [
+    3,
+    14
+  ],
+  "trace_lower_and_upper_min_slack": 0.05134885095640133,
+  "spread_bound_min_slack": 59.342280999101355,
+  "largest_observed_boost_change_over_bound": 0.3984655406864616,
+  "symbolic_boost_identity": "verified by exact simplification",
+  "countermodel_sections": [
+    {
+      "rank": 1,
+      "trace_T_for_T_identity": 1,
+      "normalized_rank_one_expectation": 1.0
+    },
+    {
+      "rank": 10,
+      "trace_T_for_T_identity": 10,
+      "normalized_rank_one_expectation": 0.1
+    },
+    {
+      "rank": 100,
+      "trace_T_for_T_identity": 100,
+      "normalized_rank_one_expectation": 0.01
+    },
+    {
+      "rank": 1000,
+      "trace_T_for_T_identity": 1000,
+      "normalized_rank_one_expectation": 0.001
+    }
+  ],
+  "scope": "Finite-matrix diagnostics, not a proof of infinite-dimensional or gravitational statements."
+}
+
+===== END FILE 11 =====
+
+===== FILE 12/17 | RedTeam_2611.34924_v1.2.zip | supplementary/operator_checks.py =====
+def run_checks():
+    import json
+    import numpy as np
+    import sympy as sp
+    from pathlib import Path
+    rng = np.random.default_rng(261134924)
+    worst_boost_ratio = 0.0
+    min_trace_slack = float('inf')
+    min_spread_slack = float('inf')
+    for _ in range(500):
+        n = int(rng.integers(3, 15))
+        k = int(rng.integers(1, n + 1))
+        s = rng.uniform(0, 3, n)
+        sb, width = 1.5, 2.0
+        w = np.exp(-s - (s-sb)**2/(2*width**2))
+        c = np.exp(-3) * np.exp(-max(sb**2, (3-sb)**2)/(2*width**2))
+        q, _ = np.linalg.qr(rng.normal(size=(n,n))+1j*rng.normal(size=(n,n)))
+        p = q[:,:k] @ q[:,:k].conj().T
+        t = np.diag(w)
+        tr = np.trace(p @ t).real
+        rho = p @ t @ p / tr
+        min_trace_slack = min(min_trace_slack, tr-c*k, k-tr)
+        s0, delta = 1.5, 0.2
+        outside = np.diag((np.abs(s-s0)>delta).astype(float))
+        bound = delta**2 + 9*np.trace(p @ outside).real/(c*k)
+        moment = np.trace(rho @ np.diag((s-s0)**2)).real
+        min_spread_slack = min(min_spread_slack, bound-moment)
+        # Vec(CP) has conjugate-side density (PTP)^T; no commuting P assumption.
+        psi = (np.diag(np.sqrt(w)) @ p).reshape(-1)/np.sqrt(tr)
+        eta = float(rng.uniform(-2,2))
+        phases = np.exp(1j*eta*(s-s0)/(2*np.pi))
+        boosted = (psi.reshape(n,n)*phases).reshape(-1)
+        distance_sq = np.linalg.norm(boosted-psi)**2
+        distance_bound = eta**2/(4*np.pi**2)*moment
+        assert distance_sq <= distance_bound + 1e-11
+        a = rng.normal(size=(n,n))+1j*rng.normal(size=(n,n))
+        a = (a+a.conj().T)/2
+        a /= np.linalg.norm(a,2)
+        b = rng.normal(size=(n,n))+1j*rng.normal(size=(n,n))
+        b = (b+b.conj().T)/2
+        b /= np.linalg.norm(b,2)
+        obs = np.kron(a,b)
+        change = abs(np.vdot(boosted,obs@boosted)-np.vdot(psi,obs@psi))
+        boost_bound = abs(eta)/np.pi*np.sqrt(moment)
+        assert change <= boost_bound + 1e-11
+        worst_boost_ratio = max(worst_boost_ratio,float(change/boost_bound))
+    assert min_trace_slack >= -1e-11
+    assert min_spread_slack >= -1e-11
+    x = sp.symbols('x', positive=True)
+    assert sp.simplify(1-4*x/(1+x)**2-(x-1)**2/(x+1)**2) == 0
+    result = {
+      'seed':261134924, 'random_trials':500, 'dimension_range':[3,14],
+      'trace_lower_and_upper_min_slack':min_trace_slack,
+      'spread_bound_min_slack':min_spread_slack,
+      'largest_observed_boost_change_over_bound':worst_boost_ratio,
+      'symbolic_boost_identity':'verified by exact simplification',
+      'countermodel_sections':[{'rank':n,'trace_T_for_T_identity':n,'normalized_rank_one_expectation':1/n} for n in [1,10,100,1000]],
+      'scope':'Finite-matrix diagnostics, not a proof of infinite-dimensional or gravitational statements.'
+    }
+    Path('outputs/operator_checks.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(result,indent=2))
+
+if __name__ == '__main__':
+    run_checks()
+
+===== END FILE 12 =====
+
+===== FILE 13/17 | RedTeam_2611.34924_v1.2.zip | supplementary/section4-4_pair_amplitude_check.py =====
+import mpmath as mp
+mp.mp.dps=30
+# (4.33): sum_k 2*(1/(2 s k))^2 e^{-2ik/s} = Li2(e^{-2i/s})/(2 s^2)
+for s in [10,100,1000]:
+    S=mp.nsum(lambda k: 2*(1/(2*s*k))**2*mp.exp(-2j*k/s),[1,mp.inf])
+    print(s, mp.nstr(S*2*s**2,12), mp.nstr(mp.polylog(2,mp.exp(-2j/s)),12))
+# G->0 limit (s->inf) of s^2 * amplitude without phase: zeta(2)/2 finite
+print("no-phase limit s^2*A =", mp.zeta(2)/2)
+# non-analyticity: Li2(e^{-i t}) - pi^2/6 vs t*log t
+for t in [1e-2,1e-4,1e-6]:
+    d=mp.polylog(2,mp.exp(-1j*t))-mp.pi**2/6
+    print(t, mp.nstr(d,8), mp.nstr(-1j*t*(1-mp.log(1j*t)),8))
+
+===== END FILE 13 =====
+
+===== FILE 14/17 | RedTeam_2611.34924_v1.2.zip | supplementary/section5-3_coefficient_identity.py =====
+import sympy as sp
+p,s,t,q=sp.symbols('p s t q',positive=True)
+# (5.66): Z(l) ~ int^{s*} s_b^{-1/2} s_b^p ds_b ~ s*^{p+1/2}, s* ~ l^2  => exponent of l
+expo = 2*(p+sp.Rational(1,2))
+# (5.58): log Z = q/(1-q) log l  => solve for q
+qsol = sp.solve(sp.Eq(q/(1-q), expo), q)[0]
+# (5.69): coefficient at fixed mass
+coef = sp.simplify(qsol/(2*(1-qsol)) - sp.Rational(1,2))
+print("q(p) =", qsol, "  final coefficient =", coef)
+print("p=106/45 -> q =", qsol.subs(p,sp.Rational(106,45)))
+# (5.66) normalization: int_0^inf exp(-(s-t)^2/(4t)) (4 pi t)^(-1/2) dt == 1 ?
+I = sp.integrate(sp.exp(-(s-t)**2/(4*t))/sp.sqrt(4*sp.pi*t),(t,0,sp.oo))
+print("normalization integral =", sp.simplify(I))
+# footnote 23 consistency: power-law ensemble Pr(a)=a^k, k=q/(2(1-q)); <a> = k/(k+1) = x^2
+k=sp.Rational(257,90); print("x^2 =", k/(k+1), " fn23 q=2x^2/(1+x^2) ->", sp.nsimplify(2*(k/(k+1))/(1+k/(k+1))))
+
+===== END FILE 14 =====
+
+===== FILE 15/17 | RedTeam_2611.34924_v1.2.zip | supplementary/verification_manifest.json =====
+{
+  "review_date": "2026-11-27",
+  "source": "Exact attachments retrieved from referenced Analyze claim conversation",
+  "input_sha256": {
+    "2611.34924v1.pdf": "d17caccbee57cfbee6fc2eeed2e5a53467c9401be979fd2952aa2bf92d5443af",
+    "chandrasekaran_5-2_audit(1).tex": "d6d4eee6672f206a8c9644b215c7c40b05ae1575753cdd0a8ea408a562fd4718",
+    "TraceDim.lean": "789ba2c865843e8198f66e1ac7edc42ad9a90005967cf96d89017e667d664893"
+  },
+  "lean_version": "4.35.0",
+  "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "mathlib_tracked_worktree_diff": "empty",
+  "original_lean_compiled_unchanged": true,
+  "axiom_audit_exit_status": 0,
+  "source_pdf_pages": 83,
+  "visual_equation_pages_checked": [
+    41,
+    73
+  ],
+  "delivered_sha256": {
+    "Chandrasekaran_5-2_independent_review.md": "1fd35d788109482cbd1df53d32f253c76595cc5123230ee6b11ed0e42bb06ace",
+    "README.md": "d26b02b24a744e771ae5af33a25674249dfd67708ce9fdabd1dcbcbe77c6ce0a",
+    "TraceDim.lean": "789ba2c865843e8198f66e1ac7edc42ad9a90005967cf96d89017e667d664893",
+    "TraceDimCheck.lean": "a1c99b46629e5e2eeb93427150320eaaa0b360ae9a018d76fcd82763baf7aa40",
+    "countermodel.py": "6ad10ff058f787773abc973df63e7215f897a570d4267f613c0eb9d4786adcfc",
+    "countermodel_checks.json": "89c1919e03477fdf2b04a7d63144068efc6e64ff57e2855ae08d68a23e0807e7",
+    "lakefile.toml": "0e059e93e85a2d5359ab50c3a30f10d04c9bb8b5dce8052a3f63d918aa6633a7",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lean-verification.log": "accc9bf210fea5e8a712fabdb2f962cec0324c3df7db368ba40a7d7cda10f641",
+    "operator_checks.json": "b63a4b9038f1a609a48d969f114c350e1d140227edf92e1c5d1259f089e90323",
+    "operator_checks.py": "1744a4cb4a3f81cb4e243598c59e34a443ee74b487833c5683842ee4742c8079"
+  },
+  "limitations": [
+    "No full gravitational formalization",
+    "No independent proof of physical gluing hypothesis",
+    "No exact interacting graviton error bound proved",
+    "Fresh dependency-download reproduction not run"
+  ]
+}
+
+===== END FILE 15 =====
+
+===== FILE 16/17 | REVIEW_V1_2_HANDOFF.zip | verify_v1_2_f5.log =====
+s=10: partial error=6.2605764e-13, tail bound=2.5e-8
+s=100: partial error=6.2500909e-14, tail bound=2.5e-10
+s=100: A=(8.06809070156e-5 - 4.91202856099e-6j), s²A=(0.806809070156 - 0.0491202856099j), s²A(no phase)=0.822467033424
+s=1000: A=(8.20896737097e-7 - 7.21460815398e-9j), s²A=(0.820896737097 - 0.00721460815398j), s²A(no phase)=0.822467033424
+s=10000: A=(8.22309958791e-9 - 9.51719319197e-12j), s²A=(0.822309958791 - 0.000951719319197j), s²A(no phase)=0.822467033424
+As s→∞, A(s)→0 while s²A(s)→ζ(2)/2.
+
+===== END FILE 16 =====
+
+===== FILE 17/17 | REVIEW_V1_2_HANDOFF.zip | verify_v1_2_f5.py =====
+"""Independent checks of the series and asymptotics in arXiv:2611.34924v1 (4.33).
+
+Run with Python 3 and mpmath: python3 verify_v1_2_f5.py
+"""
+
+import cmath
+import math
+
+import mpmath as mp
+
+
+def partial_amplitude(s: float, count: int) -> complex:
+    return sum(cmath.exp(-2j * k / s) / (2 * s * s * k * k) for k in range(1, count + 1))
+
+
+def exact_amplitude(s: mp.mpf) -> mp.mpc:
+    return mp.polylog(2, mp.exp(-2j / s)) / (2 * s * s)
+
+
+def main() -> None:
+    mp.mp.dps = 50
+    count = 200_000
+    for s_float in (10.0, 100.0):
+        s = mp.mpf(s_float)
+        partial = partial_amplitude(s_float, count)
+        exact = exact_amplitude(s)
+        error = abs(mp.mpc(partial.real, partial.imag) - exact)
+        tail_bound = 1 / (2 * s * s * count)
+        assert error <= tail_bound + mp.mpf("1e-12")
+        print(f"s={s_float:g}: partial error={mp.nstr(error, 8)}, tail bound={mp.nstr(tail_bound, 8)}")
+
+    for s_int in (100, 1_000, 10_000):
+        s = mp.mpf(s_int)
+        amplitude = exact_amplitude(s)
+        leading = mp.zeta(2) / (2 * s * s)
+        next_term = 1j * (mp.log(2j / s) - 1) / (s**3)
+        assert abs(amplitude - leading - next_term) < 1 / (s**4)
+        print(
+            f"s={s_int}: A={mp.nstr(amplitude, 12)}, "
+            f"s²A={mp.nstr(s*s*amplitude, 12)}, "
+            f"s²A(no phase)={mp.nstr(mp.zeta(2)/2, 12)}"
+        )
+
+    assert math.isclose(float(mp.zeta(2) / 2), math.pi**2 / 12)
+    print("As s→∞, A(s)→0 while s²A(s)→ζ(2)/2.")
+
+
+if __name__ == "__main__":
+    main()
+
+===== END FILE 17 =====
+
+END OF REVIEW SOURCES. Please use these pasted files and the manuscript already attached to finish or revise your four-part review. In your response identify what you read in TraceDim.lean, section5-3_coefficient_identity.py, and verify_v1_2_f5.log. Distinguish the results recorded there from any checks you independently performed.
