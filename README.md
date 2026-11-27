@@ -14,7 +14,7 @@ Start with [the technical review](REVIEW.md). If the preparation operator in (5.
 
 ## November 27 review materials
 
-The current manuscript is [version 1.5, *Finite closure in null-cone quantization of gravity*](reviews/v1.5/). It includes a conditional dimension theorem checked in Lean, a proof of center-band convergence in the entropy integral, a revised assessment of F1–F7, and reproduction materials. The earlier [v1.4 manuscript and Neon review](reviews/v1.4/) remain available.
+The [final integrated v1.5 manuscript](reviews/v1.5-final/) incorporates the signed-cycle clarification. Download the [PDF](reviews/v1.5-final/Finite_closure_v1.5_final.pdf), [standalone TeX](reviews/v1.5-final/Finite_closure_v1.5_final.tex) or [reproduction ZIP](reviews/v1.5-final/Finite_closure_v1.5_final.zip). The [first v1.5 edition](reviews/v1.5/) and the [v1.4 manuscript and Neon review](reviews/v1.4/) are archived separately.
 
 Read the [post-publication clarification and checked inequality](reviews/v1.5-clarification/). On the refined complete-cycle cuts in §5.2, eventual boundedness of the unnormalized signed amplitudes already forces finite dimension. The clarification revises the referee question, distinguishes normalized gluing, and checks the clock-domain, corner-boost and conservation issues against the source.
 
