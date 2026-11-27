@@ -12,6 +12,12 @@ Start with [the technical review](REVIEW.md). If the preparation operator in (5.
 | [Numerical checks](checks/) | 500 finite-matrix checks and sample finite sections of the analytic model |
 | [Verification record](evidence/) | Original run outputs, input hashes, and provenance |
 
+## November 27 review materials
+
+Read the [v1.2 red-team note](reviews/v1.2/Chandrasekaran_2611.34924_RedTeam_v1.2.pdf) alongside the [subsequent assessment of F5–F7](reviews/v1.2/ADVERSARIAL_REVIEW_V1_2.md). The assessment proposes revisions to the zero-coupling limit, the scope of one-loop finiteness, and the role of the pure-state extension. The supplied note is archived as written.
+
+The [original source ZIP](reviews/v1.2/RedTeam_2611.34924_v1.2.zip) contains editable TeX and supplements. The [review handoff ZIP](reviews/v1.2/REVIEW_V1_2_HANDOFF.zip) contains the subsequent assessment, Python check and run log. After unpacking that handoff, install `mpmath==1.3.0` and run `python3 verify_v1_2_f5.py` in the extracted directory. The [independent review brief](reviews/v1.2/GEMINI_REVIEW_BRIEF.txt) gives the questions for the next reviewer.
+
 ## Reproduce the Lean checks
 
 Run from the repository root with [Elan](https://github.com/leanprover/elan) installed. Lake uses the committed Lean 4.35.0 toolchain and Mathlib lockfile. The first run may download dependencies and the Mathlib build cache.

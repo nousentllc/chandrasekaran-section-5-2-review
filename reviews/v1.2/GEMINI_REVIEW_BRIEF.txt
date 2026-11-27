@@ -1,0 +1,11 @@
+Independently review Chandrasekaran, An algebraic quantization of gravity from the null cone (arXiv:2611.34924v1). Compare the original manuscript with the v1.2 red-team note and the subsequent Codex review. Start from the paper and give the strongest reading that supports each claim.
+
+1. At fixed corner area in (4.32)–(4.34), derive the small-coupling limits of the pair amplitude and of its rescaled value. Which conclusions rely on the Gaussian width or the chosen phase? Identify the numerical checks you actually execute and show their tolerances.
+2. State the observables, smearing, boundary data and cosmological constant in (6.13)–(6.16) and Appendix D.1. How far does the one-loop comparison reach? Identify a discriminating calculation and explain what it could settle.
+3. For (4.16)–(4.17) and footnote 20, distinguish the C*-image, its bicommutant, equivalence of representations, and invariance of the clock-projected observables. If you claim dependence on the extension, supply evidence for this gravitational model.
+4. Try to supply the missing implication from open amplitudes (4.29) to a finite identity-insertion closure in (5.38), using (5.30c), the JT comparison (2.17), and Appendix E. Name each assumption. For the entropy coefficient in (5.66)–(5.69), identify the physical input that fixes the exponent before the algebraic conversion.
+
+Return an equation-referenced verdict for each point, the best objection to the red-team note, and replacement wording wherever either review overstates the evidence. List any materials you could not access and distinguish calculations you ran from archived results.
+
+Manuscript: https://arxiv.org/pdf/2611.34924v1
+Review files: https://github.com/nousentllc/chandrasekaran-section-5-2-review/tree/main/reviews/v1.2
