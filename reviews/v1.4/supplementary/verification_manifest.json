@@ -1,0 +1,38 @@
+{
+  "review_date": "2026-11-27",
+  "source": "Exact attachments retrieved from referenced Analyze claim conversation",
+  "input_sha256": {
+    "2611.34924v1.pdf": "d17caccbee57cfbee6fc2eeed2e5a53467c9401be979fd2952aa2bf92d5443af",
+    "chandrasekaran_5-2_audit(1).tex": "d6d4eee6672f206a8c9644b215c7c40b05ae1575753cdd0a8ea408a562fd4718",
+    "TraceDim.lean": "789ba2c865843e8198f66e1ac7edc42ad9a90005967cf96d89017e667d664893"
+  },
+  "lean_version": "4.35.0",
+  "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "mathlib_tracked_worktree_diff": "empty",
+  "original_lean_compiled_unchanged": true,
+  "axiom_audit_exit_status": 0,
+  "source_pdf_pages": 83,
+  "visual_equation_pages_checked": [
+    41,
+    73
+  ],
+  "delivered_sha256": {
+    "Chandrasekaran_5-2_independent_review.md": "1fd35d788109482cbd1df53d32f253c76595cc5123230ee6b11ed0e42bb06ace",
+    "README.md": "d26b02b24a744e771ae5af33a25674249dfd67708ce9fdabd1dcbcbe77c6ce0a",
+    "TraceDim.lean": "789ba2c865843e8198f66e1ac7edc42ad9a90005967cf96d89017e667d664893",
+    "TraceDimCheck.lean": "a1c99b46629e5e2eeb93427150320eaaa0b360ae9a018d76fcd82763baf7aa40",
+    "countermodel.py": "6ad10ff058f787773abc973df63e7215f897a570d4267f613c0eb9d4786adcfc",
+    "countermodel_checks.json": "89c1919e03477fdf2b04a7d63144068efc6e64ff57e2855ae08d68a23e0807e7",
+    "lakefile.toml": "0e059e93e85a2d5359ab50c3a30f10d04c9bb8b5dce8052a3f63d918aa6633a7",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lean-verification.log": "accc9bf210fea5e8a712fabdb2f962cec0324c3df7db368ba40a7d7cda10f641",
+    "operator_checks.json": "b63a4b9038f1a609a48d969f114c350e1d140227edf92e1c5d1259f089e90323",
+    "operator_checks.py": "1744a4cb4a3f81cb4e243598c59e34a443ee74b487833c5683842ee4742c8079"
+  },
+  "limitations": [
+    "No full gravitational formalization",
+    "No independent proof of physical gluing hypothesis",
+    "No exact interacting graviton error bound proved",
+    "Fresh dependency-download reproduction not run"
+  ]
+}
