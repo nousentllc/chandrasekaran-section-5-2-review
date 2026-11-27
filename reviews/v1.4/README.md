@@ -16,6 +16,10 @@ In §5.2 the short dimension bound needs a finite identity-gluing norm and contr
 
 In F2, substituting the one-loop input exponent $p$ returns $p$ in (5.69). This limits the independence of the numerical match. The language in v1.4 that the match carries “no information” overlooks the consistency of the ensemble conversion and the geometric assumptions used to obtain its input. Equation (5.58) fixes a leading logarithmic exponent. Equation (5.63) gives positive limiting mass to a fixed interior band under the manuscript’s ensemble assumptions. The remaining saddle question is uniform control of the one-loop estimate on such a band. The [follow-up calculation](../v1.2/neon/NEON_REVIEW_CHECK_v1.2.md) bounds the Gaussian tails in (5.66).
 
+## Neon’s review of this edition
+
+The [verbatim Neon response](neon/NEON_V1_4_RESPONSE.md) records the changes it accepted and the remaining gluing question. The [technical check](neon/NEON_V1_4_CHECK.md) derives the limiting fraction of (5.66) contributed by an interior band and gives a weaker sufficient condition for matching the logarithmic coefficient. With the repository dependencies installed, run `python3 reviews/v1.4/neon/check_center_moments.py` from the repository root to check the moment formula and coefficient arithmetic.
+
 ## Reproduction check for this edition
 
 Using the repository's pinned Lean 4.35.0 environment, Codex ran the v1.4 copies of both Lean files. Both exited successfully. All three declarations reported only `propext`, `Classical.choice` and `Quot.sound`. The conclusion in the supplied file concerns the finiteness of the index type of an orthonormal family under the stated bounds.
