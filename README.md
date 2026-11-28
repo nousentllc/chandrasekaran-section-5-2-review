@@ -6,6 +6,8 @@ Start with the [consolidated v1.6 manuscript](reviews/v1.6-final/) and the [foll
 
 The v1.6 preprint is available on [Zenodo](https://doi.org/10.5281/zenodo.24618332) and [alphaXiv](https://www.alphaxiv.org/abs/2611.finite-closure-null-cone-quantization-of-gravity). The earlier [v1.5-final preprint](https://doi.org/10.5281/zenodo.24585121) belongs to the same [Zenodo version family](https://doi.org/10.5281/zenodo.24585120).
 
+**Correction to the bibliography link.** For reference [8] in v1.6 and the corresponding signed-cycle citation in v1.5-final, use the [clarification with corrected GitHub math rendering](reviews/v1.5-clarification/). The bibliography links in the archived PDFs point to the original Git snapshot.
+
 | Material | What to check |
 | --- | --- |
 | [v1.6 manuscript and supplement](reviews/v1.6-final/) | Consolidated analysis, editable TeX, pinned Lean and Python reproduction materials, and release checksums |

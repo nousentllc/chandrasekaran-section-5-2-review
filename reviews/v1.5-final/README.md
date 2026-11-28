@@ -6,6 +6,8 @@
 
 This 39-page technical comment incorporates the [original v1.5 manuscript](https://github.com/nousentllc/chandrasekaran-section-5-2-review/tree/f438db1ecdabf0cb18860752263208093a58ca4b/reviews/v1.5) and its [signed-cycle clarification](../v1.5-clarification/). The source under review is [Chandrasekaran, arXiv:2611.34924v1](https://arxiv.org/abs/2611.34924v1).
 
+**Bibliography link, PDF page 39.** The PDF, TeX, and reproduction ZIP point to the clarification’s original Git snapshot. Use the [rendering-corrected clarification and Lean proof](../v1.5-clarification/) when reading on GitHub.
+
 Section 4.4 proves the rank bound on a cofinal family of complete cuts and gives the corresponding estimate for complex responses. Section 2.1 separates the Gaussian overlap at a finite clock reading from density of the form domain and construction of the full-space clock. Sections 6.3 and 9.2 discuss the corner half-turn and conservation of the quadratic source. Section 10 specifies the scope of the formal and numerical checks. Section 11 states the question about independently bounding the physical amplitudes in (5.38).
 
 ## Build the manuscript
