@@ -4,7 +4,7 @@ This repository contains an equation-by-equation review of the causal-diamond fi
 
 Start with the [consolidated v1.6 manuscript](reviews/v1.6-final/) and the [follow-up attempt to bound (5.38)](reviews/gluing-bound/). Open gluing bounds amplitudes between fixed finite-norm states. On the refined complete-cycle cuts, the doubled preparation has squared norm at least proportional to the cut rank and the signed amplitude has magnitude at least proportional to that rank. The follow-up tests two ways to bound the closed amplitude independently, using a positive gluing functional or the exact two-copy ratio, and records what the focusing calculation still needs to control.
 
-The [v1.6 preprint](https://doi.org/10.5281/zenodo.24618332) and the earlier [v1.5-final preprint](https://doi.org/10.5281/zenodo.24585121) belong to the same [Zenodo version family](https://doi.org/10.5281/zenodo.24585120).
+The v1.6 preprint is available on [Zenodo](https://doi.org/10.5281/zenodo.24618332) and [alphaXiv](https://www.alphaxiv.org/abs/2611.finite-closure-null-cone-quantization-of-gravity). The earlier [v1.5-final preprint](https://doi.org/10.5281/zenodo.24585121) belongs to the same [Zenodo version family](https://doi.org/10.5281/zenodo.24585120).
 
 | Material | What to check |
 | --- | --- |
