@@ -6,10 +6,10 @@
 
 **Supported core.** From the displayed variance in (4.32), `(Δq_k)^2=1/(2sk)`, the connected pair sum in (4.33) is exactly
 
-$$
+```math
 A(s)=\sum_{k\ge1}\frac{e^{-2ik/s}}{2s^2k^2}
     =\frac{\mathrm{Li}_2(e^{-2i/s})}{2s^2},\qquad s>0.
-$$
+```
 
 Absolute convergence follows from `Σk⁻²<∞`; the chosen phase is irrelevant to that convergence. Removing the phase leaves `ζ(2)/(2s²)`. The phase is selected through a boundary unitary and affine shift, as the paper says directly below (4.32), with a motivation in footnote 17. The sum has Gaussian quadratic insertions and no graviton interaction vertices. It does not calculate the two-loop scattering divergence cited immediately before the example. These are fair limits on the example's evidential reach.
 
@@ -17,13 +17,13 @@ Absolute convergence follows from `Σk⁻²<∞`; the chosen phase is irrelevant
 
 For `t=2/s→0⁺`, the principal-branch expansion is
 
-$$
+```math
 \mathrm{Li}_2(e^{-it})-\zeta(2)
   =it(\log(it)-1)+O(t^2),
 \quad
 A(s)=\frac{\zeta(2)}{2s^2}
   +\frac{i(\log(2i/s)-1)}{s^3}+O(s^{-4}).
-$$
+```
 
 Thus the `-i log s/s³` term and the divergent third derivative in (4.34) are consistent with an amplitude finite for every positive `G_N` and continuous at zero. This is a valid order-of-limits illustration. The paper explicitly introduces it as an example of exchanging the expansion and UV sum, not as a calculation of the Goroff–Sagnotti diagram. The criticism should target extrapolation from that illustration to general UV finiteness, rather than imply that (4.33) itself fails. Equation (4.30) is Cauchy–Schwarz **given** a Hilbert-space resolution of identity, normalizable fixed external states, and unitary maps; saying only “Cauchy–Schwarz holds in any quantum theory” hides those premises. The supplied `section4-4_pair_amplitude_check.py` prints comparisons but has no assertions or tail estimate; [our separate check](verify_v1_2_f5.py) tests finite partial sums against the exact value with an analytic tail bound.
 
