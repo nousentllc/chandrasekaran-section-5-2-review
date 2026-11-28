@@ -2,12 +2,13 @@
 
 This repository contains an equation-by-equation review of the causal-diamond finite-dimensionality argument in [Chandrasekaran, *An algebraic quantization of gravity from the null cone*, arXiv:2611.34924v1](https://arxiv.org/abs/2611.34924v1). The review derives the trace implication, checks the boost and spectral inequalities, and gives an infinite-dimensional operator model that isolates the cut-to-uncut identification.
 
-Start with the [final v1.5 technical comment](https://doi.org/10.5281/zenodo.24585121) and the [follow-up attempt to bound (5.38)](reviews/gluing-bound/). Open gluing bounds amplitudes between fixed finite-norm states. On the refined complete-cycle cuts, the doubled preparation has squared norm at least proportional to the cut rank and the signed amplitude has magnitude at least proportional to that rank. The follow-up tests two ways to bound the closed amplitude independently, using a positive gluing functional or the exact two-copy ratio, and records what the focusing calculation still needs to control.
+Start with the [consolidated v1.6 manuscript](reviews/v1.6-final/) and the [follow-up attempt to bound (5.38)](reviews/gluing-bound/). Open gluing bounds amplitudes between fixed finite-norm states. On the refined complete-cycle cuts, the doubled preparation has squared norm at least proportional to the cut rank and the signed amplitude has magnitude at least proportional to that rank. The follow-up tests two ways to bound the closed amplitude independently, using a positive gluing functional or the exact two-copy ratio, and records what the focusing calculation still needs to control.
 
-The published manuscript is [v1.5-final](https://doi.org/10.5281/zenodo.24585121), in the [Zenodo version family](https://doi.org/10.5281/zenodo.24585120). The consolidated v1.6 manuscript is under author review.
+The [Zenodo version family](https://doi.org/10.5281/zenodo.24585120) includes the earlier [v1.5-final](https://doi.org/10.5281/zenodo.24585121) preprint.
 
 | Material | What to check |
 | --- | --- |
+| [v1.6 manuscript and supplement](reviews/v1.6-final/) | Consolidated analysis, editable TeX, pinned Lean and Python reproduction materials, and release checksums |
 | [Review](REVIEW.md) | Equation references, derivations, the separation model, and scope of the conclusions |
 | [TraceDim.lean](TraceDim.lean) | The three conditional proofs in the supplied source, preserved byte for byte |
 | [TraceDimCheck.lean](TraceDimCheck.lean) | Axiom dependencies for those three declarations |
