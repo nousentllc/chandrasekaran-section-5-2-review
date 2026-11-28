@@ -12,29 +12,39 @@
 
 Assume the finite thermal ensemble in §5.3, the support $0\le s\le S=s_*$, and the limiting distribution (5.63). Let $s$ be drawn with thermal weights $e^{-s}/Z$ including multiplicity, as in (5.56). Write $t=s_b$ for the continuous Gaussian center. Conditional on $s$, (5.25) and (5.66) give the normalized density
 
-$$K(s,t)=(4\pi t)^{-1/2}\exp[-(s-t)^2/(4t)],\qquad t>0.$$
+$$
+K(s,t)=(4\pi t)^{-1/2}\exp[-(s-t)^2/(4t)],\qquad t>0.
+$$
 
 The marginal probability of $t\in I$ is exactly the contribution to the (5.66) integral from centers in $I$, divided by $Z$. This makes it possible to calculate that fraction without identifying the center $t$ with an eigenvalue $s$.
 
 For $u<1/4$, integrating $e^{ut}K(s,t)$ gives
 
-$$M_s(u)=(1-4u)^{-1/2}\exp\left[\frac{s}{2}\left(1-\sqrt{1-4u}\right)\right].$$
+$$
+M_s(u)=(1-4u)^{-1/2}\exp\left[\frac{s}{2}\left(1-\sqrt{1-4u}\right)\right].
+$$
 
-For example, write the exponent inside the integral as $s/2-(1/4-u)t-s^2/(4t)$ and use the Gaussian integral from the [earlier tail calculation](../../v1.2/neon/NEON_REVIEW_CHECK_v1.2.md). Differentiating at zero gives $\mathbb E[t\mid s]=s+2$, $\operatorname{Var}(t\mid s)=2s+8$, and $\mathbb E[(t-s)^2\mid s]=2s+12$. Hence, for every fixed $\varepsilon>0$,
+For example, write the exponent inside the integral as $s/2-(1/4-u)t-s^2/(4t)$ and use the Gaussian integral from the [earlier tail calculation](../../v1.2/neon/NEON_REVIEW_CHECK_v1.2.md). Differentiating at zero gives $\mathbb E[t\mid s]=s+2$, $\mathrm{Var}(t\mid s)=2s+8$, and $\mathbb E[(t-s)^2\mid s]=2s+12$. Hence, for every fixed $\varepsilon>0$,
 
-$$\Pr(|t/S-s/S|>\varepsilon)\le\frac{2S+12}{\varepsilon^2 S^2}\longrightarrow0.$$
+$$
+\Pr(|t/S-s/S|>\varepsilon)\le\frac{2S+12}{\varepsilon^2 S^2}\longrightarrow0.
+$$
 
 Equation (5.63) gives the continuous limiting distribution function $F(a)=a^\alpha$ for $0\le a\le1$, with $\alpha=q/[2(1-q)]>0$. Moving a band endpoint by $\varepsilon$ changes its limiting probability by an amount tending to zero with $\varepsilon$. The probability bound therefore transfers the same limiting distribution from $s/S$ to $t/S$. In particular, the fraction of the full integral from centers $S/4<t<S/2$ tends to
 
-$$c_0=2^{-\alpha}-4^{-\alpha}>0.$$
+$$
+c_0=2^{-\alpha}-4^{-\alpha}>0.
+$$
 
 At the reported $q=257/302$ this fraction is approximately $0.119074$. The other centers can supply most of the normalization. A band with limiting mass $c_0>0$ nevertheless determines the same growth exponent as the full positive integral. This argument assumes (5.63) and addresses a later entropy calculation. It cannot supply the existence of the finite ensemble in §5.2.
 
 ## What estimate suffices for F2?
 
-On $I_S=[S/4,S/2]$ write $L_S(t)=\log\operatorname{Tr}(C_b^\dagger C_b)=p\log t+R_S(t)$. A uniform $O(1)$ bound on $R_S$ gives two-sided constant multiples of $S^{p+1/2}$ for the band integral by (5.66). It does not on its own give a limiting proportionality constant. An even weaker sufficient bound for the **leading logarithmic coefficient** is $\sup_{t\in I_S}|R_S(t)|=o(\log S)$. Indeed, the integral of $t^{p-1/2}$ on $I_S$ is a fixed positive constant times $S^{p+1/2}$, and the exponential of the remainder changes it by at most factors $S^{\pm o(1)}$. Since the band fraction tends to $c_0$, this gives
+On $I_S=[S/4,S/2]$ write $L_S(t)=\log\mathrm{Tr}(C_b^\dagger C_b)=p\log t+R_S(t)$. A uniform $O(1)$ bound on $R_S$ gives two-sided constant multiples of $S^{p+1/2}$ for the band integral by (5.66). It does not on its own give a limiting proportionality constant. An even weaker sufficient bound for the **leading logarithmic coefficient** is $\sup_{t\in I_S}|R_S(t)|=o(\log S)$. Indeed, the integral of $t^{p-1/2}$ on $I_S$ is a fixed positive constant times $S^{p+1/2}$, and the exponential of the remainder changes it by at most factors $S^{\pm o(1)}$. Since the band fraction tends to $c_0$, this gives
 
-$$\log Z=(p+1/2)\log S+o(\log S).$$
+$$
+\log Z=(p+1/2)\log S+o(\log S).
+$$
 
 Pointwise control for individual saddles does not by itself justify this integrated estimate. A uniform estimate or a direct estimate of the band integral would suffice. The Gaussian kernel alone gives no bound on the determinant remainder. We have not derived that remainder from the gravitational theory.
 

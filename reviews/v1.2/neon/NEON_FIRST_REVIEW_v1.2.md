@@ -22,35 +22,45 @@
 **Derivation.** At fixed corner area $\mathcal{A}$, with $s = \mathcal{A}/(4G_N\hbar)$ and $(\Delta q_k)^2 = 1/(2sk)$ in (4.32), the connected pair amplitude in (4.33) is:
 
 
-$$A(s) = \lim_{N\to\infty} 2\sum_{k=1}^N (\Delta q_k)^4 e^{-2ik/s} = \frac{1}{2s^2}\sum_{k=1}^\infty \frac{e^{-2ik/s}}{k^2} = \frac{\operatorname{Li}_2(e^{-2i/s})}{2s^2}, \qquad s > 0.$$
+$$
+A(s) = \lim_{N\to\infty} 2\sum_{k=1}^N (\Delta q_k)^4 e^{-2ik/s} = \frac{1}{2s^2}\sum_{k=1}^\infty \frac{e^{-2ik/s}}{k^2} = \frac{\mathrm{Li}_2(e^{-2i/s})}{2s^2}, \qquad s > 0.
+$$
 
 
 As $G_N \to 0^+$ at fixed $\mathcal{A}$, we have $s \to \infty$ (equivalently $t = 2/s \to 0^+$):
 
-* **Unscaled limit:** Since $\vert{}\operatorname{Li}_2(e^{-it})\vert{} \le \sum_{k=1}^\infty k^{-2} = \zeta(2) = \pi^2/6$,
+* **Unscaled limit:** Since $\vert{}\mathrm{Li}_2(e^{-it})\vert{} \le \sum_{k=1}^\infty k^{-2} = \zeta(2) = \pi^2/6$,
 
-$$\lim_{s\to\infty} A(s) = 0.$$
+$$
+\lim_{s\to\infty} A(s) = 0.
+$$
 
 
 * **Scaled limit:**
 
-$$\lim_{s\to\infty} s^2 A(s) = \frac{1}{2}\operatorname{Li}_2(1) = \frac{\zeta(2)}{2} = \frac{\pi^2}{12}.$$
+$$
+\lim_{s\to\infty} s^2 A(s) = \frac{1}{2}\mathrm{Li}_2(1) = \frac{\zeta(2)}{2} = \frac{\pi^2}{12}.
+$$
 
 
-* **Asymptotic expansion ($t = 2/s \to 0^+$):** Using the principal-branch expansion $\operatorname{Li}_2(e^{-it}) = \zeta(2) + it(\log(it) - 1) + O(t^2)$ with $\log(it) = \log t + i\pi/2$,
+* **Asymptotic expansion ($t = 2/s \to 0^+$):** Using the principal-branch expansion $\mathrm{Li}_2(e^{-it}) = \zeta(2) + it(\log(it) - 1) + O(t^2)$ with $\log(it) = \log t + i\pi/2$,
 
-$$A(s) = \frac{\zeta(2)}{2s^2} + \frac{i(\log(2i/s) - 1)}{s^3} + O(s^{-4}) = \frac{\pi^2}{12s^2} - \frac{i\log s}{s^3} + \frac{i(\log 2 - 1) - \pi/2}{s^3} + O(s^{-4}).$$
+$$
+A(s) = \frac{\zeta(2)}{2s^2} + \frac{i(\log(2i/s) - 1)}{s^3} + O(s^{-4}) = \frac{\pi^2}{12s^2} - \frac{i\log s}{s^3} + \frac{i(\log 2 - 1) - \pi/2}{s^3} + O(s^{-4}).
+$$
 
 
 * **Term-by-term cubic derivative (4.34):** Differentiating inside the finite-$N$ sum at $G_N = 0$ ($1/s \propto G_N$) expands $e^{-2ik/s} = 1 - 2ik/s + \dots$ and yields
 
-$$\frac{G_N^3}{3!}\left.\frac{\partial^3}{\partial G_N^3}\left[\frac{1}{2s^2}\sum_{k=1}^N \frac{e^{-2ik/s}}{k^2}\right]\right\vert{}_{G_N=0} = -\frac{i}{s^3}\sum_{k=1}^N \frac{1}{k} = -\frac{i}{s^3}\big[\log N + O(1)\big] \quad \text{[cite: 41]}.$$
+$$
+\frac{G_N^3}{3!}\left.\frac{\partial^3}{\partial G_N^3}\left[\frac{1}{2s^2}\sum_{k=1}^N \frac{e^{-2ik/s}}{k^2}\right]\right\vert{}_{G_N=0} = -\frac{i}{s^3}\sum_{k=1}^N \frac{1}{k} = -\frac{i}{s^3}\big[\log N + O(1)\big] \quad \text{[cite: 41]}.
+$$
 
 
 
 **Verdict (Proof / Numerical Evidence / Unresolved Premises):**
 
-* **Proof:** Absolute convergence of (4.33) for all $s > 0$ is proved purely by $\sum k^{-2} = \zeta(2) < \infty$, independent of the phase $e^{-2ik/s}$. The replacement of $\log N$ by $\log s$ is a proved order-of-limits property of $\operatorname{Li}_2(e^{-it})/t^2$ at the branch point $z = 1$.
+* **Proof:** Absolute convergence of (4.33) for all $s > 0$ is proved purely by $\sum k^{-2} = \zeta(2) < \infty$, independent of the phase $e^{-2ik/s}$. The replacement of $\log N$ by $\log s$ is a proved order-of-limits property of $\mathrm{Li}_2(e^{-it})/t^2$ at the branch point $z = 1$.
 * **Numerical evidence:** The Python checks referenced in v1.2 and `ADVERSARIAL_REVIEW_V1_2.md` corroborate the exact dilogarithm identity but add nothing beyond the analytic proof.
 
 
@@ -99,7 +109,7 @@ $$\frac{G_N^3}{3!}\left.\frac{\partial^3}{\partial G_N^3}\left[\frac{1}{2s^2}\su
 
 
 * **Numerical evidence:** None.
-* **Unresolved premises:** Neither (6.14) nor Appendix D.1 specifies a UV regulator, renormalization scheme, or subtraction prescription for $\operatorname{Tr}_{\mathcal{C}}\log K_j$ (D.2), $\delta\Gamma_{\mathcal{C}}^{(1)}$ (D.12), or the coincident limit in (6.14). One-loop agreement does not test two-loop $R^3$ behavior or establish an all-orders UV completion.
+* **Unresolved premises:** Neither (6.14) nor Appendix D.1 specifies a UV regulator, renormalization scheme, or subtraction prescription for $\mathrm{Tr}_{\mathcal{C}}\log K_j$ (D.2), $\delta\Gamma_{\mathcal{C}}^{(1)}$ (D.12), or the coincident limit in (6.14). One-loop agreement does not test two-loop $R^3$ behavior or establish an all-orders UV completion.
 
 
 
@@ -170,13 +180,13 @@ $$\frac{G_N^3}{3!}\left.\frac{\partial^3}{\partial G_N^3}\left[\frac{1}{2s^2}\su
 
 **Search for an independent finite closure argument:**
 
-* **(4.29)–(4.31):** Controls open matrix elements between *fixed* normalizable vectors $\vert{}\phi\rangle, \vert{}\psi\rangle$ via Cauchy–Schwarz (4.30). It does not control the closed trace $\operatorname{Tr}(P C_b^\dagger C_b) = \Vert{}\Phi_P\Vert{}^2$ in (5.38), because under (5.30c) ($C_b^\dagger C_b \ge c\hat{1}$, $c = e^{-s_*} m_{b,\mathscr{D}} > 0$), $\dim\mathcal{H}_{\mathscr{D}} = \infty$ implies $\Vert{}\Phi_P\Vert{}^2 \ge c\,\operatorname{rank}(P) \to \infty$.
+* **(4.29)–(4.31):** Controls open matrix elements between *fixed* normalizable vectors $\vert{}\phi\rangle, \vert{}\psi\rangle$ via Cauchy–Schwarz (4.30). It does not control the closed trace $\mathrm{Tr}(P C_b^\dagger C_b) = \Vert{}\Phi_P\Vert{}^2$ in (5.38), because under (5.30c) ($C_b^\dagger C_b \ge c\hat{1}$, $c = e^{-s_*} m_{b,\mathscr{D}} > 0$), $\dim\mathcal{H}_{\mathscr{D}} = \infty$ implies $\Vert{}\Phi_P\Vert{}^2 \ge c\,\mathrm{rank}(P) \to \infty$.
 
 
-* **JT prologue (2.17):** Under the same diffeomorphism-invariant gluing in a type $\mathrm{I}_\infty$ factor, $\langle\Psi_m\vert{}W\vert{}\Psi_n\rangle = e^{-2\pi(\mathcal{K}_L+\mathcal{K}_R)/\hbar}\delta_{mn}$ (2.17a) and $\operatorname{Tr}_{\mathcal{H}_{\mathscr{D}}} W = \infty$ (2.17b). Diffeomorphism invariance alone therefore cannot imply finite closure.
+* **JT prologue (2.17):** Under the same diffeomorphism-invariant gluing in a type $\mathrm{I}_\infty$ factor, $\langle\Psi_m\vert{}W\vert{}\Psi_n\rangle = e^{-2\pi(\mathcal{K}_L+\mathcal{K}_R)/\hbar}\delta_{mn}$ (2.17a) and $\mathrm{Tr}_{\mathcal{H}_{\mathscr{D}}} W = \infty$ (2.17b). Diffeomorphism invariance alone therefore cannot imply finite closure.
 
 
-* **Appendix E:** Condition 1 and (E.15a) ($\zeta_L(\operatorname{cl}_\Sigma a) = \operatorname{Tr}_{\mathcal{H}_\Sigma}\hat{a}$) *postulate* that closing a preparation equals the trace. Condition 5 requires finite closures, and (E.17) verifies it for $\mathcal{H}_{\mathscr{D}}$ by invoking $d_{\mathscr{D}} < \infty$ from (5.39c) (§5.2). Appendix E therefore cannot ground §5.2 without circularity.
+* **Appendix E:** Condition 1 and (E.15a) ($\zeta_L(\mathrm{cl}_\Sigma a) = \mathrm{Tr}_{\mathcal{H}_\Sigma}\hat{a}$) *postulate* that closing a preparation equals the trace. Condition 5 requires finite closures, and (E.17) verifies it for $\mathcal{H}_{\mathscr{D}}$ by invoking $d_{\mathscr{D}} < \infty$ from (5.39c) (§5.2). Appendix E therefore cannot ground §5.2 without circularity.
 
 
 * **Appendix D.3:** Bounds the one-loop mode count $\log d(s) \lesssim (s Q_*)^{3/4}$ (D.46c) and obtains $R_2^{\text{reg}} > 0$ (D.49) at one loop. This is perturbative supporting evidence, not a nonperturbative proof of $C_b \in \mathcal{S}_2$.
@@ -187,9 +197,9 @@ $$\frac{G_N^3}{3!}\left.\frac{\partial^3}{\partial G_N^3}\left[\frac{1}{2s^2}\su
 
 
 **Input fixing the log coefficient in (5.66)–(5.69):**
-Let the one-loop trace scale as $\operatorname{Tr}(C_b^\dagger C_b) \propto s_b^p$ in (5.67c). Then:
+Let the one-loop trace scale as $\mathrm{Tr}(C_b^\dagger C_b) \propto s_b^p$ in (5.67c). Then:
 
-1. By (5.66), $Z(l) = \int_0^\infty \frac{ds_b}{(4\pi s_b)^{1/2}}\operatorname{Tr}(C_b^\dagger C_b) \propto s_*^{p + 1/2} \propto l^{2p+1}$ (using $s_* \propto l^2$).
+1. By (5.66), $Z(l) = \int_0^\infty \frac{ds_b}{(4\pi s_b)^{1/2}}\mathrm{Tr}(C_b^\dagger C_b) \propto s_*^{p + 1/2} \propto l^{2p+1}$ (using $s_* \propto l^2$).
 
 
 2. By (5.58), $\log Z(l) = \frac{q}{1-q}\log l + O(1)$, which forces $\frac{q}{1-q} = 2p + 1$, i.e., $q = \frac{p + 1/2}{p + 1}$.
@@ -197,7 +207,9 @@ Let the one-loop trace scale as $\operatorname{Tr}(C_b^\dagger C_b) \propto s_b^
 
 3. Substituting into the fixed-mass log coefficient (5.69) gives
 
-$$\frac{q}{2(1-q)} - \frac{1}{2} = \frac{2p+1}{2} - \frac{1}{2} = p \qquad \text{identically in } p \quad \text{[cite: 5, 56]}.$$
+$$
+\frac{q}{2(1-q)} - \frac{1}{2} = \frac{2p+1}{2} - \frac{1}{2} = p \qquad \text{identically in } p \quad \text{[cite: 5, 56]}.
+$$
 
 
 
@@ -219,4 +231,4 @@ Thus, the clock and ensemble machinery maps any exponent $p$ back to itself. The
 
 **Suggested revisions to v1.2.** The core arguments in §1–§3 and F1–F2 are solid and well-scoped. Add a brief acknowledgment of Appendix D.3's one-loop mode-count bound (D.46c) and $R_2^{\text{reg}} > 0$ (D.49) as the manuscript's strongest perturbative evidence for finite closure, while noting that it does not supply the nonperturbative proof required by §5.2.
 
-**Concrete new gap.** In (5.66), the identity $\int_0^\infty \frac{ds_b}{(4\pi s_b)^{1/2}} e^{-(s-s_b)^2/(4s_b)} = 1$ requires integrating $s_b$ over $(0,\infty)$, whereas $\operatorname{Tr}(C_b^\dagger C_b)$ is evaluated in (5.67c) only on the large-$s_b$ Schwarzschild saddle in the band $s_*/4 < s < s_*/2$ (and $C_b$ includes $P_{\mathscr{D}}$, which cuts off $s$ at $s_*$). The manuscript does not bound the small-$s_b$ or $s_b > s_*$ tail contributions to the integral in (5.66).
+**Concrete new gap.** In (5.66), the identity $\int_0^\infty \frac{ds_b}{(4\pi s_b)^{1/2}} e^{-(s-s_b)^2/(4s_b)} = 1$ requires integrating $s_b$ over $(0,\infty)$, whereas $\mathrm{Tr}(C_b^\dagger C_b)$ is evaluated in (5.67c) only on the large-$s_b$ Schwarzschild saddle in the band $s_*/4 < s < s_*/2$ (and $C_b$ includes $P_{\mathscr{D}}$, which cuts off $s$ at $s_*$). The manuscript does not bound the small-$s_b$ or $s_b > s_*$ tail contributions to the integral in (5.66).

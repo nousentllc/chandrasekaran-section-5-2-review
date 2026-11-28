@@ -4,7 +4,7 @@
 
 ## The finite-dimensionality question in §5.2
 
-Write $T=C_b^\dagger C_b$ on the clock-selected space. Under (5.30c), $T\ge cI$ for fixed preparation and diamond, with $c=e^{-s_*}m_{b,\mathscr D}>0$. If identity gluing supplies a finite upper bound $N$ on all positive partial traces, every rank-$r$ orthogonal projection satisfies $cr\le\operatorname{Tr}(PT)\le N$. Thus $d_{\mathscr D}\le N/c$. Conversely a bounded $T$ on a finite-dimensional space has finite trace. The converse alone cannot establish circular reasoning. A circular argument would use the dimension conclusion to justify the finite gluing premise on which its derivation depends. An independent derivation of finite identity gluing would make the boost-cycle step unnecessary for the dimension bound.
+Write $T=C_b^\dagger C_b$ on the clock-selected space. Under (5.30c), $T\ge cI$ for fixed preparation and diamond, with $c=e^{-s_*}m_{b,\mathscr D}>0$. If identity gluing supplies a finite upper bound $N$ on all positive partial traces, every rank-$r$ orthogonal projection satisfies $cr\le\mathrm{Tr}(PT)\le N$. Thus $d_{\mathscr D}\le N/c$. Conversely a bounded $T$ on a finite-dimensional space has finite trace. The converse alone cannot establish circular reasoning. A circular argument would use the dimension conclusion to justify the finite gluing premise on which its derivation depends. An independent derivation of finite identity gluing would make the boost-cycle step unnecessary for the dimension bound.
 
 The manuscript's (5.38) concerns the signed insertion $X$ of (5.37a). Finite uniform bounds for identity partial traces constitute an additional premise when using the short argument. The Cauchy–Schwarz estimate in (4.29)–(4.30) applies to fixed Hilbert vectors. Applying it to a closed preparation requires identifying the needed vector or trace and controlling its norm as the cut sum grows. Appendix E's application in (E.17) invokes §5.2. The positive ratio in (D.49) draws on a one-loop count for regular saddles. JT (2.17) illustrates a divergent closure in a different theory. These checks leave the four-dimensional gluing question open.
 
@@ -14,7 +14,9 @@ The three theorems in TraceDim.lean end at finiteness of an orthonormal family's
 
 There are two variables here. The spectral area $s$ is bounded by $S=s_*$. The Gaussian center $t=s_b$ ranges over the entire positive real axis. For $s\ge0$ set
 
-$$K(s,t)=(4\pi t)^{-1/2}\exp[-(s-t)^2/(4t)].$$
+$$
+K(s,t)=(4\pi t)^{-1/2}\exp[-(s-t)^2/(4t)].
+$$
 
 Equation (5.66) uses $\int_0^\infty K(s,t)\,dt=1$. This follows by expanding the square and using the elementary Gaussian integral $\int_0^\infty t^{-1/2}e^{-at-b/t}dt=\sqrt{\pi/a}\,e^{-2\sqrt{ab}}$ for $a>0$, $b\ge0$. No cutoff on $t$ enters the identity.
 
@@ -29,7 +31,7 @@ There is a separate overstatement in Neon's report. Equation (5.58) gives $\log 
 
 ## Scope of F5–F7
 
-- **Pair amplitude, (4.32)–(4.34).** The displayed series and Neon's expansion give $A(s)\to0$ and $s^2 A(s)\to\pi^2/12$ at fixed area as $G_N\to0^+$. The phase matters for the cubic logarithm. Absolute convergence already follows from the Gaussian variance. One sentence in Neon's verdict divides by $t^2$ for $t=2/s$. The actual amplitude is $t^2\operatorname{Li}_2(e^{-it})/8$. Preservation of this variance by an interacting Hamiltonian would be a question for an extension to that dynamics. The specific externally prepared overlap in (4.33) needs no such preservation.
+- **Pair amplitude, (4.32)–(4.34).** The displayed series and Neon's expansion give $A(s)\to0$ and $s^2 A(s)\to\pi^2/12$ at fixed area as $G_N\to0^+$. The phase matters for the cubic logarithm. Absolute convergence already follows from the Gaussian variance. One sentence in Neon's verdict divides by $t^2$ for $t=2/s$. The actual amplitude is $t^2\mathrm{Li}_2(e^{-it})/8$. Preservation of this variance by an interacting Hamiltonian would be a question for an extension to that dynamics. The specific externally prepared overlap in (4.33) needs no such preservation.
 - **One-loop conservation, (6.13)–(6.16).** Equation (6.15) derives conservation for classical on-shell linearized perturbations. Appendix D.2, immediately after (D.20), explicitly subtracts the vacuum singularity in the shear contraction before coincidence and discusses local curvature terms. The remaining technical question is whether a prescription for the full composite source, including its contact and boundary terms, obeys the corresponding renormalized conservation identity. Fixed smearing is part of the observable. Independence from arbitrary changes of that smearing requires a separate claim. The manuscript retains $\Lambda$ as a parameter. Zero-$\Lambda$ on-shell vacuum scattering is a narrower setting. The formal match through one loop does not settle regulator-dependent anomalies or the interacting two-loop behavior.
 - **Clock and representation, (4.16)–(4.17), (5.1)–(5.2), footnote 20.** A pure extension gives $\pi_\omega(\mathcal A)''=\mathcal B(\mathcal H_\omega)$. Appendix C.2 discusses the cutoff quadratic forms and the density argument at fixed area, including (C.11)–(C.17). Appendix C.3 discusses the sector embedding and unrestricted intermediate insertions in (C.21). A precise question is how the clock's spectral projections on the full representation compare across admissible extensions. Intertwining the clock, area, and preparation data would suffice for equality of the associated predictions. Equality of particular numerical observables can also occur under weaker conditions. No pair of extensions with different physical predictions was constructed here.
 

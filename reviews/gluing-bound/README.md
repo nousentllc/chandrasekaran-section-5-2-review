@@ -12,11 +12,11 @@ For an arbitrary finite-rank orthogonal projection $P$, with basis $e_i$ of $PH$
 
 $$
 \Phi_P=\sum_i Ce_i\otimes\overline{e_i},\qquad
-W_P=\|\Phi_P\|^2=\operatorname{Tr}(PT),\qquad
+W_P=\|\Phi_P\|^2=\mathrm{Tr}(PT),\qquad
 Z_P[X]=\langle\Phi_P,X\Phi_P\rangle.
 $$
 
-The vector $\Phi_P$ is independent of the basis of $PH$. Indeed, it is the Hilbert–Schmidt vector of $CP$; the normalized version is (D.22), and (5.31) includes both diagonal and off-diagonal terms in its expectation. Orthogonality on the conjugate leg gives $c\,\operatorname{rank}P\le W_P\le\operatorname{rank}P$. For nested cuts $P\le Q$, it also gives $\|\Phi_Q-\Phi_P\|^2=W_Q-W_P$. If $H$ is infinite-dimensional and the projections exhaust a basis, $\Phi_P$ is unbounded in norm. A change of orthonormal basis leaves the bound intact.
+The vector $\Phi_P$ is independent of the basis of $PH$. Indeed, it is the Hilbert–Schmidt vector of $CP$; the normalized version is (D.22), and (5.31) includes both diagonal and off-diagonal terms in its expectation. Orthogonality on the conjugate leg gives $c\,\mathrm{rank}\,P\le W_P\le\mathrm{rank}\,P$. For nested cuts $P\le Q$, it also gives $\|\Phi_Q-\Phi_P\|^2=W_Q-W_P$. If $H$ is infinite-dimensional and the projections exhaust a basis, $\Phi_P$ is unbounded in norm. A change of orthonormal basis leaves the bound intact.
 
 In (4.29) the resolution of the identity is tested between fixed vectors $x,y$ after transporting the external states to the cut. In finite sections,
 
@@ -32,7 +32,7 @@ $$
 |Z_P[X]|\le\|\Phi_P\|\|X\Phi_P\|\le\|X\| W_P.
 $$
 
-This is at most a bound proportional to rank. The contraction associated with $C$ is a vector in the ordinary Hilbert tensor product precisely when $C$ is Hilbert–Schmidt, equivalently $\sup_P W_P=\operatorname{Tr}(T)<\infty$. A finite norm for $Ce$ for every unit state $e$, or density of the states generated in (5.20), supplies none of this summability. The shift $-\delta_\eta I/2$ in $X$ tests that very summability.
+This is at most a bound proportional to rank. The contraction associated with $C$ is a vector in the ordinary Hilbert tensor product precisely when $C$ is Hilbert–Schmidt, equivalently $\sup_P W_P=\mathrm{Tr}(T)<\infty$. A finite norm for $Ce$ for every unit state $e$, or density of the states generated in (5.20), supplies none of this summability. The shift $-\delta_\eta I/2$ in $X$ tests that very summability.
 
 ### The signed insertion does not cancel this growth
 
@@ -40,23 +40,23 @@ Under the infinite-dimensional hypothesis, refine the complete-cycle cuts as in 
 
 $$
 Z_P[X]=W_P(r_P-\delta_\eta/2),\qquad
-\operatorname{Re} Z_P[X]\le -\delta_\eta W_P/4,\qquad
-|Z_P[X]|\ge \tfrac{\delta_\eta c}{4}\operatorname{rank}P.
+\mathrm{Re}\,Z_P[X]\le -\delta_\eta W_P/4,\qquad
+|Z_P[X]|\ge \tfrac{\delta_\eta c}{4}\mathrm{rank}\,P.
 $$
 
 This also holds for complex responses. An exhaustion by finite unions of cycles reaches arbitrarily high rank when $H$ is infinite-dimensional, and the same holds along any cofinal family. Thus a bound by $B$ along such a family gives $\dim H\le4B/(\delta_\eta c)$ when the hypotheses hold on the family. When the cycle estimates are supplied only under the infinite-dimensional hypothesis, the result is a contradiction of that hypothesis. It takes no passage to a strict sign for the uncut amplitude. Since the expectations are quadratic in $\Phi_P$, the proof does not rely on additivity of signed amplitudes over disjoint cycles.
 
-For an elementary separation, take $H=K=\ell^2(\mathbb N)$, $U=I$ and the area operator equal to a scalar in $[0,s_*]$. Then $T=tI$ for $0<t\le1$, the boost is a scalar phase, and $Z_P[X]=-t\delta_\eta\operatorname{rank}P/2$ for any fixed positive test shift $\delta_\eta$. Formula (4.30) holds for all fixed external vectors. The stronger [model with a separate nonzero boost response](../../REVIEW.md#positive-uncut-response-and-uniformly-suppressed-cut-response-can-coexist-without-identification) tests the reference-state issue. The scalar model tests only the implication from open gluing. It supplies neither the physical smooth-background shift nor a model of the nonlinear field equations.
+For an elementary separation, take $H=K=\ell^2(\mathbb N)$, $U=I$ and the area operator equal to a scalar in $[0,s_*]$. Then $T=tI$ for $0<t\le1$, the boost is a scalar phase, and $Z_P[X]=-t\delta_\eta\mathrm{rank}\,P/2$ for any fixed positive test shift $\delta_\eta$. Formula (4.30) holds for all fixed external vectors. The stronger [model with a separate nonzero boost response](../../REVIEW.md#positive-uncut-response-and-uniformly-suppressed-cut-response-can-coexist-without-identification) tests the reference-state issue. The scalar model tests only the implication from open gluing. It supplies neither the physical smooth-background shift nor a model of the nonlinear field equations.
 
 ## 2. Try the stronger gluing law in Appendix E
 
-There is a short sufficient condition that avoids assuming a limit of signed amplitudes. Fix $C$ as above. Suppose the path integral independently gives a positive linear functional $F$ on a space of bounded insertions containing $I$ and the finite cut projections, with $F(I)=N<\infty$. Require that this space contains $I-P$ with its ordinary positive operator order, and that finite-rank closure matches $F(P)=\operatorname{Tr}(PT)$ on the cut projections. Agreement on individual basis projections plus linearity suffices. Then
+There is a short sufficient condition that avoids assuming a limit of signed amplitudes. Fix $C$ as above. Suppose the path integral independently gives a positive linear functional $F$ on a space of bounded insertions containing $I$ and the finite cut projections, with $F(I)=N<\infty$. Require that this space contains $I-P$ with its ordinary positive operator order, and that finite-rank closure matches $F(P)=\mathrm{Tr}(PT)$ on the cut projections. Agreement on individual basis projections plus linearity suffices. Then
 
 $$
 W_P=F(P)\le F(I)=N,\qquad |Z_P[X]|\le\|X\|N.
 $$
 
-Positivity alone gives the inequality, even before proving normality of $F$ or identifying its value on an infinite cut. For a complete basis, the same premise gives $\dim H\le N/c$. Conversely, if $T$ has finite ordinary trace, $F(A)=\operatorname{Tr}(T^{1/2}AT^{1/2})$ is such a positive functional on $\mathcal B(H)$. This is an exact criterion for the standard identity closure.
+Positivity alone gives the inequality, even before proving normality of $F$ or identifying its value on an infinite cut. For a complete basis, the same premise gives $\dim H\le N/c$. Conversely, if $T$ has finite ordinary trace, $F(A)=\mathrm{Tr}(T^{1/2}AT^{1/2})$ is such a positive functional on $\mathcal B(H)$. This is an exact criterion for the standard identity closure.
 
 Condition 5 of §E.1 assumes finite compatible closed amplitudes for a class of smeared preparations. If this is taken as an independent axiom, one needs to place the clock-selected preparation in that class and identify its finite-rank matrix-element weights and order with the corresponding positive closure. One possible application is (E.5): a compactly supported $g$ equal to one on the bounded boost spectrum acts as the identity on the clock-selected sector. A finite value in that sector for the same reflected preparation, with the stated finite-rank compatibility, would do the job. Finiteness of an abstract trace on a different representation, or on a different sector, gives no such comparison. In §E.3, (E.15) identifies the trace in the physical Hilbert space, but (E.17) verifies finiteness there using (5.39c). Using that verification upstream would be circular. The conditional argument in this section gives a way to use an independently justified geometric closure.
 
@@ -74,10 +74,10 @@ Bessel’s inequality gives $cn\le N$ for a family of $n$ states. This uses only
 
 ## 3. Try the two-copy gluing calculation in Appendix D.3
 
-The exact ratio in (D.47) supplies another test. Write $T_P=PTP|_{PH}$, $n=\operatorname{rank}P>0$ and
+The exact ratio in (D.47) supplies another test. Write $T_P=PTP|_{PH}$, $n=\mathrm{rank}\,P>0$ and
 
 $$
-R_P(2)=\frac{\operatorname{Tr}(T_P^2)}{(\operatorname{Tr}T_P)^2}.
+R_P(2)=\frac{\mathrm{Tr}(T_P^2)}{(\mathrm{Tr}\,T_P)^2}.
 $$
 
 If $R_P(2)\ge r>0$ on a cofinal family, (D.47) gives $W_P\le 1/r$, so $B=\|X\|/r$ suffices. The implication uses neither a ratio limit nor a presumed finite partition function. With the stronger hypothesis (5.30c), the inverse-rank behavior is quantitative. For eigenvalues $\lambda_i\in[c,1]$ of $T_P$, put $\mu=n^{-1}\sum_i\lambda_i$. Since $(\lambda_i-c)(1-\lambda_i)\ge0$, we have
@@ -93,11 +93,11 @@ The ratio $R^{\rm reg}_2$ in (D.48)–(D.49) is obtained from the regular one-lo
 
 ## 4. Can clock focusing supply the missing estimate?
 
-A sufficient operator estimate would exhibit a nonnegative excitation operator $Q$ on the full representation with $\operatorname{Tr}(e^{-\beta Q})<\infty$ for some $\beta>0$, and a form bound $\langle e,Qe\rangle\le a\ell(\mathscr D)+b$ for every unit $e\in P_{\mathscr D}H_\omega$, including the domain assertion. Jensen’s inequality for the spectral measure of $Q$ gives $\langle e,e^{-\beta Q}e\rangle\ge e^{-\beta(a\ell(\mathscr D)+b)}$. Summing over a finite orthonormal family then yields
+A sufficient operator estimate would exhibit a nonnegative excitation operator $Q$ on the full representation with $\mathrm{Tr}(e^{-\beta Q})<\infty$ for some $\beta>0$, and a form bound $\langle e,Qe\rangle\le a\ell(\mathscr D)+b$ for every unit $e\in P_{\mathscr D}H_\omega$, including the domain assertion. Jensen’s inequality for the spectral measure of $Q$ gives $\langle e,e^{-\beta Q}e\rangle\ge e^{-\beta(a\ell(\mathscr D)+b)}$. Summing over a finite orthonormal family then yields
 
 $$
 \dim(P_{\mathscr D}H_\omega)
-\le e^{\beta(a\ell(\mathscr D)+b)}\operatorname{Tr}(e^{-\beta Q}).
+\le e^{\beta(a\ell(\mathscr D)+b)}\mathrm{Tr}(e^{-\beta Q}).
 $$
 
 The same premise bounds (5.38) by multiplying the right side by $\|X\|$. It requires no commutation between $Q$ and the clock. Equations (D.40)–(D.46) provide a candidate excitation cost and heat-trace estimate in a regular fixed-data oscillator calculation. A trace over the entire representation and a uniform comparison covering all allowed states are additional steps.

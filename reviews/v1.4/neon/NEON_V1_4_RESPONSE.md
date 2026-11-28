@@ -53,22 +53,26 @@ No major F5–F7 objections remain open in v1.4.
 
 The algebraic core of F2 survives intact, and checking (5.63) clarifies how the interior area band handles the tails of (5.66) while exposing a uniformity assumption in (5.67c):
 
-* **Positive mass of the interior area band (5.63):** Given $0 < q < 1$ from (5.54b–c), footnote 24's (5.63) gives $\operatorname{Pr}_{\rho_{\mathscr{D}}}(s_i \le a s_*) \to a^{q/[2(1-q)]}$ for fixed $0 < a \le 1$. Setting $\alpha = q/[2(1-q)] > 0$, the interior band $s_*/4 < s < s_*/2$ has strictly positive limiting probability
+* **Positive mass of the interior area band (5.63):** Given $0 < q < 1$ from (5.54b–c), footnote 24's (5.63) gives $\mathrm{Pr}_{\rho_{\mathscr{D}}}(s_i \le a s_*) \to a^{q/[2(1-q)]}$ for fixed $0 < a \le 1$. Setting $\alpha = q/[2(1-q)] > 0$, the interior band $s_*/4 < s < s_*/2$ has strictly positive limiting probability
 
 
 
-$$c_0 = \left(\frac{1}{2}\right)^\alpha - \left(\frac{1}{4}\right)^\alpha > 0.$$
+$$
+c_0 = \left(\frac{1}{2}\right)^\alpha - \left(\frac{1}{4}\right)^\alpha > 0.
+$$
 
 
 
 Because this band carries an $O(1)$ fraction of $Z(l)$—and because the Gaussian kernel $f_b(s) = e^{-(s-s_b)^2/(4s_b)}$ in (5.66) has width $\sqrt{2s_b} \sim \sqrt{s_*} \ll s_*$—the band's contribution $Z_{\text{band}}(l)$ has the same asymptotic scaling in $l$ as $Z(l)$ itself, and small-$s_b$ or $s_b > s_*$ tails cannot change the leading power of $l$ as long as $Z(l)$ is dominated by the scaling regime of (5.58).
 
 
-* **Uniformity of the saddle estimate (5.67c):** Passing from $\log\operatorname{Tr}(C_b^\dagger C_b) = p\log s_b + O(1)$ in (5.67c) to $Z(l) \propto s_*^{p + 1/2}$ via (5.66) requires the $O(1)$ remainder in (5.67c) to be **uniformly bounded** over $s_b \in [s_*/4, s_*/2]$ as $s_* \to \infty$. Under that uniformity assumption,
+* **Uniformity of the saddle estimate (5.67c):** Passing from $\log\mathrm{Tr}(C_b^\dagger C_b) = p\log s_b + O(1)$ in (5.67c) to $Z(l) \propto s_*^{p + 1/2}$ via (5.66) requires the $O(1)$ remainder in (5.67c) to be **uniformly bounded** over $s_b \in [s_*/4, s_*/2]$ as $s_* \to \infty$. Under that uniformity assumption,
 
 
 
-$$Z_{\text{band}}(l) \asymp \int_{s_*/4}^{s_*/2} \frac{ds_b}{(4\pi s_b)^{1/2}}\, s_b^p \asymp s_*^{p + 1/2} \propto l^{2p+1} \qquad (s_* \propto l^2).$$
+$$
+Z_{\text{band}}(l) \asymp \int_{s_*/4}^{s_*/2} \frac{ds_b}{(4\pi s_b)^{1/2}}\, s_b^p \asymp s_*^{p + 1/2} \propto l^{2p+1} \qquad (s_* \propto l^2).
+$$
 
 
 
@@ -77,7 +81,9 @@ The manuscript does not prove uniformity of the $O(1)$ remainder over the band, 
 
 
 
-$$\frac{q}{2(1-q)} - \frac{1}{2} = \frac{2p+1}{2} - \frac{1}{2} = p \qquad \text{identically in } p \quad \text{[cite: 56]}.$$
+$$
+\frac{q}{2(1-q)} - \frac{1}{2} = \frac{2p+1}{2} - \frac{1}{2} = p \qquad \text{identically in } p \quad \text{[cite: 56]}.
+$$
 
 
 
@@ -106,4 +112,4 @@ Thus F2's conclusion stands: the clock/ensemble machinery maps any one-loop expo
 
 ### 4. Remaining Finite-Gluing Question
 
-The central unresolved obligation in §5.2 remains unchanged: proving from the 4D reduced dynamics—independently of §5.2's $d_{\mathscr{D}} < \infty$ and Appendix E's axioms—that the doubled cut preparation $C_b$ is Hilbert–Schmidt ($\operatorname{Tr}(C_b^\dagger C_b) < \infty$) or that closing the cut at $S$ converges norm-preservingly to a finite uncut amplitude $N = \Vert{}C_b\Vert{}_{\text{uncut}}^2 < \infty$.
+The central unresolved obligation in §5.2 remains unchanged: proving from the 4D reduced dynamics—independently of §5.2's $d_{\mathscr{D}} < \infty$ and Appendix E's axioms—that the doubled cut preparation $C_b$ is Hilbert–Schmidt ($\mathrm{Tr}(C_b^\dagger C_b) < \infty$) or that closing the cut at $S$ converges norm-preservingly to a finite uncut amplitude $N = \Vert{}C_b\Vert{}_{\text{uncut}}^2 < \infty$.
