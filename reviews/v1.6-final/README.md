@@ -1,6 +1,6 @@
 # Finite Closure in Null-Cone Quantization of Gravity · v1.6
 
-Justin Candler, Nous Enterprises LLC. The 35-page technical comment analyzes the finite-dimensional causal-diamond argument in Chandrasekaran’s arXiv:2611.34924v1. Its signed-cut inequality identifies an independent bound on the unnormalized amplitudes in Eq. (5.38) that would suffice to prove finite rank under the stated assumptions. Whether the gravitational construction supplies that bound remains open.
+Justin Candler, Nous Enterprises LLC. The 35-page technical comment analyzes the finite-dimensional causal-diamond argument in Chandrasekaran’s arXiv:2611.34924v1. Its signed-cut inequality identifies an independent bound on the unnormalized amplitudes in Eq. (5.38) that would suffice to prove finite rank under the stated assumptions. Whether the gravitational construction supplies that bound remains open. [Zenodo DOI 10.5281/zenodo.24618332](https://doi.org/10.5281/zenodo.24618332).
 
 - [Manuscript PDF](Finite_Closure.pdf)
 - [Editable standalone LaTeX](Finite_Closure.tex)
